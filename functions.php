@@ -142,6 +142,9 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
+?>
+
+<?php
 /**
  * Include the TGM_Plugin_Activation class.
  */
@@ -225,3 +228,4 @@ add_action( 'vc_before_init', 'your_prefix_vcSetAsTheme' );
 function your_prefix_vcSetAsTheme() {
     vc_set_as_theme();
 }
+?>
