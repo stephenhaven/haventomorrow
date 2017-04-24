@@ -6,12 +6,36 @@
 <?php get_header(); ?>
 
 <section class="dark slider-main">
-  <div class="container">
-    <?php 
-      echo do_shortcode('[smartslider3 slider=2]');
-    ?>
-  </div>
+  <?php
+      if( have_rows('sliders') ):
+
+        // loop through the rows of data
+          while ( have_rows('sliders') ) : the_row();
+
+              // display a sub field value
+              $img = get_sub_field('slider_image');
+              $link = get_sub_field('button_link');
+              //print_r($link);
+              echo "<div style='background-image: url({$img['url']});' class='main-slider-slide'>";
+                echo "<div class='main-slider-text-overlay'>" . get_sub_field('text_overlay');
+                  echo "<a href='$link' class='main-slider-button'>" . get_sub_field('button_text') . "</a>";
+                echo "</div>";
+              echo "</div>";
+
+          endwhile;
+
+      else :
+
+          // no rows found
+
+      endif;
+  ?>
 </section>
+<script>
+  $(document).ready(function(){
+    $('.slider-main').slick({});
+  });
+</script>
 
 <!-- <section class="c-padding-180 dark" style="background-image:url('http://www.haventoday.org/wp-content/uploads/2015/10/marcus-dall-col-63805.jpg')">
   <div class="container">
@@ -25,7 +49,7 @@
  -->
 <section class="c-padding-50">
   <div class="container">
-    <?php 
+    <?php
       echo do_shortcode('[smartslider3 slider=3]');
     ?>
   </div>
@@ -75,7 +99,7 @@
       <div class="col-md-4">
         <h3 class="text-center">FEATURED</h3>
 <!--         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider.jpg" width="100%"> -->
-        <?php 
+        <?php
           echo do_shortcode('[smartslider3 slider=5]');
         ?>
       </div>
@@ -97,7 +121,7 @@
             <h5 class="text-center">Fleeing ISIS, Finding Jesus</h5>
           </div>
         </div> -->
-        <?php 
+        <?php
           echo do_shortcode('[smartslider3 slider=4]');
         ?>
       </div>

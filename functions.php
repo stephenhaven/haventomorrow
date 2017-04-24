@@ -105,7 +105,13 @@ add_action( 'widgets_init', 'haventomorrow_widgets_init' );
  * Enqueue scripts and styles.
  */
 function haventomorrow_scripts() {
+	wp_enqueue_style( 'slick-slider', '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css' );
+
+	wp_enqueue_style( 'slick-theme', '//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css' );
+
 	wp_enqueue_style( 'haventomorrow-style', get_stylesheet_uri() );
+
+	wp_enqueue_script( 'slick-script', '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js' );
 
 	wp_enqueue_script( 'haventomorrow-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
