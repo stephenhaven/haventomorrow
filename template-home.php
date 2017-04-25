@@ -47,7 +47,7 @@
   </div>
 </section>
  -->
-<section class="c-padding-50">
+<section class="c-padding-50 slider-main">
   <div class="container">
     <?php
         if( have_rows('featured_product_slider') ):
