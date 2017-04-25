@@ -50,8 +50,39 @@
 <section class="c-padding-50">
   <div class="container">
     <?php
-      echo do_shortcode('[smartslider3 slider=3]');
+        if( have_rows('featured_product_slider') ):
+
+          // loop through the rows of data
+            while ( have_rows('featured_product_slider') ) : the_row();
+
+                // display a sub field value
+                $premium = get_sub_field('premium');
+                $desc = get_sub_field('brief_description');
+                $img = get_sub_field('premium_image');
+                $link = get_sub_field('premium_link');
+                //print_r($link);
+            echo "<div class='container'>";
+              echo "<div class='row'";
+                echo "<div class='col-md-4'><div class='v-middle'><h3>TODAY'S OFFER</h3><h4>$premium</h4></div></div>";
+                  echo "<div class='main-slider-text-overlay'>" . get_sub_field('text_overlay');
+                    echo "<a href='$link' class='main-slider-button'>" . get_sub_field('button_text') . "</a>";
+                  echo "</div>";
+                echo "</div>";
+
+            endwhile;
+
+        else :
+
+            // no rows found  url({$img['url']});'
+
+        endif;
     ?>
+  </section>
+  <script>
+    $(document).ready(function(){
+      $('.slider-main').slick({});
+    });
+  </script>
   </div>
 </section>
 
