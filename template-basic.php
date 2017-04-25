@@ -5,7 +5,7 @@
 ?>
 <?php get_header(); ?>
 
-<section class="c-padding-150 dark" style="background-image:url('<?php echo get_stylesheet_directory_uri(); ?>')">
+<section class="c-padding-180 dark" style="background-image:url('http://www.haventoday.ca/wp-content/themes/haven2015/images/header-program.jpg')">
   <div class="container">
     <h1>Page Title ACF</h1>
   </div>
