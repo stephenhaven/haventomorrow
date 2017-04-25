@@ -232,3 +232,20 @@ a {
     position: relative;
   }
 }
+
+.slider-premium {
+  .slick-prev {
+    left: -50px;
+    &
+      :before {
+        color: #000
+      }
+  }
+  .slick-next {
+    right: 50px;
+    &
+      :before {
+        color: #000
+      }
+  }
+}

@@ -63,7 +63,8 @@
                 $link = get_sub_field('premium_link');
             ?>
 
-            <div class="row">
+            <div>
+              <div class="row">
               <div class="col-md-4">
                 <div class="v-middle">
                   <h3>TODAY'S OFFER</h3>
@@ -87,6 +88,7 @@
                 <?php endif; ?>
               </div>
               </div>
+            </div>
             </div>
 
     <?php endwhile; ?>
