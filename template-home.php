@@ -69,15 +69,21 @@
                   <?php if( $premium ): ?>
                   <h4><?php echo $premium; ?></h4>
                   <?php endif; ?>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+                  <?php if( $desc ): ?>
+                  <p><?php echo $desc; ?></p>
+                  <?php endif; ?>
               </div>
               </div>
               <div class="col-md-4 text-center">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/revelationcd.jpg" width="80%">
+                <?php if( $img ): ?>
+                <img src="<?php echo $img; ?>" width="80%">
+                <?php endif; ?>
               </div>
               <div class="col-md-4 text-center">
                 <div class="v-middle">
-                <a href="#" class="o-button">GET THIS RESOURCE</a>
+                  <?php if( $link ): ?>
+                <a href="#" class="o-button"><?php echo $link; ?></a>
+                <?php endif; ?>
               </div>
               </div>
             </div>
