@@ -179,4 +179,11 @@ a {
   background-color: #303030;
   position: relative; }
 
+.slider-premium .slick-prev {
+  left: -50px !important; }
+.slider-premium .slick-next {
+  right: 0px !important; }
+.slider-premium .slick-next:before, .slider-premium .slick-prev:before {
+  color: #000 !important; }
+
 /*# sourceMappingURL=style.css.map */

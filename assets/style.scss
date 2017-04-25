@@ -235,17 +235,12 @@ a {
 
 .slider-premium {
   .slick-prev {
-    left: -50px;
-    &
-      :before {
-        color: #000
-      }
+    left: -50px!important;
   }
   .slick-next {
-    right: 50px;
-    &
-      :before {
-        color: #000
-      }
+    right: 0px!important;
+  }
+  .slick-next:before, .slick-prev:before {
+    color: #000!important;
   }
 }
