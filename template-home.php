@@ -82,7 +82,7 @@
               <div class="col-md-4 text-center">
                 <div class="v-middle">
                   <?php if( $link ): ?>
-                <a href="#" class="o-button"><?php echo $link; ?></a>
+                <a href="<?php echo $link; ?>" class="o-button">GET THIS RESOURCE</a>
                 <?php endif; ?>
               </div>
               </div>
