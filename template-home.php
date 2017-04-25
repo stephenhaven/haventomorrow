@@ -47,7 +47,7 @@
   </div>
 </section>
  -->
-<section class="c-padding-50 slider-main">
+<section class="c-padding-50 slider-premium">
   <div class="container">
     <?php
         if( have_rows('featured_product_slider') ):
@@ -96,7 +96,7 @@
 
   <script>
     $(document).ready(function(){
-      $('.slider-main').slick({});
+      $('.slider-premium').slick({});
     });
   </script>
 
