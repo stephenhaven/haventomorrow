@@ -13,27 +13,38 @@
           while ( have_rows('sliders') ) : the_row();
 
               // display a sub field value
+              $label = get_sub_field('label');
+              $title = get_sub_field('title');
+              $description = get_sub_field('description');
               $img = get_sub_field('slider_image');
+              $text = get_sub_field('button_text');
               $link = get_sub_field('button_link');
               //print_r($link);
-            echo "<div class='container'>";
-              echo "<div style='background-image: url({$img['url']});' class='main-slider-slide'>";
-              echo "<a href='#' class='play-program'><img src='<?php echo get_stylesheet_directory_uri(); ?>/assets/img/play.png'></a>";
-              echo "<h5>TODAY'S PROGRAM</h5>";
-                echo "<div class='main-slider-text-overlay'>" . get_sub_field('text_overlay');
-                  echo "<a href='$link' class='main-slider-button'>" . get_sub_field('button_text') . "</a>";
-                echo "</div>";
-              echo "</div>";
-            echo "</div>";
+              ?>
+          <?php if( $img ): ?>
+            <div style="background-image: url('<?php echo $img; ?>');" class="main-slider-slide">
+          <?php endif; ?>
+              <div class="hero-container">
+                <a href="#" class="play-program"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/play.png"></a>
+              <?php if( $label ): ?>
+                <h5><?php echo $label; ?></h5>
+              <?php endif; ?>
+              <?php if( $title ): ?>
+                <h1><?php echo $title; ?></h1>
+              <?php endif; ?>
+              <?php if( $description ): ?>
+                <p><?php echo $description; ?></p>
+              <?php endif; ?>
+              <?php if( $link ): ?>
+                <a href="<?php echo $link; ?>" class="o-button"><?php if( $text ): ?><?php echo $text; ?><?php endif; ?></a>
+              <?php endif; ?>
+              </div>
+            </div>
 
-          endwhile;
 
-      else :
+          <?php endwhile; ?>
 
-          // no rows found
-
-      endif;
-  ?>
+      <?php endif; ?>
 </section>
 <script>
   $(document).ready(function(){
@@ -41,16 +52,6 @@
   });
 </script>
 
-<!-- <section class="c-padding-180 dark" style="background-image:url('http://www.haventoday.org/wp-content/uploads/2015/10/marcus-dall-col-63805.jpg')">
-  <div class="container">
-
-
-    <h1>THE REVELATION OF JESUS CHRIST</h1>
-    <p>This one book in the Bible seems intimidating and thrilling. But yet it is probably the most unstudied book by Christians.</p>
-    <a href="#" class="o-button">VIEW SERIES</a>
-  </div>
-</section>
- -->
 <section class="c-padding-50">
   <div class="container">
     <div class="slider-premium">

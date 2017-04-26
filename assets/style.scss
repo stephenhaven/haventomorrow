@@ -217,6 +217,13 @@ a {
       margin: 5px 20px 20px 0;
     }
   }
+  .hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 
 .blog {

@@ -170,6 +170,12 @@ a {
 .home .dark-2 img {
   float: left;
   margin: 5px 20px 20px 0; }
+.home .hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%); }
 
 .blog .container {
   border-top: 1px solid #f2f1ed;
