@@ -129,19 +129,44 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <h3 class="text-center">FEATURED</h3>
-        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider.jpg" width="100%">
+        <div class="slider_featured_events">
+        <?php
+            if( have_rows('slider_featured_events') ):
+
+              // loop through the rows of data
+                while ( have_rows('slider_featured_events') ) : the_row();
+
+                    // display a sub field value
+                    $img = get_sub_field('image');
+                    $link = get_sub_field('link');
+                ?>
+
+                <div>
+                  <h3 class="text-center">FEATURED</h3>
+                  <a href="<?php if( $link ): ?><?php echo $link; ?><?php endif; ?>"><img src="<?php if( $img ): ?><?php echo $img; ?><?php endif; ?>"></a>
+                </div>
+
+        <?php endwhile; ?>
+
       </div>
+
+      <?php endif; ?>
+      </div>
+      <script>
+        $(document).ready(function(){
+          $('.slider_featured_events').slick({});
+        });
+      </script>
       <div class="col-md-1">
       </div>
       <div class="col-md-7">
         <h3 class="text-center">RECENT PRODUCTS</h3>
-        <div class="slider-recent-products">
-          <div class="container">
-          <div class="row">
+        <div class="container">
+        <div class="row">
+        <div class="slider_recent_products">
         <?php
             if( have_rows('slider_recent_products') ):
-
+              $i=0;
               // loop through the rows of data
                 while ( have_rows('slider_recent_products') ) : the_row();
 
@@ -149,24 +174,28 @@
                     $premium = get_sub_field('premium');
                     $img = get_sub_field('image');
                     $link = get_sub_field('link');
+
+                    $i++;
+              			if( $i > 6 )
+              			{
+              				break;
+              			}
                 ?>
 
                   <div class="col-md-4 text-center">
-                    <div class="v-middle">
                       <?php if( $img ): ?>
                       <img src="<?php echo $img; ?>">
                       <?php endif; ?>
                       <?php if( $premium ): ?>
                       <h5 class="text-center"><a href="<?php if( $link ): ?><?php echo $link; ?><?php endif; ?>"><?php echo $premium; ?></a></h5>
                       <?php endif; ?>
-                    </div>
                   </div>
-
         <?php endwhile; ?>
 
       </div>
       </div>
     </div>
+      <?php else: ?>
       <?php endif; ?>
       </div>
     </div>
@@ -174,7 +203,11 @@
 </section>
 <script>
   $(document).ready(function(){
-    $('.slider-recent-products').slick({});
+    $('.slider_recent_products').slick({
+      infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 3
+    });
   });
 </script>
 
