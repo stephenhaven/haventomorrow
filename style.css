@@ -933,6 +933,24 @@ object {
 	height: 800px;
 }
 
+.slider-recent-products {
+	width: 100%;
+	max-height: 200px;
+}
+
+.slider-recent-products .slick-track {
+	max-height: 200px;
+}
+
+.slider-recent-products {
+	width: 100%;
+	max-height: 200px;
+}
+
+.slider-recent-products .slick-track {
+	max-height: 200px;
+}
+
 .main-slider-slide {
 	background-size: cover;
 	background-position: center center;

@@ -130,36 +130,53 @@
     <div class="row">
       <div class="col-md-4">
         <h3 class="text-center">FEATURED</h3>
-<!--         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider.jpg" width="100%"> -->
-        <?php
-          echo do_shortcode('[smartslider3 slider=5]');
-        ?>
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider.jpg" width="100%">
       </div>
       <div class="col-md-1">
       </div>
       <div class="col-md-7">
         <h3 class="text-center">RECENT PRODUCTS</h3>
-<!--         <div class="row">
-          <div class="col-md-4 text-center">
-            <img src="http://www.haventoday.org/wp-content/uploads/2017/01/JSB10-product-242x308.jpg" width="75%">
-            <h5 class="text-center">The Jesus Storybook Bible (Gift Edition)</h5>
-          </div>
-          <div class="col-md-4 text-center">
-            <img src="http://www.haventoday.org/wp-content/uploads/2016/10/GodsNotDead2_DVD-1-242x308.jpg" width="75%">
-            <h5 class="text-center">God's Not Dead 2</h5>
-          </div>
-          <div class="col-md-4 text-center">
-            <img src="http://www.haventoday.org/wp-content/uploads/2016/12/FleeingISISFindingJesus-242x308.jpg" width="75%">
-            <h5 class="text-center">Fleeing ISIS, Finding Jesus</h5>
-          </div>
-        </div> -->
+        <div class="slider-recent-products">
+          <div class="container">
+          <div class="row">
         <?php
-          echo do_shortcode('[smartslider3 slider=4]');
-        ?>
+            if( have_rows('slider_recent_products') ):
+
+              // loop through the rows of data
+                while ( have_rows('slider_recent_products') ) : the_row();
+
+                    // display a sub field value
+                    $premium = get_sub_field('premium');
+                    $img = get_sub_field('image');
+                    $link = get_sub_field('link');
+                ?>
+
+                  <div class="col-md-4 text-center">
+                    <div class="v-middle">
+                      <?php if( $img ): ?>
+                      <img src="<?php echo $img; ?>">
+                      <?php endif; ?>
+                      <?php if( $premium ): ?>
+                      <h5 class="text-center"><a href="<?php if( $link ): ?><?php echo $link; ?><?php endif; ?>"><?php echo $premium; ?></a></h5>
+                      <?php endif; ?>
+                    </div>
+                  </div>
+
+        <?php endwhile; ?>
+
+      </div>
+      </div>
+    </div>
+      <?php endif; ?>
       </div>
     </div>
   </div>
 </section>
+<script>
+  $(document).ready(function(){
+    $('.slider-recent-products').slick({});
+  });
+</script>
 
 <section class="c-padding-25-100 blog">
   <div class="container">
