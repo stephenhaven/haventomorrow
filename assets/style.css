@@ -194,4 +194,22 @@ a {
 .slider-premium .slick-next:before, .slider-premium .slick-prev:before {
   color: #000 !important; }
 
+.slider_featured_events .slick-prev {
+  left: -30px !important;
+  margin-top: 30px; }
+.slider_featured_events .slick-next {
+  right: -30px !important;
+  margin-top: 30px; }
+.slider_featured_events .slick-next:before, .slider_featured_events .slick-prev:before {
+  color: #000 !important; }
+
+.slider_recent_products .slick-prev {
+  left: -20px !important;
+  margin-top: -12px; }
+.slider_recent_products .slick-next {
+  right: -20px !important;
+  margin-top: -12px; }
+.slider_recent_products .slick-next:before, .slider_recent_products .slick-prev:before {
+  color: #000 !important; }
+
 /*# sourceMappingURL=style.css.map */
