@@ -9,7 +9,8 @@
 header#masthead {
   position: absolute;
   width: 100%;
-  padding: 20px 50px 15px; }
+  padding: 20px 50px 15px;
+  z-index: 1000; }
   header#masthead
   .site-branding {
     display: inline-block; }
@@ -51,6 +52,10 @@ footer {
       margin: 0 .75rem;
       display: inline-block;
       font-size: .75rem; }
+
+.entry-footer {
+  background-color: #fff;
+  color: #000; }
 
 section {
   background-size: cover;
