@@ -169,6 +169,9 @@ a {
 .border-right {
   border-right: 1px solid #f2f1ed; }
 
+.entry-header {
+  display: none; }
+
 /**PAGE SPECIFICS**/
 .home .dark {
   text-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); }

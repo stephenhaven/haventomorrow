@@ -7,7 +7,7 @@
 
 <section class="c-padding-180 dark" style="background-image:url('http://www.haventoday.ca/wp-content/themes/haven2015/images/header-program.jpg')">
   <div class="container">
-    <h1>Page Title ACF</h1>
+    <h1><?php wp_title('', true,''); ?></h1>
   </div>
 </section>
 
