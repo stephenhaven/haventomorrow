@@ -172,6 +172,9 @@ a {
 .entry-header {
   display: none; }
 
+.is-center {
+  text-align: center; }
+
 /**PAGE SPECIFICS**/
 .home .dark {
   text-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); }
