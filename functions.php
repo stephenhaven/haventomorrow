@@ -182,7 +182,7 @@ function my_theme_register_js_composer_plugins() {
     );
 
     // Change this to your theme text domain, used for internationalising strings
-    $theme_text_domain = 'tgmpa';
+    $theme_text_domain = 'haventomorrow';
 
     /**
      * Array of configuration settings. Amend each line as needed.
