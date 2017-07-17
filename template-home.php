@@ -129,6 +129,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
+        <h3 class="text-center">FEATURED</h3>
         <div class="slider_featured_events">
         <?php
             if( have_rows('slider_featured_events') ):
@@ -142,7 +143,6 @@
                 ?>
 
                 <div>
-                  <h3 class="text-center">FEATURED</h3>
                   <a href="<?php if( $link ): ?><?php echo $link; ?><?php endif; ?>"><img src="<?php if( $img ): ?><?php echo $img; ?><?php endif; ?>"></a>
                 </div>
 

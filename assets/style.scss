@@ -266,6 +266,13 @@ a {
   .slick-next:before, .slick-prev:before {
     color: #000!important;
   }
+  .text-center {
+    img {
+      height: 250px;
+      width: auto;
+      margin: 0 auto;
+    }
+  }
 }
 
 .slider_featured_events {
