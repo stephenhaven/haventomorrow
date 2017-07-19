@@ -1,0 +1,68 @@
+<?php
+/**
+ * The template for displaying a "No posts found" message.
+ *
+ * @package WordPress
+ * @subpackage PJS
+ * @since PJS 1.0
+ */
+
+ $anchor_title = get_field('anchor_title');
+ $anchor_verse = get_field('anchor_verse');
+ $anchor_scripture = get_field('anchor_scripture');
+ $anchor_description = get_field('anchor_description');
+ $anchor_image = get_field('anchor_image');
+ $anchor_product = get_field('anchor_product');
+ $anchor_scripture_focus = get_field('anchor_scripture_focus');
+ $anchor_insight = get_field('anchor_insight');
+ $anchor_bible_reading_1 = get_field('anchor_bible_reading_1');
+ $anchor_bible_reading_2 = get_field('anchor_bible_reading_2');
+ $anchor_bible_reading_3 = get_field('anchor_bible_reading_3');
+
+ $anchor_subtitle = get_the_date('m.d.y');
+
+ ?>
+
+ <section class="c-padding-75">
+   <div class="container">
+     <h3><?php echo $anchor_subtitle; ?></h3>
+    <h1 class="entry-title"><?php echo $anchor_title; ?></h1>
+    <h3 class="author">Written by</h3>
+    </hr>
+
+   <div class="content">
+     <div class="verse">
+       <?php echo $anchor_scripture; ?>
+       <span><?php echo $anchor_verse; ?></span>
+     </div>
+    </div>
+    <?php if( $anchor_image ): ?>
+      <img src="<?php echo $anchor_image; ?>">
+    <?php endif; ?>
+      <?php echo $anchor_description; ?>
+   </div>
+
+   <div class="section anchorDetails grey">
+ 		<div class="anchorCol">
+ 			<h2>Scripture Focus</h2>
+      <?php echo $anchor_scripture_focus; ?>
+    </div>
+    <div class="anchorCol">
+      <h2>Insight</h2>
+      <div class="adText">
+        <?php echo $anchor_insight; ?>
+      </div>
+      <div class="anchorCol">
+  			<h2>Read the Bible</h2>
+  			<ul>
+  				<li><?php echo $anchor_bible_reading_1; ?></li>
+  				<li><?php echo $anchor_bible_reading_2; ?></li>
+  				<li><?php echo $anchor_bible_reading_3; ?></li>
+  			</ul>
+  		</div>
+      <div class="anchorBtns">
+        <div class="buttons">
+          <a class="outlineBtn" href="/product/anchor-devotional-subscription/">Subscribe to Anchor</a><a class="outlineBtn" href="/anchor/">View Previous Devotionals</a>
+        </div>
+      </div>
+ </section>

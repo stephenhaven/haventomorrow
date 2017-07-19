@@ -1,3 +1,7 @@
+body {
+  font-size: 1.2rem;
+}
+
 /* Mixin */
 @mixin vertical-align() {
   position: relative;
@@ -300,6 +304,29 @@ a {
   }
   .slick-next:before, .slick-prev:before {
     color: #000!important;
+  }
+}
+
+//Anchor
+
+.single-anchor {
+  h1.entry-title {
+  }
+  h3 {
+    font-size: 17px;
+    text-transform: uppercase;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 100;
+  }
+  h3.author {
+    margin-top: -10px;
+  }
+  img {
+    float: right;
+    margin: 0px 0px 10px 30px;
+    width: 40%;
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
 }
 

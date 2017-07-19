@@ -1,3 +1,6 @@
+body {
+  font-size: 1.2rem; }
+
 /* Mixin */
 .v-middle {
   position: relative;
@@ -226,6 +229,20 @@ a {
   margin-top: -12px; }
 .slider_recent_products .slick-next:before, .slider_recent_products .slick-prev:before {
   color: #000 !important; }
+
+.single-anchor h3 {
+  font-size: 17px;
+  text-transform: uppercase;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 100; }
+.single-anchor h3.author {
+  margin-top: -10px; }
+.single-anchor img {
+  float: right;
+  margin: 0px 0px 10px 30px;
+  width: 40%;
+  margin-top: 0px;
+  margin-bottom: 0px; }
 
 .section.archive, .section.anchor {
   padding: 35px 0 50px; }
