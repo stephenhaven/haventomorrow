@@ -15,10 +15,38 @@ body {
   @include vertical-align();
 }
 
+.top-bar {
+  background-color: #16425b;
+  color: #fff;
+  padding: 5px 50px 5px;
+  text-transform: uppercase;
+   &
+    ul {
+      margin: 0;
+      padding: 0;
+      &
+        li {
+          list-style-type: none;
+          &
+            a {
+            }
+        }
+    }
+    .links {
+      text-align: right;
+      &
+        a {
+          font-family: 'Nunito', sans-serif;
+          font-size: .7em;
+          color: #fff;
+        }
+    }
+}
+
 header#masthead {
   position: absolute;
   width: 100%;
-  padding: 20px 50px 15px;
+  padding: 30px 50px 15px;
   z-index: 1000;
   &
     .site-branding {
@@ -150,6 +178,7 @@ a.o-button {
 
 a.o-button:hover {
   background-color: #35a4b8;
+  color: #fff;
 }
 
 a.o-button:visited {
@@ -228,6 +257,7 @@ a {
 .home {
   .dark {
     text-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 9px 24px rgba(0,0,0,0.32);
   }
   .dark-2 {
     img {
@@ -319,19 +349,56 @@ a {
     font-weight: 100;
   }
   h3.author {
-    margin-top: -10px;
+    margin-top: -6px;
   }
-  img {
-    float: right;
-    margin: 0px 0px 10px 30px;
-    width: 40%;
+  .row img {
+    width: 100%;
     margin-top: 0px;
     margin-bottom: 0px;
+  }
+  .content {
+    margin-bottom: 30px;
+    color: #16425b;
+    font-size: 1.5em;
+    &
+      p {
+        margin-bottom: 2px;
+      }
+  }
+  .anchorDetails.grey {
+    background-color: #f2f1ed;
+    color: #16425b;
+    margin-top: 50px;
+    &
+      .row {
+        padding: 25px 0;
+        width: 100%;
+        &
+          .col-md-4 {
+            text-align: center;
+          }
+      }
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    &
+      li {
+        list-style-type: none;
+      }
+  }
+  .anchorBtns {
+    text-align: center;
+    margin-bottom: 50px;
+    &
+    .o-button {
+      margin: 0 25px;
+    }
   }
 }
 
 // Program Archive
-.section.archive, .section.anchor {padding:35px 0 50px;}
+.section.archive {padding:35px 0 50px;}
   .section.archive .section.archive {padding:0;}
   .section.archive .content {padding:0 30px;}
     .section.archive .section.archive .content {padding:0}

@@ -9,10 +9,31 @@ body {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%); }
 
+.top-bar {
+  background-color: #16425b;
+  color: #fff;
+  padding: 5px 50px 5px;
+  text-transform: uppercase; }
+  .top-bar
+  ul {
+    margin: 0;
+    padding: 0; }
+    .top-bar
+    ul
+    li {
+      list-style-type: none; }
+  .top-bar .links {
+    text-align: right; }
+    .top-bar .links
+    a {
+      font-family: 'Nunito', sans-serif;
+      font-size: .7em;
+      color: #fff; }
+
 header#masthead {
   position: absolute;
   width: 100%;
-  padding: 20px 50px 15px;
+  padding: 30px 50px 15px;
   z-index: 1000; }
   header#masthead
   .site-branding {
@@ -120,7 +141,8 @@ a.o-button {
   text-decoration: none; }
 
 a.o-button:hover {
-  background-color: #35a4b8; }
+  background-color: #35a4b8;
+  color: #fff; }
 
 a.o-button:visited {
   color: #fff; }
@@ -180,7 +202,8 @@ a {
 
 /**PAGE SPECIFICS**/
 .home .dark {
-  text-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); }
+  text-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 9px 24px rgba(0, 0, 0, 0.32); }
 .home .dark-2 img {
   float: left;
   margin: 5px 20px 20px 0; }
@@ -236,15 +259,44 @@ a {
   font-family: 'Nunito', sans-serif;
   font-weight: 100; }
 .single-anchor h3.author {
-  margin-top: -10px; }
-.single-anchor img {
-  float: right;
-  margin: 0px 0px 10px 30px;
-  width: 40%;
+  margin-top: -6px; }
+.single-anchor .row img {
+  width: 100%;
   margin-top: 0px;
   margin-bottom: 0px; }
+.single-anchor .content {
+  margin-bottom: 30px;
+  color: #16425b;
+  font-size: 1.5em; }
+  .single-anchor .content
+  p {
+    margin-bottom: 2px; }
+.single-anchor .anchorDetails.grey {
+  background-color: #f2f1ed;
+  color: #16425b;
+  margin-top: 50px; }
+  .single-anchor .anchorDetails.grey
+  .row {
+    padding: 25px 0;
+    width: 100%; }
+    .single-anchor .anchorDetails.grey
+    .row
+    .col-md-4 {
+      text-align: center; }
+.single-anchor ul {
+  margin: 0;
+  padding: 0; }
+  .single-anchor ul
+  li {
+    list-style-type: none; }
+.single-anchor .anchorBtns {
+  text-align: center;
+  margin-bottom: 50px; }
+  .single-anchor .anchorBtns
+  .o-button {
+    margin: 0 25px; }
 
-.section.archive, .section.anchor {
+.section.archive {
   padding: 35px 0 50px; }
 
 .section.archive .section.archive {

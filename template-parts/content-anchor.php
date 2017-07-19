@@ -27,7 +27,7 @@
    <div class="container">
      <h3><?php echo $anchor_subtitle; ?></h3>
     <h1 class="entry-title"><?php echo $anchor_title; ?></h1>
-    <h3 class="author">Written by</h3>
+    <h3 class="author">Written by <?php the_author(); ?> </h3>
     </hr>
 
    <div class="content">
@@ -36,33 +36,50 @@
        <span><?php echo $anchor_verse; ?></span>
      </div>
     </div>
-    <?php if( $anchor_image ): ?>
-      <img src="<?php echo $anchor_image; ?>">
-    <?php endif; ?>
-      <?php echo $anchor_description; ?>
+    <div class="row">
+      <div class="col-md-8">
+        <?php echo $anchor_description; ?>
+      </div>
+      <div class="col-md-4">
+        <?php if( $anchor_image ): ?>
+          <img src="<?php echo $anchor_image; ?>">
+        <?php endif; ?>
+      </div>
+    </div>
    </div>
 
    <div class="section anchorDetails grey">
- 		<div class="anchorCol">
- 			<h2>Scripture Focus</h2>
-      <?php echo $anchor_scripture_focus; ?>
-    </div>
-    <div class="anchorCol">
-      <h2>Insight</h2>
-      <div class="adText">
-        <?php echo $anchor_insight; ?>
-      </div>
-      <div class="anchorCol">
-  			<h2>Read the Bible</h2>
-  			<ul>
-  				<li><?php echo $anchor_bible_reading_1; ?></li>
-  				<li><?php echo $anchor_bible_reading_2; ?></li>
-  				<li><?php echo $anchor_bible_reading_3; ?></li>
-  			</ul>
-  		</div>
-      <div class="anchorBtns">
-        <div class="buttons">
-          <a class="outlineBtn" href="/product/anchor-devotional-subscription/">Subscribe to Anchor</a><a class="outlineBtn" href="/anchor/">View Previous Devotionals</a>
+     <div class="row">
+       <div class="col-md-4">
+       		<div class="anchorCol">
+       			<h2>Scripture Focus</h2>
+            <?php echo $anchor_scripture_focus; ?>
+          </div>
         </div>
-      </div>
+        <div class="col-md-4">
+          <div class="anchorCol">
+            <h2>Insight</h2>
+            <div class="insightText">
+              <?php echo $anchor_insight; ?>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="anchorCol">
+      			<h2>Read the Bible</h2>
+      			<ul>
+      				<li><?php echo $anchor_bible_reading_1; ?></li>
+      				<li><?php echo $anchor_bible_reading_2; ?></li>
+      				<li><?php echo $anchor_bible_reading_3; ?></li>
+      			</ul>
+      		</div>
+        </div>
+    </div>
+  </div>
+  </div>
+  <div class="anchorBtns">
+    <div class="buttons">
+      <a class="o-button" href="/product/anchor-devotional-subscription/">Subscribe to Anchor</a><a class="o-button" href="/anchor-archive/">View Previous Devotionals</a>
+    </div>
+  </div>
  </section>

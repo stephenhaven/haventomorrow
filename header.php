@@ -34,6 +34,31 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'haventomorrow' ); ?></a>
 
+	<div class="top-bar">
+		<ul>
+			<li><a href="https://www.facebook.com/pages/All-About-Jesus-by-haventodayorg/165484636828241" target="_blank"><i class="fa fa-facebook"></i></a></li>
+			<li><a href="https://twitter.com/HavenToday/" target="_blank"><i class="fa fa-twitter"></i></a></li>
+			<li><a href="https://instagram.com/haventoday/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+			<li><a href="https://www.youtube.com/user/HavenToday" target="_blank"><i class="fa fa-youtube"></i></a></li>
+		</ul>
+		<div class="links">
+		<a class="signup">Sign Up</a>
+		<span>|</span>
+		<a class="station">Find a Station</a>
+		<span>|</span>
+		<a href="tel:+1-800-654-2836" style="cursor:default;"><b>800 654 2836</b></a>
+		<span>|</span>
+		<a class="search">Search</a>
+		<?php
+			global $woocommerce;
+			if ( sizeof( $woocommerce->cart->cart_contents ) != 0 ) {
+				echo '<span>|</span>';
+				echo '<a class="cart" href="/cart"><span><i class="fa fa-shopping-cart"></i></span>View Cart</a>';
+			}
+		?>
+	</div>
+	</div>
+
 	<header id="masthead" class="site-header" role="banner">
 		<div class="site-branding">
 			<a href="/"><img src="<?php echo get_bloginfo('template_url') ?>/assets/img/logo-haven@2x.png" alt="Haven Ministries" width="162px"></a>
