@@ -232,4 +232,557 @@ function your_prefix_vcSetAsTheme() {
     vc_set_as_theme();
 }
 
+
+
+
+/*
+******************************************
+*** Taken from haven2015 functions.php ***
+******************************************
+*/
+
+add_action( 'init', 'create_taxonomies' );
+function create_taxonomies() {
+	register_taxonomy(
+		'series', 'page',
+		array(
+			'label' => __( 'Program Series' ),
+			//'rewrite' => array( 'slug' => 'series' ),
+			'rewrite' => array('with_front' => false, 'slug' => 'series'),
+			'hierarchical' => true
+		)
+	);
+	register_taxonomy(
+		'speaker', 'programs',
+		array(
+			'label' => __( 'Guest Speakers' ),
+			//'rewrite' => array( 'slug' => 'speaker' ),
+			'rewrite' => array('with_front' => false, 'slug' => 'speaker'),
+			'hierarchical' => true
+		)
+	);
+
+	$labels_campaign = array(
+		'name'              => _x( 'Campaigns', 'taxonomy general name' ),
+		'singular_name'     => _x( 'Campaign Types', 'taxonomy singular name' ),
+		'search_items'      => __( 'Search Campaigns Types' ),
+		'all_items'         => __( 'All Campaigns Types' ),
+		'parent_item'       => __( 'Parent Campaign' ),
+		'parent_item_colon' => __( 'Parent Campaign:' ),
+		'edit_item'         => __( 'Edit Campaign Type' ),
+		'update_item'       => __( 'Update Campaign Type' ),
+		'add_new_item'      => __( 'Add New Campaign Type' ),
+		'new_item_name'     => __( 'New Campaign Type Name' ),
+		'menu_name'         => __( 'Campaign' ),
+	);
+
+	$args_campaign = array(
+		'hierarchical'      => true,
+		'labels'            => $labels_campaign,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array('with_front' => false, 'slug' => 'campaign'),
+	);
+
+	register_taxonomy('campaign', 'product', $args_campaign);
+}
+
+
+add_action( 'init', 'create_posttypes' );
+function create_posttypes() {
+	register_post_type( 'programs',
+		array(
+			'labels' => array(
+			'name' => __( 'Program' ),
+			'singular_name' => __( 'Program' ),
+			'menu_name'          => _x( 'Programs', 'admin menu' ),
+			'name_admin_bar'     => _x( 'Program', 'add new on admin bar' ),
+			'add_new'            => _x( 'Add New', 'Program' ),
+			'add_new_item'       => __( 'Add New Program' ),
+			'new_item'           => __( 'New Program' ),
+			'edit_item'          => __( 'Edit Program' ),
+			'view_item'          => __( 'View Program' ),
+			'all_items'          => __( 'All Programs' ),
+			'search_items'       => __( 'Search Programs' ),
+			'parent_item_colon'  => __( 'Parent Programs:' ),
+			'not_found'          => __( 'No programs found.' ),
+			'not_found_in_trash' => __( 'No programs found in Trash.' )
+		),
+			'public' => true,
+			'publicly_queryable' => true,
+			'has_archive' => true,
+			//'rewrite' => array('slug' => 'program'),
+			'rewrite' => array('with_front' => false, 'slug' => 'program'),
+			'hierarchical' => true,
+			'menu_icon' => 'dashicons-media-audio',
+			'menu_position' => 20,
+			'show_ui' => true,
+			'show_in_menu' => true,
+			'capability_type' => 'page',
+			'supports' => array( 'title', 'editor', 'thumbnail', 'page-attributes'),
+			'taxonomies' => array('series', 'category', 'post_tag', 'speaker')
+		)
+	);
+	register_post_type( 'anchor',
+		array(
+			'labels' => array(
+			'name' => __( 'Anchor' ),
+			'singular_name' => __( 'Anchor' ),
+			'menu_name'          => _x( 'Anchors', 'admin menu' ),
+			'name_admin_bar'     => _x( 'Anchor', 'add new on admin bar' ),
+			'add_new'            => _x( 'Add New', 'Anchor' ),
+			'add_new_item'       => __( 'Add New Anchor' ),
+			'new_item'           => __( 'New Anchor' ),
+			'edit_item'          => __( 'Edit Anchor' ),
+			'view_item'          => __( 'View Anchor' ),
+			'all_items'          => __( 'All Anchors' ),
+			'search_items'       => __( 'Search Anchors' ),
+			'parent_item_colon'  => __( 'Parent Anchors:' ),
+			'not_found'          => __( 'No anchors found.' ),
+			'not_found_in_trash' => __( 'No anchors found in Trash.' )
+		),
+			'public' => true,
+			'publicly_queryable' => true,
+			'has_archive' => true,
+			//'rewrite' => array('slug' => 'anchor'),
+			'rewrite' => array('with_front' => false, 'slug' => 'anchor'),
+			'hierarchical' => true,
+			'menu_icon' => 'dashicons-book',
+			'menu_position' => 20,
+			'show_ui' => true,
+			'show_in_menu' => true,
+			'capability_type' => 'page',
+			'supports' => array( 'title', 'editor', 'thumbnail', 'page-attributes'),
+			'taxonomies' => array('category')
+		)
+	);
+	register_post_type( 'haven',
+		array(
+			'labels' => array(
+			'name' => __( 'Haven Now' ),
+			'singular_name' => __( 'Haven Now' ),
+			'menu_name'          => _x( 'Haven Now', 'admin menu' ),
+			'name_admin_bar'     => _x( 'Haven Now', 'add new on admin bar' ),
+			'add_new'            => _x( 'Add New', 'Haven Now' ),
+			'add_new_item'       => __( 'Add New Haven Now' ),
+			'new_item'           => __( 'New Haven Now' ),
+			'edit_item'          => __( 'Edit Haven Now' ),
+			'view_item'          => __( 'View Haven Now' ),
+			'all_items'          => __( 'All Haven Now' ),
+			'search_items'       => __( 'Search Haven Now' ),
+			'parent_item_colon'  => __( 'Parent Haven Now:' ),
+			'not_found'          => __( 'No posts found.' ),
+			'not_found_in_trash' => __( 'No posts found in Trash.' )
+		),
+			'public' => true,
+			'publicly_queryable' => true,
+			'has_archive' => true,
+			//'rewrite' => array('slug' => 'haven'),
+			'rewrite' => array('with_front' => false, 'slug' => 'haven'),
+			'hierarchical' => true,
+			'menu_icon' => 'dashicons-book',
+			'menu_position' => 20,
+			'show_ui' => true,
+			'show_in_menu' => true,
+			'capability_type' => 'page',
+			'supports' => array( 'title', 'editor', 'thumbnail', 'page-attributes'),
+			'taxonomies' => array('category')
+		)
+	);
+	register_post_type( 'anchortoday',
+		array(
+			'labels' => array(
+			'name' => __( 'Anchor Today' ),
+			'singular_name' => __( 'Anchor Today' ),
+			'menu_name'          => _x( 'Anchor Today', 'admin menu' ),
+			'name_admin_bar'     => _x( 'Anchor Today', 'add new on admin bar' ),
+			'add_new'            => _x( 'Add New', 'Anchor Today' ),
+			'add_new_item'       => __( 'Add New Anchor Today' ),
+			'new_item'           => __( 'New Anchor Today' ),
+			'edit_item'          => __( 'Edit Anchor Today' ),
+			'view_item'          => __( 'View Anchor Today' ),
+			'all_items'          => __( 'All Anchor Today' ),
+			'search_items'       => __( 'Search Anchor Today' ),
+			'parent_item_colon'  => __( 'Parent Anchor Today:' ),
+			'not_found'          => __( 'No posts found.' ),
+			'not_found_in_trash' => __( 'No posts found in Trash.' )
+		),
+			'public' => true,
+			'publicly_queryable' => true,
+			'has_archive' => true,
+			//'rewrite' => array('slug' => 'anchortoday'),
+			'rewrite' => array('with_front' => false, 'slug' => 'anchortoday'),
+			'hierarchical' => true,
+			'menu_icon' => 'dashicons-book',
+			'menu_position' => 20,
+			'show_ui' => true,
+			'show_in_menu' => true,
+			'capability_type' => 'page',
+			'supports' => array( 'title', 'editor', 'thumbnail', 'page-attributes'),
+			'taxonomies' => array('category')
+		)
+	);
+	register_post_type( 'giving',
+		array(
+			'labels' => array(
+			'name' => __( 'Recurring Giving' ),
+			'singular_name' => __( 'Recurring Giving' ),
+			'menu_name'          => _x( 'Recurring Giving', 'admin menu' ),
+			'name_admin_bar'     => _x( 'Recurring Giving', 'add new on admin bar' ),
+			'add_new'            => _x( 'Add New', 'Recurring Giving' ),
+			'add_new_item'       => __( 'Add New Recurring Giving' ),
+			'new_item'           => __( 'New Recurring Giving' ),
+			'edit_item'          => __( 'Edit Recurring Giving' ),
+			'view_item'          => __( 'View Recurring Giving' ),
+			'all_items'          => __( 'All Recurring Giving' ),
+			'search_items'       => __( 'Search Recurring Giving' ),
+			'parent_item_colon'  => __( 'Parent Recurring Giving:' ),
+			'not_found'          => __( 'No posts found.' ),
+			'not_found_in_trash' => __( 'No posts found in Trash.' )
+		),
+			'public' => false,
+			'publicly_queryable' => false,
+			'has_archive' => true,
+			//'rewrite' => array('slug' => 'recurring-giving'),
+			'rewrite' => array('with_front' => false, 'slug' => 'recurring-giving'),
+			'hierarchical' => false,
+			'menu_icon' => 'dashicons-vault',
+			'menu_position' => 100,
+			'show_ui' => true,
+			'show_in_menu' => true,
+			'capability_type' => 'page',
+			'capabilities' => array(
+				'create_posts' => false // Removes support for the "Add New" function ( use 'do_not_allow' instead of false for multisite set ups )
+			),
+			'map_meta_cap' => true, // Set to `false`, if users are not allowed to edit/delete existing posts
+			'supports' => array( 'title')
+		)
+	);
+}
+
+/*set sort order by date for custom post types in CMS*/
+function order_cpt_by_date_default( $wp_query ) {
+	if ( is_admin() && !isset( $_GET['orderby'] ) ) {
+	// Get the post type from the query
+		$post_type = $wp_query->query['post_type'];
+		if ( in_array( $post_type, array('programs','anchor','haven','anchortoday','giving') ) ) {
+			$wp_query->set('orderby', 'date');
+			$wp_query->set('order', 'DESC');
+		}
+	}
+}
+add_filter('pre_get_posts', 'order_cpt_by_date_default');
+
+add_action( 'after_setup_theme', 'woocommerce_support' );
+function woocommerce_support() {
+    add_theme_support( 'woocommerce' );
+}
+
+remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb', 20, 0);
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40, 0);
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20, 0);
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30, 0);
+
+add_action( 'woocommerce_sidebar', 'woocommerce_output_related_products', 60 );
+
+add_filter( 'woocommerce_default_address_fields' , 'custom_override_default_address_fields' );
+function custom_override_default_address_fields( $address_fields ) {
+	$address_fields['first_name']['class'] = array('short left');
+	$address_fields['last_name']['class'] = array('short right');
+	$address_fields['first_name']['placeholder'] = 'First Name';
+	$address_fields['last_name']['placeholder'] = 'Last Name';
+	return $address_fields;
+}
+
+add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+function custom_override_checkout_fields( $fields ) {
+	$fields['billing']['billing_email']['class'] = array('short left');
+	$fields['billing']['billing_phone']['class'] = array('short right');
+	$fields['billing']['billing_state']['class'] = array('short left address-field');
+	$fields['billing']['billing_postcode']['class'] = array('short right');
+	$fields['shipping']['shipping_state']['class'] = array('short left');
+	$fields['shipping']['shipping_postcode']['class'] = array('short right');
+	//$fields['billing']['billing_company']['placeholder'] = 'Company Name';
+	$fields['billing']['billing_email']['placeholder'] = 'Email Address';
+	$fields['billing']['billing_phone']['placeholder'] = 'Phone';
+	//$fields['shipping']['shipping_company']['placeholder'] = 'Company Name';
+	unset($fields['billing']['billing_company']);
+	unset($fields['shipping']['shipping_company']);
+    return $fields;
+}
+
+add_filter( 'woocommerce_billing_fields', 'wc_billing_fields_state_filter', 10, 1 );
+function wc_billing_fields_state_filter( $address_fields ) {
+	$address_fields['billing_state']['label'] = 'State / Province';
+	$address_fields['billing_state']['placeholder'] = 'State / Province';
+	return $address_fields;
+}
+
+function wc_validate_phone_number() {
+	$phone = (isset( $_POST['billing_phone'] ) ? trim( $_POST['billing_phone'] ) : '');
+	if ( ! preg_match( '/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/', $phone ) ) {
+		wc_add_notice( __( 'Please enter with a valid phone number. EX: 555-555-5555' ), 'error' );
+	}
+}
+
+add_action( 'woocommerce_checkout_process', 'wc_validate_phone_number' );
+
+// add_action( 'woocommerce_before_calculate_totals', 'change_cart_gift_price' );
+
+// function change_cart_gift_price( $gift_id ) {
+	// foreach ( WC()->cart->get_cart() as $cart_item_id => $value ) {
+		// // check if product not belonging to giving category
+		// $value['data']->price = 0;
+		// //var_dump($value['product_id']);
+		// // if ( $value['product_id'] == $gift_id ) {
+			// // //var_dump($value['product_id']);
+			// // $value['data']->price = 0;
+			// // break;
+		// // }
+	// }
+// }
+
+function pagination_bar() {
+    global $wp_query;
+
+    $total_pages = $wp_query->max_num_pages;
+
+    if ($total_pages > 1){
+        $current_page = max(1, get_query_var('paged'));
+
+        echo paginate_links(array(
+            'base' => get_pagenum_link(1) . '%_%',
+            'format' => 'page/%#%',
+            'current' => $current_page,
+            'total' => $total_pages,
+        ));
+    }
+}
+
+function pagination_bar_search() {
+    global $wp_query;
+
+    $total_pages = $wp_query->max_num_pages;
+
+    if ($total_pages > 1){
+        $current_page = max(1, get_query_var('paged'));
+
+
+        echo paginate_links(array(
+            'base' =>'%_%',
+            'format' => '/page/%#%',
+            'current' => $current_page,
+            'total' => $total_pages,
+        ));
+    }
+}
+
+class WC_Haven_Recurring_Admin {
+
+	static $simple_supported_types = array( 'simple' );
+
+	public function init() {
+
+		// Product Meta boxes
+		add_filter( 'product_type_options', array( __CLASS__, 'product_type_options' ) );
+		add_action( 'woocommerce_product_options_general_product_data', array( __CLASS__, 'add_to_metabox' ) );
+		add_action( 'woocommerce_process_product_meta', array( __CLASS__, 'save_product_meta' ), 20, 2 );
+
+		// Setup Product Data
+		add_action( 'the_post', array( __CLASS__, 'setup_product' ), 20 );
+
+	}
+
+	public function product_type_options( $options ){
+
+	  $options['recurring'] = array(
+	      'id' => '_recurring',
+	      'wrapper_class' => 'show_if_simple',
+	      'label' => __( 'Haven Recurring', 'wc_recurring_haven'),
+	      'description' => __( 'Show the Haven recurring options.', 'wc_recurring_haven'),
+	      'default' => 'no'
+	    );
+
+	  return $options;
+
+	}
+
+	public function save_product_meta( $post_id, $post ) {
+
+	   	$product_type = empty( $_POST['product-type'] ) ? 'simple' : sanitize_title( stripslashes( $_POST['product-type'] ) );
+
+	   	if ( isset( $_POST['_recurring'] ) && in_array( $product_type, self::$simple_supported_types) ) {
+			update_post_meta( $post_id, '_recurring', 'yes' );
+		} else {
+			update_post_meta( $post_id, '_recurring', 'no' );
+		}
+
+	}
+
+	public function setup_product(){
+		global $product;
+
+		if ( !$product )
+			return;
+
+		if ( has_term( array( 'simple' ), 'product_type', $product->id ) && 'yes' == get_post_meta( $product->id, '_recurring', true ) ) {
+			$product->recurring = true;
+		} else {
+			$product->recurring = false;
+		}
+	}
+
+}
+WC_Haven_Recurring_Admin::init();
+
+add_action('woocommerce_after_checkout_form', 'print_recurring_form');
+function print_recurring_form() {
+
+	global $product;
+
+	if($product->recurring == true){
+
+		include(TEMPLATEPATH . '/woocommerce/haven/form-recurring.php');
+
+	}
+}
+
+add_action('edit_form_after_title', 'get_recurring_info');
+function get_recurring_info() {
+	global $wpdb;
+	global $post;
+
+	$id = $post->ID;
+
+	if($post->post_type == 'giving'){
+
+		include(TEMPLATEPATH . '/woocommerce/haven/form-admin.php');
+
+	}
+}
+
+add_action( 'admin_init', 'remove_recurring' );
+function remove_recurring() {
+	global $post;
+	add_action( 'delete_post', 'codex_sync_recurring', 10 );
+}
+
+function codex_sync_recurring( $pid ) {
+    global $wpdb;
+    if ( $wpdb->get_var( $wpdb->prepare( 'SELECT postid FROM wp_ht_recurring WHERE postid = %d', $pid ) ) ) {
+        $wpdb->query( $wpdb->prepare( 'DELETE FROM wp_ht_recurring WHERE postid = %d', $pid ) );
+    }
+}
+
+function search_filter($query) {
+	if (!$query->is_admin && $query->is_search) {
+
+		$filter = strtolower($_GET["filter"]);
+
+		if($filter == 'product'){
+			$query->set('post_type', array('product'));
+		} else if ($filter == 'anchor'){
+			$query->set('post_type', array('anchor'));
+		} else if ($filter == 'programs'){
+			$query->set('post_type', array('programs'));
+		} else if ($filter == 'blog'){
+			$query->set('post_type', array('blog'));
+		}
+		$query->set('posts_per_page', 12);
+	}
+	return $query;
+}
+add_filter( 'pre_get_posts', 'search_filter' );
+
+function ip_info($ip = NULL, $purpose = "location", $deep_detect = TRUE) {
+    $output = NULL;
+    if (filter_var($ip, FILTER_VALIDATE_IP) === FALSE) {
+        $ip = $_SERVER["REMOTE_ADDR"];
+        if ($deep_detect) {
+            if (filter_var(@$_SERVER['HTTP_X_FORWARDED_FOR'], FILTER_VALIDATE_IP))
+                $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+            if (filter_var(@$_SERVER['HTTP_CLIENT_IP'], FILTER_VALIDATE_IP))
+                $ip = $_SERVER['HTTP_CLIENT_IP'];
+        }
+    }
+    $purpose    = str_replace(array("name", "\n", "\t", " ", "-", "_"), NULL, strtolower(trim($purpose)));
+    $support    = array("country", "countrycode", "state", "region", "city", "location", "address");
+    $continents = array(
+        "AF" => "Africa",
+        "AN" => "Antarctica",
+        "AS" => "Asia",
+        "EU" => "Europe",
+        "OC" => "Australia (Oceania)",
+        "NA" => "North America",
+        "SA" => "South America"
+    );
+    if (filter_var($ip, FILTER_VALIDATE_IP) && in_array($purpose, $support)) {
+        $ipdat = @json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip=" . $ip));
+        if (@strlen(trim($ipdat->geoplugin_countryCode)) == 2) {
+            switch ($purpose) {
+                case "location":
+                    $output = array(
+                        "city"           => @$ipdat->geoplugin_city,
+                        "state"          => @$ipdat->geoplugin_regionName,
+                        "country"        => @$ipdat->geoplugin_countryName,
+                        "country_code"   => @$ipdat->geoplugin_countryCode,
+                        "continent"      => @$continents[strtoupper($ipdat->geoplugin_continentCode)],
+                        "continent_code" => @$ipdat->geoplugin_continentCode
+                    );
+                    break;
+                case "address":
+                    $address = array($ipdat->geoplugin_countryName);
+                    if (@strlen($ipdat->geoplugin_regionName) >= 1)
+                        $address[] = $ipdat->geoplugin_regionName;
+                    if (@strlen($ipdat->geoplugin_city) >= 1)
+                        $address[] = $ipdat->geoplugin_city;
+                    $output = implode(", ", array_reverse($address));
+                    break;
+                case "city":
+                    $output = @$ipdat->geoplugin_city;
+                    break;
+                case "state":
+                    $output = @$ipdat->geoplugin_regionName;
+                    break;
+                case "region":
+                    $output = @$ipdat->geoplugin_regionName;
+                    break;
+                case "country":
+                    $output = @$ipdat->geoplugin_countryName;
+                    break;
+                case "countrycode":
+                    $output = @$ipdat->geoplugin_countryCode;
+                    break;
+            }
+        }
+    }
+    return $output;
+}
+
+// add_filter( 'woocommerce_order_button_text', 'woo_custom_order_button_text' ); // 2.1 +
+// function woo_custom_order_button_text() {
+// return __( 'Confirm Gift', 'woocommerce' );
+// }
+
+require_once( ABSPATH . 'wp-admin/includes/export.php' );
+
+function havenexport() {
+    wp_schedule_event(time(), 'hourly', 'haven_hourly_export');
+}
+
+add_action('haven_hourly_export', 'haven_export_posts');
+
+function haven_export_posts() {
+    $args=array(
+        'content' => 'posts',
+        'status' => 'published');
+
+    ob_start();
+    export_wp($args);
+    $xml = ob_get_clean();
+
+    file_put_contents( ABSPATH . 'wp-content/themes/haven2015/XML/haven_export_posts.xml', $xml);
+}
+
 ?>

@@ -520,6 +520,13 @@ $(document).ready(function(){
 		searchPrograms($('#textSearch')[0].value,selectedFilter,"");
 	});
 
+	$('#textSearch').on('keydown', function(e) {
+		if (e.keyCode === 13) {
+			selectedFilter = "Filters";
+			searchPrograms($('#textSearch')[0].value,selectedFilter,"");
+		}
+	})
+
 	$('#btnSearchArchive').click(function(){
 		window.location.href = '/programs/program-archive/?term=' + $('#textSearch')[0].value;
 	});
@@ -550,7 +557,6 @@ $(document).ready(function(){
 	// });
 
 	$('#mainFilter ul li').click(function(){
-		console.log('clicked')
 		if (selectedFilter != $(this).data('name')){
 			$('.items').empty();
 			$('.items').hide();
@@ -643,15 +649,15 @@ $(document).ready(function(){
 		$('#mainFilters').show();
 	});
 
-	$('.btn.trans.play').click(function(){
-		if($(window).width() < 767){
+	$('.button.trans.play').click(function(){
+		// if($(window).width() < 767){
 			PlayProgramAudio($(this).data('podcast'));
-		} else {
-			OpenPlayProgramAudio($(this).data('podcast'), $(this), true); //FUNCTION LOCATED IN sidebar-player.php
-		}
+		// } else {
+			// OpenPlayProgramAudio($(this).data('podcast'), $(this), true); //FUNCTION LOCATED IN sidebar-player.php
+		// }
 	});
 
-	$('.btn.trans.download').click(function(){
+	$('.button.trans.download').click(function(){
 		var link = document.createElement('a');
 		link.href = $(this).data('fname');
 		link.download = 'Download.mp3';
