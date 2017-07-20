@@ -31,6 +31,7 @@
 		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56045996b0c981a6" async="async"></script>
 
 <?php wp_footer(); ?>
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
