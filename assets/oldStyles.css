@@ -452,7 +452,7 @@ hr {clear:both; border:0; outline:none;}
 							.section.programs .content .right .item .txt .date {font-size:16px; line-height:16px; color:#3ab8cd; padding:5px 0 0; display:block;}
 			.section.programs .outlineBtn {padding:12px 11px; margin-top:70px;}
 
-		.section.archive, .section.anchor {padding:35px 0 50px;}
+		.section.archive {padding:35px 0 50px;}
 			.section.archive .section.archive {padding:0;}
 			.section.archive .content {padding:0 30px;}
 				.section.archive .section.archive .content {padding:0}
