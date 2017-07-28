@@ -16,13 +16,20 @@ body {
   text-transform: uppercase; }
   .top-bar
   ul {
+    float: left;
     margin: 0;
     padding: 0; }
     .top-bar
     ul
     li {
       list-style-type: none;
-      display: inline-block; }
+      display: inline-block;
+      margin: 0 2px; }
+      .top-bar
+      ul
+      li
+      a {
+        color: #fff; }
   .top-bar .links {
     text-align: right; }
     .top-bar .links

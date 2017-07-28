@@ -30,6 +30,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/style.css">
+<<<<<<< Updated upstream
 
 <!--[if lt IE 9]>
 <script src="js/html5.js" type="text/javascript"></script>
@@ -53,6 +54,9 @@
 		window.sr = new scrollReveal();
 	});
 </script>
+=======
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+>>>>>>> Stashed changes
 </head>
 
 <body <?php body_class(); ?>>
@@ -61,10 +65,10 @@
 
 	<div class="top-bar">
 		<ul>
-			<li><a href="https://www.facebook.com/pages/All-About-Jesus-by-haventodayorg/165484636828241" target="_blank"><i class="fa fa-facebook"></i></a></li>
-			<li><a href="https://twitter.com/HavenToday/" target="_blank"><i class="fa fa-twitter"></i></a></li>
-			<li><a href="https://instagram.com/haventoday/" target="_blank"><i class="fa fa-instagram"></i></a></li>
-			<li><a href="https://www.youtube.com/user/HavenToday" target="_blank"><i class="fa fa-youtube"></i></a></li>
+			<li><a href="https://www.facebook.com/pages/All-About-Jesus-by-haventodayorg/165484636828241" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+			<li><a href="https://twitter.com/HavenToday/" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+			<li><a href="https://instagram.com/haventoday/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+			<li><a href="https://www.youtube.com/user/HavenToday" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
 		</ul>
 		<div class="links">
 		<a class="signup">Sign Up</a>
