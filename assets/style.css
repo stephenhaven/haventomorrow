@@ -1,343 +1,59 @@
-body {
-  font-size: 1.2rem; }
+/*
+Error: Invalid CSS after "      margin": expected ";", was ": 0;"
+        on line 26 of style.scss
 
-/* Mixin */
-.v-middle {
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%); }
+21:   padding: 5px 50px 5px;
+22:   text-transform: uppercase;
+23:    &
+24:     ul {
+25:       float: left
+26:       margin: 0;
+27:       padding: 0;
+28:       &
+29:         li {
+30:           list-style-type: none;
+31:           display: inline-block;
 
-.top-bar {
-  background-color: #16425b;
-  color: #fff;
-  padding: 5px 50px 5px;
-  text-transform: uppercase; }
-  .top-bar
-  ul {
-    float: left;
-    margin: 0;
-    padding: 0; }
-    .top-bar
-    ul
-    li {
-      list-style-type: none;
-      display: inline-block;
-      margin: 0 2px; }
-      .top-bar
-      ul
-      li
-      a {
-        color: #fff; }
-  .top-bar .links {
-    text-align: right; }
-    .top-bar .links
-    a {
-      font-family: 'Nunito', sans-serif;
-      font-size: .7em;
-      color: #fff; }
-
-header#masthead {
-  position: absolute;
-  width: 100%;
-  padding: 30px 50px 15px;
-  z-index: 1000; }
-  header#masthead
-  .site-branding {
-    display: inline-block; }
-  header#masthead .main-navigation {
-    float: right;
-    width: auto; }
-    header#masthead .main-navigation
-    a, header#masthead .main-navigation a:hover, header#masthead .main-navigation a:visited, header#masthead .main-navigation a:active {
-      color: #fff;
-      text-transform: uppercase;
-      font-family: 'Nunito', sans-serif;
-      margin: 0 15px;
-      font-weight: 600; }
-    header#masthead .main-navigation .current-menu-item {
-      border-bottom: 2px solid #fff; }
-    header#masthead .main-navigation .sub-menu {
-      background-color: #fff; }
-      header#masthead .main-navigation .sub-menu
-      a {
-        color: #303030; }
-  header#masthead .nav-menu > li:last-of-type a, header#masthead .nav-menu > li:last-of-type a:hover {
-    background-color: #238698;
-    border-radius: 50%;
-    padding: 15px 10px;
-    margin-top: -15px; }
-
-footer {
-  background-color: #16425b;
-  color: #fff;
-  padding: 10px 0px; }
-  footer
-  ul {
-    padding: 0;
-    list-style-type: none;
-    margin: 0; }
-    footer
-    ul
-    li {
-      margin: 0 .75rem;
-      display: inline-block;
-      font-size: .75rem; }
-
-.entry-footer {
-  background-color: #fff;
-  color: #000; }
-
-section {
-  background-size: cover;
-  background-position: center; }
-
-section.dark {
-  color: #fff; }
-
-section.dark-2 {
-  background-color: #16425b;
-  color: #fff; }
-
-section.light {
-  color: #292b2c; }
-
-section.light-2 {
-  background-color: #f2f1ed;
-  color: #16425b; }
-
-.c-padding-180 {
-  padding: 180px 0; }
-
-.c-padding-75 {
-  padding: 75px 0; }
-
-.c-padding-50 {
-  padding: 50px 0; }
-
-.c-padding-30 {
-  padding: 30px 0; }
-
-.c-padding-25-100 {
-  padding: 25px 0 100px; }
-
-a.o-button {
-  -webkit-appearance: none;
-  outline: 0;
-  border: none;
-  display: inline-block;
-  width: auto;
-  vertical-align: top;
-  margin: 0;
-  padding: 12px 10px 12px 18px;
-  text-transform: uppercase;
-  text-align: center;
-  letter-spacing: 3px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-  border-radius: 2px;
-  color: #fff;
-  background-color: #238698;
-  cursor: pointer;
-  transition: background-color 700ms cubic-bezier(0.19, 1, 0.22, 1);
-  -webkit-transition: background-color 700ms cubic-bezier(0.19, 1, 0.22, 1);
-  font-family: 'Nunito', sans-serif; }
-
-a.o-button {
-  color: #eee;
-  text-decoration: none; }
-
-a.o-button:hover {
-  background-color: #35a4b8;
-  color: #fff; }
-
-a.o-button:visited {
-  color: #fff; }
-
-a:hover {
-  color: inherit;
-  text-decoration: none; }
-
-a:visited {
-  color: inherit; }
-
-a:focus {
-  outline: none;
-  text-decoration: none; }
-
-p, em, strong {
-  font-family: 'Nunito', sans-serif; }
-
-h5 {
-  font-family: 'Nunito', sans-serif; }
-
-h2, h3, h4, a {
-  font-family: "minion-pro-caption",serif; }
-
-h1 {
-  font-family: "minion-pro-caption",serif;
-  font-weight: 900;
-  font-size: 4rem; }
-
-h3 {
-  font-weight: 100;
-  margin: .75rem 0 1.5rem; }
-
-a {
-  color: #16425b;
-  text-decoration: underline; }
-
-.float-left {
-  float: left;
-  margin: 0 8px 8px 0; }
-
-.play-program {
-  position: absolute;
-  margin: 30px 0 0 -125px; }
-  .play-program
-  img {
-    width: 75px; }
-
-.border-right {
-  border-right: 1px solid #f2f1ed; }
-
-.entry-header {
-  display: none; }
-
-.is-center {
-  text-align: center; }
-
-/**PAGE SPECIFICS**/
-.home .dark {
-  text-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 9px 24px rgba(0, 0, 0, 0.32); }
-.home .dark-2 img {
-  float: left;
-  margin: 5px 20px 20px 0; }
-.home .hero-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  top: 50%;
-  padding-right: 15px;
-  padding-left: 15px;
-  transform: translateY(-50%); }
-
-.blog .container {
-  border-top: 1px solid #f2f1ed;
-  padding-top: 50px; }
-
-.page-template-template-styleguide-php header#masthead, .page-template-template-styleguide-php footer {
-  background-color: #303030;
-  position: relative; }
-
-.slider-premium .slick-prev {
-  left: -50px !important; }
-.slider-premium .slick-next {
-  right: 0px !important; }
-.slider-premium .slick-next:before, .slider-premium .slick-prev:before {
-  color: #000 !important; }
-.slider-premium .text-center img {
-  height: 250px;
-  width: auto;
-  margin: 0 auto; }
-
-.slider_featured_events .slick-prev {
-  left: -30px !important;
-  margin-top: 30px; }
-.slider_featured_events .slick-next {
-  right: -30px !important;
-  margin-top: 30px; }
-.slider_featured_events .slick-next:before, .slider_featured_events .slick-prev:before {
-  color: #000 !important; }
-
-.slider_recent_products .slick-prev {
-  left: -20px !important;
-  margin-top: -12px; }
-.slider_recent_products .slick-next {
-  right: -20px !important;
-  margin-top: -12px; }
-.slider_recent_products .slick-next:before, .slider_recent_products .slick-prev:before {
-  color: #000 !important; }
-
-.single-anchor h3 {
-  font-size: 17px;
-  text-transform: uppercase;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 100; }
-.single-anchor h3.author {
-  margin-top: -6px; }
-.single-anchor .row img {
-  width: 100%;
-  margin-top: 0px;
-  margin-bottom: 0px; }
-.single-anchor .content {
-  margin-bottom: 30px;
-  color: #16425b;
-  font-size: 1.5em; }
-  .single-anchor .content
-  p {
-    margin-bottom: 2px; }
-.single-anchor .anchorDetails.grey {
-  background-color: #f2f1ed;
-  color: #16425b;
-  margin-top: 50px; }
-  .single-anchor .anchorDetails.grey
-  .row {
-    padding: 25px 0;
-    width: 100%; }
-    .single-anchor .anchorDetails.grey
-    .row
-    .col-md-4 {
-      text-align: center; }
-.single-anchor ul {
-  margin: 0;
-  padding: 0; }
-  .single-anchor ul
-  li {
-    list-style-type: none; }
-.single-anchor .anchorBtns {
-  text-align: center;
-  margin-bottom: 50px; }
-  .single-anchor .anchorBtns
-  .o-button {
-    margin: 0 25px; }
-
-.loading {
-  margin-top: 50px; }
-
-hr.blue {
-  background: #1d889a;
-  height: 1px;
-  width: 94px; }
-
-.section.archive, .section.anchor {
-  padding: 35px 0 50px; }
-  .section.archive a, .section.anchor a {
-    color: #1d889a;
-    text-decoration: none; }
-    .section.archive a:hover, .section.anchor a:hover {
-      color: #000; }
-
-.section.archive .content input[type='submit'], .section.archive .content input[type='button'] {
-  padding: 13px 28px 10px; }
-
-.section.archive .content .filter {
-  width: 155px;
-  height: 42px; }
-  .section.archive .content .filter ul {
-    padding: 0; }
-    .section.archive .content .filter ul li a {
-      padding: 15px; }
-
-.section.programs {
-  box-sizing: content-box; }
-  .section.programs a {
-    text-decoration: none; }
-
-.section.programs .content .right .item .button.download > i {
-  font-size: 16px;
-  position: absolute; }
-
-/*# sourceMappingURL=style.css.map */
+Backtrace:
+style.scss:26
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/scss/parser.rb:1161:in `expected'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/scss/parser.rb:1097:in `expected'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/scss/parser.rb:1092:in `tok!'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/scss/parser.rb:757:in `block in try_declaration'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/scss/parser.rb:1137:in `call'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/scss/parser.rb:1137:in `rethrow'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/scss/parser.rb:762:in `try_declaration'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/scss/parser.rb:692:in `declaration_or_ruleset'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/scss/parser.rb:657:in `block_child'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/scss/parser.rb:646:in `block_contents'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/scss/parser.rb:638:in `block'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/scss/parser.rb:707:in `declaration_or_ruleset'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/scss/parser.rb:657:in `block_child'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/scss/parser.rb:649:in `block_contents'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/scss/parser.rb:638:in `block'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/scss/parser.rb:631:in `ruleset'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/scss/parser.rb:656:in `block_child'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/scss/parser.rb:649:in `block_contents'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/scss/parser.rb:117:in `stylesheet'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/scss/parser.rb:42:in `parse'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/engine.rb:403:in `_to_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/engine.rb:378:in `_render_with_sourcemap'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/engine.rb:295:in `render_with_sourcemap'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:209:in `each'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:328:in `block in watch'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/vendor/listen/lib/listen/listener.rb:252:in `call'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/vendor/listen/lib/listen/listener.rb:252:in `on_change'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/vendor/listen/lib/listen/adapter.rb:254:in `call'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/vendor/listen/lib/listen/adapter.rb:254:in `report_changes'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/vendor/listen/lib/listen/adapter.rb:323:in `poll_changed_directories'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.19/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"      margin\": expected \";\", was \": 0;\"\A         on line 26 of style.scss\A \A 21:   padding: 5px 50px 5px;\A 22:   text-transform: uppercase;\A 23:    &\A 24:     ul {\A 25:       float: left\A 26:       margin: 0;\A 27:       padding: 0;\A 28:       &\A 29:         li {\A 30:           list-style-type: none;\A 31:           display: inline-block;"; }
