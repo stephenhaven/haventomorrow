@@ -43,8 +43,12 @@ body {
           font-family: 'Nunito', sans-serif;
           font-size: .7em;
           color: #fff;
+          text-decoration: none;
         }
     }
+    .fa-shopping-cart:before {
+    margin: 0 5px;
+  }
 }
 
 header#masthead {
@@ -400,6 +404,8 @@ a {
     }
   }
 }
+
+// Store
 
 // Program Archive
 .loading {

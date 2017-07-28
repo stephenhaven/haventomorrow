@@ -30,8 +30,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/style.css">
-<<<<<<< Updated upstream
-
 <!--[if lt IE 9]>
 <script src="js/html5.js" type="text/javascript"></script>
 <![endif]-->
@@ -54,9 +52,7 @@
 		window.sr = new scrollReveal();
 	});
 </script>
-=======
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
->>>>>>> Stashed changes
 </head>
 
 <body <?php body_class(); ?>>
