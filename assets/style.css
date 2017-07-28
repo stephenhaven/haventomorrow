@@ -56,7 +56,7 @@ header#masthead {
       header#masthead .main-navigation .sub-menu
       a {
         color: #303030; }
-  header#masthead .menu-item-33386 a, header#masthead .menu-item-33386 a:hover {
+  header#masthead .nav-menu > li:last-of-type a, header#masthead .nav-menu > li:last-of-type a:hover {
     background-color: #238698;
     border-radius: 50%;
     padding: 15px 10px;
@@ -328,5 +328,9 @@ hr.blue {
   box-sizing: content-box; }
   .section.programs a {
     text-decoration: none; }
+
+.section.programs .content .right .item .button.download > i {
+  font-size: 16px;
+  position: absolute; }
 
 /*# sourceMappingURL=style.css.map */

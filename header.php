@@ -30,6 +30,29 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/style.css">
+
+<!--[if lt IE 9]>
+<script src="js/html5.js" type="text/javascript"></script>
+<![endif]-->
+
+<!--HEADROOM-->
+<script src="//cdnjs.cloudflare.com/ajax/libs/headroom/0.7.0/headroom.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/headroom/0.7.0/jQuery.headroom.min.js"></script>
+
+<!--MAIN-->
+<script src="<?php echo get_template_directory_uri(); ?>/js/main.js?v=02" type="text/javascript"></script>
+
+<!--SWIPER-->
+<script src="//cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.6/js/swiper.jquery.min.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.6/css/swiper.min.css">
+
+<!--ANIMATION-->
+<script src="<?php echo get_template_directory_uri(); ?>/js/scrollReveal.min.js" type="text/javascript"></script>
+<script>
+	$(document).ready(function(){
+		window.sr = new scrollReveal();
+	});
+</script>
 </head>
 
 <body <?php body_class(); ?>>
