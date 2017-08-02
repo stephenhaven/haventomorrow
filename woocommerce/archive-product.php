@@ -13,7 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-get_header( 'shop' ); ?>
+get_header( 'shop' );
+
+get_template_part( 'template-parts/content', 'title' ); ?>
 
 <?php get_sidebar('banner'); ?>
 
@@ -29,17 +31,17 @@ get_header( 'shop' ); ?>
 		 */
 		do_action( 'woocommerce_archive_description' );
 	?>
-	
+
 	<?php if ( have_posts() ) : ?>
-	
+
 	<div class="heading searchFilters">
 		<span class="txt">Sort by</span>
 		<div class="filter">
 			<span class="arrow">icon</span>
-			<?php 
+			<?php
 				$queryString = $_SERVER['QUERY_STRING'];
 				$orderby = $_GET["orderby"];
-				
+
 				if($orderby == 'popularity'){
 					echo '<span class="current">Popularity</span>';
 				} else if($orderby == 'date'){
@@ -50,11 +52,11 @@ get_header( 'shop' ); ?>
 					echo '<span class="current">High To Low</span>';
 				} else {
 					echo '<span class="current">All Products</span>';
-				}					
+				}
 			?>
 			<ul>
-			<?php 
-							
+			<?php
+
 				if ($queryString){
 					echo '<li><a href="?'.$queryString.'&orderby=popularity">Popularity</a></li>';
 					echo '<li><a href="?'.$queryString.'&orderby=date">Newness</a></li>';
@@ -66,11 +68,11 @@ get_header( 'shop' ); ?>
 					echo '<li><a href="?orderby=price">Low to High</a></li>';
 					echo '<li><a href="?orderby=price-desc">High To Low</a></li>';
 				}
-			
-			?>				
+
+			?>
 			</ul>
 		</div><!--end .filter-->
-		
+
 		<?php
 			/**
 			 * woocommerce_before_shop_loop hook
@@ -81,12 +83,12 @@ get_header( 'shop' ); ?>
 			do_action( 'woocommerce_before_shop_loop' );
 		?>
 	</div><!--end .heading-->
-		
+
 		<div class="products">
 			<?php woocommerce_product_subcategories(); ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
-				
+
 					<?php wc_get_template_part( 'content', 'product' ); ?>
 
 			<?php endwhile; // end of the loop. ?>

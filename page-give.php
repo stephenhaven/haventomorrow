@@ -12,7 +12,10 @@ get_header(); ?>
 		<?php while ( have_posts() ) : the_post();
 
 			// get_sidebar('banner');
-			get_template_part( 'template-parts/content', 'title' );  ?>
+			get_template_part( 'template-parts/content', 'title' );
+
+			the_content();
+			?>
 
 
 		<?php endwhile; // end of the loop. ?>

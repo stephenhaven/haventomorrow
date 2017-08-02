@@ -371,6 +371,9 @@ a {
 .searchFilters .filter {
   height: 37px; }
 
+.section.storeSearch {
+  background-color: #238698; }
+
 .page-template-template-mapbox .container.map {
   min-height: 300px; }
 

@@ -7,7 +7,7 @@
  * @since PJS 1.0
  */
 ?>
-<div class="banner sub">
+<!-- <div class="banner sub">
 	<?php
 		$product = get_product(get_the_id());
 		$product_categories = $product->get_categories();
