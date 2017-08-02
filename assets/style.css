@@ -110,6 +110,10 @@ section.light-2 {
   background-color: #f2f1ed;
   color: #16425b; }
 
+.section.light-2 {
+  background-color: #f2f1ed;
+  color: #16425b; }
+
 .c-padding-180 {
   padding: 180px 0; }
 
@@ -173,6 +177,13 @@ a:focus {
   outline: none;
   cursor: pointer;
   text-decoration: none; }
+
+.woocommerce-loop-product__title {
+  text-decoration: none;
+  font-size: 1.15em; }
+  .woocommerce-loop-product__title
+  :hover {
+    color: inherit; }
 
 p, em, strong {
   font-family: 'Nunito', sans-serif; }
@@ -311,6 +322,54 @@ a {
   .single-anchor .anchorBtns
   .o-button {
     margin: 0 25px; }
+
+.single-product .light-2 {
+  max-width: 800px; }
+.single-product .products .product {
+  text-align: center;
+  width: 24.98%;
+  padding-left: 15px;
+  padding-right: 15px; }
+  .single-product .products .product
+  a {
+    text-decoration: none; }
+.single-product .woocommerce-tabs {
+  display: none; }
+
+.woocommerce-message {
+  padding: 20px !important;
+  font-family: 'Nunito', sans-serif; }
+  .woocommerce-message
+  .button.wc-forward {
+    -webkit-appearance: none;
+    outline: 0;
+    border: none;
+    display: inline-block;
+    width: auto;
+    vertical-align: top;
+    margin: 0;
+    padding: 12px 10px 12px 18px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    color: #fff;
+    background-color: #238698;
+    cursor: pointer;
+    transition: background-color 700ms cubic-bezier(0.19, 1, 0.22, 1);
+    -webkit-transition: background-color 700ms cubic-bezier(0.19, 1, 0.22, 1);
+    font-family: 'Nunito', sans-serif; }
+
+.woocommerce-cart .entry-content {
+  margin: 0; }
+
+.woocommerce table.shop_table {
+  padding: 50px 15px 0 15px; }
+
+.searchFilters .filter {
+  height: 37px; }
 
 .page-template-template-mapbox .container.map {
   min-height: 300px; }

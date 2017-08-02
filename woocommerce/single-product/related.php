@@ -16,7 +16,7 @@ global $product, $woocommerce_loop;
 $featuredProductsID = get_the_ID();
 
 if ($product->donation == false && $product->product_type != 'composite' && $product->product_type != 'variable' && $product_is_nyp == 0 && $featuredProductsID != 150) {
-	
+
 	if ( empty( $product ) || ! $product->exists() ) {
 		return;
 	}
@@ -48,11 +48,11 @@ if ($product->donation == false && $product->product_type != 'composite' && $pro
 
 	$woocommerce_loop['columns'] = $columns;
 
-	if ( $products->have_posts() ) : 
-	
+	if ( $products->have_posts() ) :
+
 	?>
-		
-		<div class="section storeItems gray">
+
+		<div class="section storeItems light-2">
 		<div class="heading">
 			<!--<a href="/store/featured-products/">View All</a>-->
 			<h1>Featured Products</h1>
@@ -74,9 +74,9 @@ if ($product->donation == false && $product->product_type != 'composite' && $pro
 					<?php //woocommerce_product_loop_end(); ?>
 				</div>
 				</div>
-				
+
 		</div><!--end .products-->
-		
+
 		<script>
 			$(document).ready(function(){
 				items = new Swiper('.productsCategory2 .swiper-container', {

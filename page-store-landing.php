@@ -236,7 +236,7 @@ get_template_part( 'template-parts/content', 'title' );  ?>
 
 </div><!--end .section-->
 
-<div class="section storeItems gray">
+<div class="section storeItems light-2">
 	<div class="heading">
 		<a href="/product-category/best-selling/">View All</a>
 		<h1>Best Selling</h1>
