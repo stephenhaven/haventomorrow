@@ -883,7 +883,6 @@ img.size-auto, img.size-full, img.size-large, img.size-medium, .attachment img {
 
 
 /*WOOCOMMERCE*/
-.woocommerce {padding-top:30px;}
 .woocommerce-checkout #payment {border-radius:0px !important; background:#e7ecee !important;}
 .woocommerce-checkout #payment div.payment_box {padding:0px !important;}
 .woocommerce-checkout #payment div.payment_box {background-color:#e7ecee !important;}
@@ -925,7 +924,6 @@ img.size-auto, img.size-full, img.size-large, img.size-medium, .attachment img {
 .woocommerce form.login input[type="submit"] {border-color:#1d889a !important; color:#1d889a !important;}
 .woocommerce form.login input[type="submit"]:hover {background:#1d889a !important; color:#fff !important;}
 
-.woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images {float:none !important; width:auto !important;}
 .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .showlogin {background-color:transparent !important; border:1px solid #fff !important; border-radius:0 !important; font-size:13px !important; line-height:13px !important; text-transform:uppercase; -webkit-transition:all .25s ease; -moz-transition:all .25s ease; transition:all .25s ease; cursor:pointer !important;}
 .woocommerce .form-row.place-order input.button.alt, .woocommerce #respond #commentform input#submit, .woocommerce div.product form.cart .single_add_to_cart_button {border-color:#1d889a !important; color:#1d889a;}
 .woocommerce .form-row.place-order input.button.alt:hover, .woocommerce #respond #commentform input#submit:hover, .woocommerce div.product form.cart .single_add_to_cart_button:hover {background:#1d889a !important; color:#fff;}

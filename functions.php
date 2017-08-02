@@ -785,4 +785,28 @@ function haven_export_posts() {
     file_put_contents( ABSPATH . 'wp-content/themes/haven2015/XML/haven_export_posts.xml', $xml);
 }
 
+function pjs_truncate($text, $length) {
+   $length = abs((int)$length);
+   if(strlen($text) > $length) {
+	  $text = preg_replace("/^(.{1,$length})(\s.*|$)/s", '\\1...', $text);
+   }
+   return($text);
+}
+
+function technig_content($limit){
+  $content = explode(' ', get_the_content(), $limit);
+
+  if (count($content)>=$limit){
+       array_pop($content);
+       $content = implode(" ",$content).'...';
+  } else {
+    $content = implode(" ",$content);
+  }
+
+  $content = preg_replace('/\[.+\]/','', $content);
+  $content = apply_filters('the_content', $content);
+  $content = str_replace(']]>', ']]&gt;', $content);
+  return $content;
+}
+
 ?>

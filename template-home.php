@@ -115,8 +115,8 @@
       <div class="col-md-5">
         <h3>MEET THE SPEAKER</h3>
         <h4>CHARLES MORRIS</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <p><a href="#">Learn More >></a></p>
+        <p>Charles had been asking the Lord to use his journalism background and communication skills for the Kingdom when the phone rang in early 2000 and he was asked to become the fourth speaker on an 80-year-old Christian radio program based in Los Angeles called Haven Today.</p>
+        <p><a href="/about">Learn More >></a></p>
       </div>
       <div class="col-md-7">
         <img src="http://www.haventoday.ca/wp-content/uploads/2015/10/img-about.jpg">
@@ -214,19 +214,62 @@
 <section class="c-padding-25-100 blog">
   <div class="container">
     <div class="row">
-      <div class="col-md-5">
-        <h3>TODAY'S ANCHOR</h3>
-        <p><img class="float-left" src="http://www.haventoday.ca/wp-content/uploads/2017/01/Anchor01312017-2.jpg" width="100px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p><a href="#">Learn More >></a></p>
-      </div>
+        <?php
+
+				$args_anchor = array(
+					'post_type' => 'anchor',
+					'posts_per_page' => 1,
+					'post_status' => 'publish'
+				);
+
+				$query_anchor = new WP_Query( $args_anchor );
+
+				if ( $query_anchor->have_posts() ) {
+					while ( $query_anchor->have_posts() ) {
+						$query_anchor->the_post();
+
+						$anchor_title = get_field('anchor_title');
+						$anchor_description = get_field('anchor_description');
+						$anchor_image = get_field('anchor_image');
+						$anchor_date = get_the_date('l / F jS Y');
+						$anchor_permalink = get_the_permalink();
+
+						echo '<div class="col-md-5">';
+						echo '<h3>TODAY\'S ANCHOR</h3>';
+							echo '<div class="content">';
+								echo '<div class="right">';
+									echo '<h4>'.$anchor_title.'</h4>';
+									echo '<p><em>'.$anchor_date.'</em><p>';
+									echo '<p><img class="float-left" src="http://www.haventoday.ca/wp-content/uploads/2017/01/Anchor01312017-2.jpg" width="100px">'.strip_tags(pjs_truncate($anchor_description,400), '<br>').'</p>';
+								echo '<a href="'.$anchor_permalink.'" class="">Keep Reading >></a>';
+								echo '</div><!--end .right-->';
+							echo '</div><!--end .content-->';
+						echo '</div><!--end .section-->';
+
+					}
+				}
+
+				wp_reset_postdata();
+
+				?>
       <div class="col-md-1 border-right">
       </div>
       <div class="col-md-1">
       </div>
       <div class="col-md-5">
         <h3>FEATURED BLOG POST</h3>
-        <p><img class="float-left" src="http://www.haventoday.ca/wp-content/uploads/2017/01/Anchor01312017-2.jpg" width="100px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p><a href="#">Learn More >></a></p>
+        <?php
+          $query = new WP_Query(array(
+              'posts_per_page'   => 1,
+          ));
+
+          while ($query->have_posts()): $query->the_post(); ?>
+                  <h4><?php the_title(); ?></h4>
+                  <p><em><?php the_date('l / F jS Y'); ?></em><p>
+                  <p><img class="float-left" src="http://www.haventoday.ca/wp-content/uploads/2017/01/Anchor01312017-2.jpg" width="100px"><?php echo technig_content(65); ?></p>
+                  <a href="<?php the_permalink(); ?>">Keep Reading >></a>
+          <?php endwhile;
+          ?>
       </div>
     </div>
   </div>

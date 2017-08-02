@@ -7,10 +7,11 @@
  * @package haventomorrow
  */
 
-get_header(); ?>
+get_header();
+get_template_part( 'template-parts/content', 'title' ); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<section class="c-padding-75">
+  <div class="container">
 
 		<?php
 		while ( have_posts() ) : the_post();
@@ -27,9 +28,7 @@ get_header(); ?>
 		endwhile; // End of the loop.
 		?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+	</div>
+	</section>
 
-<?php
-get_sidebar();
-get_footer();
+	<?php get_footer(); ?>
