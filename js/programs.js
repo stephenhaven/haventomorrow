@@ -409,7 +409,19 @@ function resetResultByTermOLD(searchResults){
 }
 
 function PlayProgramAudio(podcastID){
-	var havenAudio = window.open('http://haven.streamon.fm/program-e-' + podcastID + '.000000', 'havenplayer', 'status=yes, resizable=yes', 'havenAudioWnd');
+	// var havenAudio = window.open('http://haven.streamon.fm/program-e-' + podcastID + '.000000', 'havenplayer', 'status=yes, resizable=yes', 'havenAudioWnd');
+	// havenAudio.focus();
+
+	var podcastSeconds = 0;
+	var podcastVolume = 0.75;
+	var podcastSetting = 'tall';
+	var podcastPopup = 'false';
+	var podcastStatus = 'playing';
+
+	// var url = 'http://www.haventoday.org/player/index.php?podcastID=' + podcastID + '&podcastSeconds=' + podcastSeconds + '&podcastVolume=' + podcastVolume + '&podcastSetting=' + podcastSetting + '&podcastPopup=' + podcastPopup + '&podcastStatus=' + podcastStatus;
+	// var url = 'http://www.haventomorrow.com/player/index.php?podcastID=' + podcastID + '&podcastSeconds=' + podcastSeconds + '&podcastVolume=' + podcastVolume + '&podcastSetting=' + podcastSetting + '&podcastPopup=' + podcastPopup + '&podcastStatus=' + podcastStatus;
+	var url = 'http://local-haventomorrowredo.com/player/index.php?podcastID=' + podcastID + '&podcastSeconds=' + podcastSeconds + '&podcastVolume=' + podcastVolume + '&podcastSetting=' + podcastSetting + '&podcastPopup=' + podcastPopup + '&podcastStatus=' + podcastStatus;
+	var havenAudio = window.open(url, 'havenplayer', 'status=yes, menubar=no, scrollbars=no, resizable=no, width=800, height=180', 'havenAudioWnd');
 	havenAudio.focus();
 }
 
@@ -665,13 +677,13 @@ $(document).ready(function(){
 		link.click();
 	});
 
-	$('#btnProgramImage').click(function(){
-		if($(window).width() < 767){
-			PlayProgramAudio($(this).data('podcast'));
-		} else {
-			OpenPlayProgramAudio($(this).data('podcast'), $(this), true); //FUNCTION LOCATED IN sidebar-player.php
-		}
-	});
+	// $('#btnProgramImage').click(function(){
+	// 	if($(window).width() < 767){
+	// 		PlayProgramAudio($(this).data('podcast'));
+	// 	} else {
+	// 		OpenPlayProgramAudio($(this).data('podcast'), $(this), true); //FUNCTION LOCATED IN sidebar-player.php
+	// 	}
+	// });
 
 	// items = new Swiper('.items .swiper-container', {
 	// 	nextButton: '.items .arrowLeft',

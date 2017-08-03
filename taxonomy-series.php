@@ -252,7 +252,6 @@ get_header();
 			</div><!--end .items-->
 		</div><!--end .section-->
 
-		<script src="<?php echo get_template_directory_uri(); ?>/js/programs.js"></script>
 		<?php //get_template_part( 'content', get_post_format() ); ?>
 
 <?php get_footer(); ?>

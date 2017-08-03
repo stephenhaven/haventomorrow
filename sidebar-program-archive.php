@@ -174,4 +174,3 @@ $selectedTerm = $_GET['term'];
 	</div><!--end .content-->
 	<div id="hiddenTerm" data-term="<?php echo $selectedTerm ?>"></div>
 	<div id="hiddenFilter" data-filter="<?php echo $selectedFilter ?>"></div>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/programs.js"></script>
