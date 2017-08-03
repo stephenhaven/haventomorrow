@@ -7,7 +7,9 @@
  * @package haventomorrow
  */
 
-get_header(); ?>
+get_header();
+
+get_template_part( 'template-parts/content', 'title' );  ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">

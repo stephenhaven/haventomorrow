@@ -20,12 +20,21 @@
               $text = get_sub_field('button_text');
               $link = get_sub_field('button_link');
               //print_r($link);
+
+              date_default_timezone_set('America/Los_Angeles');
+              $year = date("Y",strtotime("now"));
+              $month = date("m",strtotime("now"));
+              $day = date("d",strtotime("now"));
+              $event = mktime(00, 00, 00, $month, $day, $year);
+              // $programAudioLink = 'http://haven.streamon.fm/program-e-'.$event.'.000000';
+              $playImage = get_stylesheet_directory_uri().'/assets/img/play.png';
+
               ?>
           <?php if( $img ): ?>
             <div style="background-image: url('<?php echo $img; ?>');" class="main-slider-slide">
           <?php endif; ?>
               <div class="hero-container">
-                <a href="#" class="play-program"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/play.png"></a>
+                <a class="play-program" onclick="PlayProgramAudio(<?php echo $event ?>)"><img src="<?php echo $playImage; ?>"></a>
               <?php if( $label ): ?>
                 <h5><?php echo $label; ?></h5>
               <?php endif; ?>
@@ -36,7 +45,7 @@
                 <p><?php echo $description; ?></p>
               <?php endif; ?>
               <?php if( $link ): ?>
-                <a href="<?php echo $link; ?>" class="o-button"><?php if( $text ): ?><?php echo $text; ?><?php endif; ?></a>
+                <a class="o-button" onclick="PlayProgramAudio(<?php echo $event ?>)"><?php if( $text ): ?><?php echo $text; ?><?php endif; ?></a>
               <?php endif; ?>
               </div>
             </div>
