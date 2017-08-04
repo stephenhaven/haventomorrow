@@ -10,6 +10,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+get_template_part( 'template-parts/content', 'title' ); ?>
 ?>
 <table class="shop_table woocommerce-checkout-review-order-table">
 	<thead>

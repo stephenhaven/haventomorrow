@@ -374,6 +374,10 @@ a {
 .section.storeSearch {
   background-color: #238698; }
 
+.page-template-page-store-landing h1, .page-template-page-store-landing h2, .page-template-page-store-landing h3, .page-template-page-store-landing h4, .page-template-page-store-landing a {
+  font-family: 'Nunito', sans-serif;
+  text-decoration: none; }
+
 .page-template-template-mapbox .container.map {
   min-height: 300px; }
 
