@@ -75,10 +75,13 @@ header#masthead {
           border-bottom: 2px solid #fff;
         }
         .sub-menu {
-          background-color: #fff;
+          background-color: #238698;
+          text-align: center;
+          margin-left: -50px;
           &
             a {
-              color: #303030;
+              color: #fff;
+              padding: 3px 0;
             }
         }
     }
@@ -105,6 +108,18 @@ footer {
           display: inline-block;
           font-size: .75rem;
         }
+    }
+}
+
+.bottom_bar {
+  background-color: #303030;
+  padding: 5px 5px;
+  &
+    p {
+      color: #fff;
+      margin: 0;
+      text-align: right;
+      font-size: .65em;
     }
 }
 
@@ -499,6 +514,12 @@ a {
     font-family: 'Nunito', sans-serif;
     text-decoration: none;
   }
+  &
+    .c-padding-180 {
+      h1 {
+        font-family: "minion-pro-caption",serif;
+      }
+    }
 }
 
 // Mapbox page

@@ -62,10 +62,13 @@ header#masthead {
     header#masthead .main-navigation .current-menu-item {
       border-bottom: 2px solid #fff; }
     header#masthead .main-navigation .sub-menu {
-      background-color: #fff; }
+      background-color: #238698;
+      text-align: center;
+      margin-left: -50px; }
       header#masthead .main-navigation .sub-menu
       a {
-        color: #303030; }
+        color: #fff;
+        padding: 3px 0; }
   header#masthead .nav-menu > li:last-of-type a, header#masthead .nav-menu > li:last-of-type a:hover {
     background-color: #238698;
     border-radius: 50%;
@@ -87,6 +90,16 @@ footer {
       margin: 0 .75rem;
       display: inline-block;
       font-size: .75rem; }
+
+.bottom_bar {
+  background-color: #303030;
+  padding: 5px 5px; }
+  .bottom_bar
+  p {
+    color: #fff;
+    margin: 0;
+    text-align: right;
+    font-size: .65em; }
 
 .entry-footer {
   background-color: #fff;
@@ -377,6 +390,9 @@ a {
 .page-template-page-store-landing h1, .page-template-page-store-landing h2, .page-template-page-store-landing h3, .page-template-page-store-landing h4, .page-template-page-store-landing a {
   font-family: 'Nunito', sans-serif;
   text-decoration: none; }
+.page-template-page-store-landing
+.c-padding-180 h1 {
+  font-family: "minion-pro-caption",serif; }
 
 .page-template-template-mapbox .container.map {
   min-height: 300px; }

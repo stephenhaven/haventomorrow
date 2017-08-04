@@ -30,6 +30,9 @@
 			</ul>
 		</div>
 	</footer><!-- #colophon -->
+	<div class="bottom_bar">
+		<p>COPYRIGHT © <?php echo date('Y'); ?> HAVEN MINISTRIES</p>
+	</div>
 </div><!-- #page -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56045996b0c981a6" async="async"></script>
 
