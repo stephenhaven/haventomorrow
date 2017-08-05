@@ -275,7 +275,7 @@ $(document).ready(function() {
 			stationOpen = true;
 		}
 	});
-	$('.topLinks .search').click(function() {
+	$('.links .search').click(function() {
 		if (searchOpen) {
 			$('.drop.search').fadeOut();
 			$('html,body').css('overflow','initial');

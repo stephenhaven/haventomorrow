@@ -84,6 +84,19 @@
 	</div>
 	</div>
 
+	<div class="drop search">
+  	<div class="closeBtn">Close<span>x</span></div>
+  	<h2>Search</h2>
+  	<h3>Type what you are looking for</h3>
+  	<hr />
+  	<div class="searchForm">
+  		<form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
+  			<input type="text" name="s" value="" placeholder="search haven" />
+  			<input type="submit" value="Search" />
+  		</form>
+  	</div><!--end .searchForm-->
+  </div><!--end .drop-->
+
 	<header id="masthead" class="site-header" role="banner">
 		<div class="site-branding">
 			<a href="/"><img src="<?php echo get_bloginfo('template_url') ?>/assets/img/logo-haven@2x.png" alt="Haven Ministries" width="162px"></a>
