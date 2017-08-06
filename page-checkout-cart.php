@@ -1,18 +1,16 @@
 <?php
 /**
  * Template Name: Checkout/Cart Page
- *
- * @package WordPress
- * @subpackage PJS
- * @since PJS 1.0
  */
 
-get_header(); ?>
+get_header();
 
-		<?php while ( have_posts() ) : the_post(); ?>
+		while ( have_posts() ) : the_post();
 
-		    <?php the_content(); ?>
+				get_template_part( 'template-parts/content', 'title' );
 
-		<?php endwhile; // end of the loop. ?>
+		    the_content();
 
-<?php get_footer(); ?>
+		endwhile;
+
+get_footer(); ?>
