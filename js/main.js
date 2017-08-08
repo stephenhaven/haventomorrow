@@ -213,7 +213,7 @@ $(document).ready(function() {
 	});
 
 	//top dropdown boxes
-	$('.topLinks .signup').click(function() {
+	$('.links .signup').click(function() {
 		if (signupOpen) {
 			$('.drop.signup').fadeOut();
 			$('html,body').css('overflow','initial');
