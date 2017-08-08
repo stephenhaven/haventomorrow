@@ -97,6 +97,35 @@
   	</div><!--end .searchForm-->
   </div><!--end .drop-->
 
+	<div class="drop signup">
+		<div class="closeBtn">Close<span>x</span></div>
+		<h2>Haven Today Email Updates</h2>
+		<h3>Keep up to date with the latest</h3>
+		<hr />
+		<div class="signupForm">
+			<?php echo do_shortcode('[contact-form-7 id="33501" title="Haven Today Email Updates"]'); ?>
+			<script>
+				$(document).ready(function(){
+					$('.options  .checkboxes .cb').click(function() {
+						var ninjaid = $(this).data('ninjaid');
+						$('.htCheck').each(function(){
+							if($(this).is('#' + ninjaid +':checked')){
+								$(this).prop("checked", false);
+							} else if($(this).is('#' + ninjaid)) {
+								$(this).prop("checked", true);
+							}
+						});
+						if ($(this).hasClass('on')) {
+							$(this).removeClass('on');
+						} else {
+							$(this).addClass('on');
+						}
+					});
+				});
+			</script>
+		</div><!--end .signupForm-->
+	</div><!--end .drop-->
+
 	<header id="masthead" class="site-header" role="banner">
 		<div class="site-branding">
 			<a href="/"><img src="<?php echo get_bloginfo('template_url') ?>/assets/img/logo-haven@2x.png" alt="Haven Ministries" width="162px"></a>
