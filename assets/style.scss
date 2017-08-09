@@ -64,6 +64,9 @@ header#masthead {
       float: right;
       width: auto;
       &
+        li {
+          margin: 0 7px;
+        }
         a, a:hover, a:visited, a:active {
           color: #fff;
           text-transform: uppercase;
@@ -135,6 +138,21 @@ section {
 
 section.dark {
   color: #fff;
+  background-color: #000;
+  // &
+  //   ::after {
+  //   content: "";
+  //   width: 2000px;
+  //   height: 500px;
+  //   position: absolute;
+  //   background-size: cover;
+  //   left: -400px;
+  //   top: -200px;
+  //   z-index: -1;
+  //   background-position: center;
+  //   background-repeat: no-repeat;
+  //   background-image: url(http://www.haventoday.ca/wp-content/themes/haven2015/images/header-program.jpg);
+  //   }
 }
 
 section.dark-2 {
@@ -174,6 +192,35 @@ section.light-2 {
 
 .c-padding-25-100 {
   padding: 25px 0 100px;
+}
+
+.vc_btn3-left {
+  a {
+    -webkit-appearance: none;
+    outline: 0;
+    border: none;
+    display: inline-block;
+    width: auto;
+    vertical-align: top;
+    margin: 0;
+    padding: 12px 10px 12px 18px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+    border-radius: 2px;
+    color: #fff;
+    background-color: #238698!important;
+    cursor: pointer;
+    transition: background-color 700ms cubic-bezier(0.19,1,0.22,1);
+    -webkit-transition: background-color 700ms cubic-bezier(0.19,1,0.22,1);
+    font-family: 'Nunito', sans-serif;
+  }
+  a:hover {
+    background-color: #35a4b8!important;
+    color: #fff;
+  }
 }
 
 a.o-button {
@@ -285,7 +332,7 @@ a {
 }
 
 .border-right {
-  border-right: 1px solid #f2f1ed;
+  border-right: 1px solid #16425b;
 }
 
 .entry-header {
@@ -309,19 +356,14 @@ a {
     }
   }
   .hero-container {
-    max-width: 1200px;
-    margin: 0 auto;
     position: relative;
     top: 50%;
-    padding-right: 15px;
-    padding-left: 15px;
-    transform: translateY(-50%);
+    transform: translateY(-20%);
   }
 }
 
 .blog {
   .container {
-    border-top: 1px solid #f2f1ed;
     padding-top: 50px;
   }
 }
@@ -522,6 +564,65 @@ a {
     }
 }
 
+.woocommerce-Price-amount.amount {
+  margin-top: 10px;
+}
+
+.wsc-progress.active {
+  background-color: #16425b;
+}
+
+.wsc-progress.active:after {
+  border-left: 8px solid #16425b;
+}
+
+.button#wsc-main {
+  -webkit-appearance: none;
+  outline: 0;
+  border: none;
+  display: inline-block;
+  width: auto;
+  vertical-align: top;
+  margin: 0;
+  padding: 12px 10px 12px 18px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+  border-radius: 2px;
+  color: #fff;
+  background-color: #238698;
+  cursor: pointer;
+  transition: background-color 700ms cubic-bezier(0.19,1,0.22,1);
+  -webkit-transition: background-color 700ms cubic-bezier(0.19,1,0.22,1);
+  font-family: 'Nunito', sans-serif;
+  width: 100%;
+}
+
+.checkout-button.button.alt.wc-forward {
+  -webkit-appearance: none;
+  outline: 0;
+  border: none;
+  display: inline-block;
+  width: auto;
+  vertical-align: top;
+  margin: 0;
+  padding: 12px 10px 12px 18px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+  border-radius: 2px;
+  color: #fff;
+  background-color: #238698;
+  cursor: pointer;
+  transition: background-color 700ms cubic-bezier(0.19,1,0.22,1);
+  -webkit-transition: background-color 700ms cubic-bezier(0.19,1,0.22,1);
+  font-family: 'Nunito', sans-serif;
+}
+
 // Mapbox page
 
 .page-template-template-mapbox {
@@ -581,4 +682,30 @@ hr.blue {
 .section.programs .content .right .item .button.download > i {
   font-size: 16px;
   position: absolute;
+}
+
+/** MEDIA QUERIES **/
+
+@media all and (max-width: 767px) {
+  .top-bar {
+    display: none;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  p {
+    font-size: .85em;
+  }
+  .mobile-hide {
+    display: none;
+  }
+  .slick-next, .slick-prev {
+    display: none;
+  }
+  .home .c-padding-50 {
+    min-height: 600px;
+  }
+  .site-footer {
+    display: none;
+  }
 }

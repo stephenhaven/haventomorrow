@@ -778,7 +778,6 @@ hr {clear:both; border:0; outline:none;}
 				.section.storeItems .product {width:242px; height:502px; float:left; text-align:left; margin:0 12px;}
 				.section.storeItems .swiper-wrapper .product {float:none;}
 					.section.storeItems .product a {display:block;}
-						.section.storeItems .product span {display:block;}
 							.section.storeItems .product span .from, .section.storeItems .product span .amount, .section.storeItems .product span .subscription-details {display:inline-block;}
 						.section.storeItems .product .img {width:100%; height:308px; text-align:center; display:flex; flex-direction:column; justify-content:center;}
 						.section.storeItems.gray .product .img, .section.storeItems.results .product .img {background:#ffffff;}
@@ -892,7 +891,7 @@ img.size-auto, img.size-full, img.size-large, img.size-medium, .attachment img {
 .payment_method_authorize_net_aim .payment_box input {font-size: 1.5em; padding: 8px; border:1px solid rgb(169, 169, 169); margin:0px !important;}
 .payment_method_authorize_net_aim .payment_box select {font-size: 1.5em; padding: 7px 8px; border:1px solid rgb(169, 169, 169);}
 #wc-authorize-net-aim-account-number {background-image: url("/wp-content/plugins/woocommerce-gateway-authorize-net-aim/lib/skyverge/woocommerce/payment-gateway/assets/images/card-cc-plain.svg"); background-repeat: no-repeat; background-position: 99%; background-size: 50px 31px;}
-.woocommerce form .form-row-first, .woocommerce-page form .form-row-first {float:none !important; width:100% !important; padding:0px !important;}
+/*.woocommerce form .form-row-first, .woocommerce-page form .form-row-first {float:none !important; width:100% !important; padding:0px !important;}*/
 .woocommerce form .form-row-last, .woocommerce-page form .form-row-last {float:left !important; padding:0px !important;}
 
 

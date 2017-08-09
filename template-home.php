@@ -33,8 +33,8 @@
           <?php if( $img ): ?>
             <div style="background-image: url('<?php echo $img; ?>');" class="main-slider-slide">
           <?php endif; ?>
-              <div class="hero-container">
-                <a class="play-program" onclick="PlayProgramAudio(<?php echo $event ?>)"><img src="<?php echo $playImage; ?>"></a>
+              <div class="container hero-container">
+                <a class="play-program mobile-hide" onclick="PlayProgramAudio(<?php echo $event ?>)"><img src="<?php echo $playImage; ?>"></a>
               <?php if( $label ): ?>
                 <h5><?php echo $label; ?></h5>
               <?php endif; ?>
@@ -138,7 +138,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <h3 class="text-center">FEATURED</h3>
+        <h3 class="text-center">GOING DEEPER</h3>
         <div class="slider_featured_events">
         <?php
             if( have_rows('slider_featured_events') ):
@@ -169,7 +169,7 @@
       <div class="col-md-1">
       </div>
       <div class="col-md-7">
-        <h3 class="text-center">RECENT PRODUCTS</h3>
+        <h3 class="text-center">FEATURED OFFERS</h3>
         <div class="container">
         <div class="row">
         <div class="slider_recent_products">
@@ -220,7 +220,7 @@
   });
 </script>
 
-<section class="c-padding-25-100 blog">
+<section class="c-padding-25-100 blog light-2">
   <div class="container">
     <div class="row">
         <?php

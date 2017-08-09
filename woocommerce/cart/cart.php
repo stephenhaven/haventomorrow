@@ -16,6 +16,8 @@ wc_print_notices();
 get_template_part( 'template-parts/content', 'title' );
 do_action( 'woocommerce_before_cart' ); ?>
 
+<div class="container">
+
 <form action="<?php echo esc_url( WC()->cart->get_cart_url() ); ?>" method="post">
 
 <?php do_action( 'woocommerce_before_cart_table' ); ?>
@@ -155,3 +157,4 @@ do_action( 'woocommerce_before_cart' ); ?>
 </div>
 
 <?php do_action( 'woocommerce_after_cart' ); ?>
+</div>
