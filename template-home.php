@@ -91,8 +91,10 @@
               </div>
               </div>
               <div class="col-md-4 text-center">
+                <?php if( $link ): ?>
                 <?php if( $img ): ?>
-                <img src="<?php echo $img; ?>" width="80%">
+                <a href="<?php echo $link; ?>"><img src="<?php echo $img; ?>" width="80%"></a>
+                <?php endif; ?>
                 <?php endif; ?>
               </div>
               <div class="col-md-4 text-center">
@@ -250,7 +252,7 @@
 									echo '<h4>'.$anchor_title.'</h4>';
 									echo '<p><em>'.$anchor_date.'</em><p>';
 									echo '<p><img class="float-left" src="http://www.haventoday.ca/wp-content/uploads/2017/01/Anchor01312017-2.jpg" width="100px">'.strip_tags(pjs_truncate($anchor_description,400), '<br>').'</p>';
-								echo '<a href="'.$anchor_permalink.'" class="">Keep Reading >></a>';
+								echo '<a href="'.$anchor_permalink.'" class="o-button">Keep Reading</a>';
 								echo '</div><!--end .right-->';
 							echo '</div><!--end .content-->';
 						echo '</div><!--end .section-->';
@@ -276,7 +278,7 @@
                   <h4><?php the_title(); ?></h4>
                   <p><em><?php the_date('l / F jS Y'); ?></em><p>
                   <p><img class="float-left" src="http://www.haventoday.ca/wp-content/uploads/2017/01/Anchor01312017-2.jpg" width="100px"><?php echo technig_content(65); ?></p>
-                  <a href="<?php the_permalink(); ?>">Keep Reading >></a>
+                  <a class="o-button" href="<?php the_permalink(); ?>">Keep Reading</a>
           <?php endwhile;
           ?>
       </div>

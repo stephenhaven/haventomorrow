@@ -7,9 +7,11 @@
  * @package haventomorrow
  */
 
-get_header(); ?>
+ get_header();
+ get_template_part( 'template-parts/content', 'title' ); ?>
 
-	<section id="primary" class="content-area">
+ <section class="c-padding-75">
+	 <div class="container">
 		<main id="main" class="site-main" role="main">
 
 		<?php
@@ -41,8 +43,7 @@ get_header(); ?>
 		endif; ?>
 
 		</main><!-- #main -->
+	</div>
 	</section><!-- #primary -->
 
-<?php
-get_sidebar();
-get_footer();
+<?php get_footer(); ?>

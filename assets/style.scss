@@ -155,6 +155,10 @@ section.dark {
   //   }
 }
 
+.dark-80 {
+  background-color: rgba(0,0,0,0.8);
+}
+
 section.dark-2 {
   background-color: #16425b;
   color: #fff;
@@ -480,6 +484,10 @@ a {
       margin: 0 25px;
     }
   }
+}
+
+.tags-links {
+  display: block;
 }
 
 // Store

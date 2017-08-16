@@ -115,6 +115,9 @@ section.dark {
   color: #fff;
   background-color: #000; }
 
+.dark-80 {
+  background-color: rgba(0, 0, 0, 0.8); }
+
 section.dark-2 {
   background-color: #16425b;
   color: #fff; }
@@ -358,6 +361,9 @@ a {
   .single-anchor .anchorBtns
   .o-button {
     margin: 0 25px; }
+
+.tags-links {
+  display: block; }
 
 .single-product .light-2 {
   max-width: 800px; }
