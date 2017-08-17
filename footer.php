@@ -16,17 +16,39 @@
 	<footer id="colophon" class="site-footer dark-2" role="contentinfo">
 		<div class="container">
 			<ul>
-				<li>HOME</li>
-				<li>GIVE TO HAVEN</li>
-				<li>PROGRAM ARCHIVE</li>
-				<li>RESOURCES</li>
-				<li>PRAYER</li>
-				<li>ANCHOR</li>
-				<li>BLOG</li>
-				<li>ABOUT</li>
-				<li>CONTACT</li>
-				<li>PRIVACY POLICY</li>
-				<li>RETURN POLICY</li>
+				<li><a href="/">HOME</a></li>
+				<li><a href="/give">GIVE TO HAVEN</a></li>
+				<li><a href="/program-archive">PROGRAM ARCHIVE</a></li>
+				<li><a href="/prayer">PRAYER</a></li>
+				<?php
+
+				$args_anchor = array(
+					'post_type' => 'anchor',
+					'posts_per_page' => 1,
+					'post_status' => 'publish'
+				);
+
+				$query_anchor = new WP_Query( $args_anchor );
+
+				if ( $query_anchor->have_posts() ) {
+					while ( $query_anchor->have_posts() ) {
+						$query_anchor->the_post();
+
+						$anchor_permalink = get_the_permalink();
+
+								echo '<li><a href="'.$anchor_permalink.'">Anchor</a></li>';
+
+					}
+				}
+
+				wp_reset_postdata();
+
+				?>
+				<li><a href="/blog">BLOG</a></li>
+				<li><a href="/about">ABOUT</a></li>
+				<li><a href="/contact">CONTACT</a></li>
+				<li><a href="/privacy-policy">PRIVACY POLICY</a></li>
+				<li><a href="/return-policy">RETURN POLICY</a></li>
 			</ul>
 		</div>
 	</footer><!-- #colophon -->

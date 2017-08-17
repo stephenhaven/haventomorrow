@@ -92,6 +92,22 @@ footer {
       margin: 0 .75rem;
       display: inline-block;
       font-size: .75rem; }
+      footer
+      ul
+      li
+      a {
+        font-family: 'Nunito', sans-serif;
+        text-transform: uppercase;
+        color: #fff;
+        text-decoration: none; }
+      footer
+      ul
+      li a:visited {
+        color: #fff; }
+      footer
+      ul
+      li a:hover {
+        color: #fff; }
 
 .bottom_bar {
   background-color: #303030;

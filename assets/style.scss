@@ -110,6 +110,19 @@ footer {
           margin: 0 .75rem;
           display: inline-block;
           font-size: .75rem;
+          &
+            a {
+              font-family: 'Nunito', sans-serif;
+              text-transform: uppercase;
+              color: #fff;
+              text-decoration: none;
+            }
+            a:visited {
+              color: #fff;
+            }
+            a:hover {
+              color: #fff;
+            }
         }
     }
 }

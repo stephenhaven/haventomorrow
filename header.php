@@ -133,7 +133,53 @@
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'MENU', 'haventomorrow' ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu' ) ); ?>
+							<div class="menu-menu-1-container"><ul id="primary-menu" class="menu nav-menu" aria-expanded="false"><li id="menu-item-33383" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-33398 current_page_item menu-item-33383"><a href="http://haventomorrow.com/">Home</a></li>
+				<li id="menu-item-33384" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-33384"><a href="/program">Program</a>
+				<ul class="sub-menu">
+					<li id="menu-item-33392" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33392"><a href="http://haventomorrow.com/program-archive/">Program Archive</a></li>
+					<li id="menu-item-33524" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33524"><a href="http://haventomorrow.com/haven-now/">Haven Now</a></li>
+					<li id="menu-item-33523" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33523"><a href="http://haventomorrow.com/anchor-today/">Anchor Today</a></li>
+				</ul>
+				</li>
+				<li id="menu-item-33387" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-33387"><a href="#">Resources</a>
+				<ul class="sub-menu">
+					<li id="menu-item-33390" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33390"><a href="http://haventomorrow.com/blog/">Blog</a></li>
+					<?php
+
+					$args_anchor = array(
+						'post_type' => 'anchor',
+						'posts_per_page' => 1,
+						'post_status' => 'publish'
+					);
+
+					$query_anchor = new WP_Query( $args_anchor );
+
+					if ( $query_anchor->have_posts() ) {
+						while ( $query_anchor->have_posts() ) {
+							$query_anchor->the_post();
+
+							$anchor_permalink = get_the_permalink();
+
+									echo '<li id="menu-item-33585" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33585"><a href="'.$anchor_permalink.'">Anchor</a></li>';
+
+						}
+					}
+
+					wp_reset_postdata();
+
+					?>
+					<li id="menu-item-33389" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33389"><a href="http://haventomorrow.com/prayer/">Prayer</a></li>
+					<li id="menu-item-33614" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33614"><a href="http://haventomorrow.com/knowing-god/">Knowing God</a></li>
+				</ul>
+				</li>
+				<li id="menu-item-33553" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33553"><a href="http://haventomorrow.com/store/">Store</a></li>
+				<li id="menu-item-33391" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-33391"><a href="http://haventomorrow.com/about/">About</a>
+				<ul class="sub-menu">
+					<li id="menu-item-33613" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33613"><a href="http://haventomorrow.com/financial-accountability/">Financial Accountability</a></li>
+				</ul>
+				</li>
+				<li id="menu-item-33589" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-33589"><a href="/product/give">Give</a></li>
+				</ul></div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
