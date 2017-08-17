@@ -17,7 +17,6 @@
               $title = get_sub_field('title');
               $description = get_sub_field('description');
               $img = get_sub_field('slider_image');
-              $text = get_sub_field('button_text');
               $link = get_sub_field('button_link');
               //print_r($link);
 
@@ -45,7 +44,7 @@
                 <p><?php echo $description; ?></p>
               <?php endif; ?>
               <?php if( $link ): ?>
-                <a class="o-button" onclick="PlayProgramAudio(<?php echo $event ?>)"><?php if( $text ): ?><?php echo $text; ?><?php endif; ?></a>
+                <a class="o-button" href="<?php echo $button_link; ?>">View Series</a>
               <?php endif; ?>
               </div>
             </div>

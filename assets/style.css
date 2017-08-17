@@ -335,6 +335,8 @@ a {
 .slider_recent_products .slick-next:before, .slider_recent_products .slick-prev:before {
   color: #000 !important; }
 
+.single-anchor .col-md-8 {
+  text-align: left; }
 .single-anchor h3 {
   font-size: 17px;
   text-transform: uppercase;
