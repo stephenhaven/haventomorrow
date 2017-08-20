@@ -7,3 +7,6 @@ $(document).ready(function() {
         slidesToScroll: 1
     });
 });
+
+// Hide minimum price for name your price
+$('#nyp').val('');

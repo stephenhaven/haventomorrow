@@ -453,6 +453,3 @@ $(function() {
 setTimeout(function() {
   $('#html-pourcent').html('25%');
 },2800);
-
-// Hide minimum price for name your price
-$('#nyp').val('');
