@@ -52,7 +52,7 @@ if ($product->donation == false && $product->product_type != 'composite' && $pro
 
 	?>
 
-		<div class="section storeItems light-2">
+		<div class="section storeItems">
 		<div class="heading">
 			<!--<a href="/store/featured-products/">View All</a>-->
 			<h1>Featured Products</h1>

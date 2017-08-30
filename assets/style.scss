@@ -509,15 +509,26 @@ a {
 // Store
 
 .single-product {
+  .section.storeItems {
+    .heading {
+      padding-bottom: 0;
+    }
+  }
   .light-2 {
     max-width: 800px;
+    margin-bottom: 50px;
+  }
+  .nyp {
+    margin-bottom: -10px;
+  }
+  .quantity {
+    margin-left: 0px;
   }
   .products {
     .product {
       text-align: center;
-      width: 24.98%;
-      padding-left: 15px;
-      padding-right: 15px;
+      padding-left: 6px;
+      padding-right: 6px;
       &
         a {
           text-decoration: none;

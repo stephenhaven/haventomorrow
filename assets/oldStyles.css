@@ -775,7 +775,7 @@ hr {clear:both; border:0; outline:none;}
 				.section.storeItems .products .arrowLeft:hover {background:url('../assets/img/site-icons.png') -173px -20px no-repeat;}
 				.section.storeItems .products .arrowRight {width:14px; height:25px; background:url('../assets/img/site-icons.png') -64px -26px no-repeat; position:absolute; right:-24px; top:50%; z-index:5; margin-top:-87px; cursor:pointer;}
 				.section.storeItems .products .arrowRight:hover {background:url('../assets/img/site-icons.png') -188px -20px no-repeat;}
-				.section.storeItems .product {width:242px; height:502px; float:left; text-align:left; margin:0 12px;}
+				.section.storeItems .product {float:left; text-align:left; margin:0 12px;}
 				.section.storeItems .swiper-wrapper .product {float:none;}
 					.section.storeItems .product a {display:block;}
 							.section.storeItems .product span .from, .section.storeItems .product span .amount, .section.storeItems .product span .subscription-details {display:inline-block;}
@@ -930,7 +930,7 @@ img.size-auto, img.size-full, img.size-large, img.size-medium, .attachment img {
 .woocommerce .showlogin:hover {background:#fff !important; color:#1d889a;}
 
 .woocommerce div.product form.cart .single_add_to_cart_button {float:none !important; margin-top:20px;}
-.woocommerce div.product form.cart div.quantity {float:none !important; display:inline-block; margin:0 10px !important; vertical-align:bottom;}
+.woocommerce div.product form.cart div.quantity {float:none !important; display:inline-block;; vertical-align:bottom;}
 .woocommerce div.product form.cart div.quantity > input {color:#2d2d2d; border:1px solid #1d889a; font:13px/13px Arial, sans-serif; font-weight:700; padding:7px 10px; background:transparent;}
 .woocommerce .storeDetail .right form.cart .single_add_to_cart_button.button.alt {float:right !important; margin-top:0px !important;}
 

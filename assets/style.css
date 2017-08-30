@@ -383,13 +383,19 @@ a {
 .tags-links {
   display: block; }
 
+.single-product .section.storeItems .heading {
+  padding-bottom: 0; }
 .single-product .light-2 {
-  max-width: 800px; }
+  max-width: 800px;
+  margin-bottom: 50px; }
+.single-product .nyp {
+  margin-bottom: -10px; }
+.single-product .quantity {
+  margin-left: 0px; }
 .single-product .products .product {
   text-align: center;
-  width: 24.98%;
-  padding-left: 15px;
-  padding-right: 15px; }
+  padding-left: 6px;
+  padding-right: 6px; }
   .single-product .products .product
   a {
     text-decoration: none; }
