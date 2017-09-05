@@ -79,7 +79,7 @@
             <div>
               <div class="row">
               <div class="col-md-4">
-                <div class="v-middle">
+                <div class="">
                   <h3>TODAY'S OFFER</h3>
                   <?php if( $premium ): ?>
                   <h4><?php echo $premium; ?></h4>
@@ -97,7 +97,7 @@
                 <?php endif; ?>
               </div>
               <div class="col-md-4 text-center">
-                <div class="v-middle">
+                <div class="v-middle-absolute">
                   <?php if( $link ): ?>
                 <a href="<?php echo $link; ?>" class="o-button">GET THIS RESOURCE</a>
                 <?php endif; ?>

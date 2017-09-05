@@ -9,6 +9,13 @@ body {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%); }
 
+.v-middle-absolute {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
 .top-bar {
   background-color: #16425b;
   color: #fff;
