@@ -12,7 +12,6 @@ Text Domain: pjs
 html, body {width:100%; height:100%; margin:0; padding:0;}
 h1, h2, h3, h4, h5, li, form {margin:0; padding:0;}
 p {margin:0 0 15px 0;}
-div {width:auto; height:auto; margin:0 auto;}
 
 a {color:#1d889a; outline:none; text-decoration:none;}
 a:hover {color:#000; text-decoration:none;}

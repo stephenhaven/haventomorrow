@@ -70,12 +70,13 @@ header#masthead {
     .site-branding {
       display: inline-block;
     }
-    .main-navigation {
+    .menu-menu-1-container {
       float: right;
       width: auto;
       &
         li {
           margin: 0 7px;
+          display: inline-block;
         }
         a, a:hover, a:visited, a:active {
           color: #fff;
@@ -83,9 +84,6 @@ header#masthead {
           font-family: 'Nunito', sans-serif;
           margin: 0 15px;
           font-weight: 600;
-        }
-        .current-menu-item {
-          border-bottom: 2px solid #fff;
         }
         .sub-menu {
           background-color: #238698;

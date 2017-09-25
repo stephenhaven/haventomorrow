@@ -59,25 +59,24 @@ header#masthead {
   header#masthead
   .site-branding {
     display: inline-block; }
-  header#masthead .main-navigation {
+  header#masthead .menu-menu-1-container {
     float: right;
     width: auto; }
-    header#masthead .main-navigation
+    header#masthead .menu-menu-1-container
     li {
-      margin: 0 7px; }
-    header#masthead .main-navigation a, header#masthead .main-navigation a:hover, header#masthead .main-navigation a:visited, header#masthead .main-navigation a:active {
+      margin: 0 7px;
+      display: inline-block; }
+    header#masthead .menu-menu-1-container a, header#masthead .menu-menu-1-container a:hover, header#masthead .menu-menu-1-container a:visited, header#masthead .menu-menu-1-container a:active {
       color: #fff;
       text-transform: uppercase;
       font-family: 'Nunito', sans-serif;
       margin: 0 15px;
       font-weight: 600; }
-    header#masthead .main-navigation .current-menu-item {
-      border-bottom: 2px solid #fff; }
-    header#masthead .main-navigation .sub-menu {
+    header#masthead .menu-menu-1-container .sub-menu {
       background-color: #238698;
       text-align: center;
       margin-left: -50px; }
-      header#masthead .main-navigation .sub-menu
+      header#masthead .menu-menu-1-container .sub-menu
       a {
         color: #fff;
         padding: 3px 0; }

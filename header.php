@@ -18,7 +18,7 @@
 
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/oldStyles.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 <!-- <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script> -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script>
@@ -26,9 +26,8 @@ $(document).ready(function() {
   document.getElementsByTagName("html")[0].style.visibility = "visible";
 });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-<script src="https://use.typekit.net/emp1lty.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script><script src="https://use.typekit.net/emp1lty.js"></script>
 <script>try{Typekit.load({ async: true });}catch(e){}</script>
 <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,600,600i,800,800i" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Alegreya" rel="stylesheet">
@@ -132,60 +131,70 @@ $(document).ready(function() {
 	</div><!--end .drop-->
 
 	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<a href="/"><img src="<?php echo get_bloginfo('template_url') ?>/assets/img/logo-haven@2x.png" alt="Haven Ministries" width="162px"></a>
-		</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'MENU', 'haventomorrow' ); ?></button>
-							<div class="menu-menu-1-container"><ul id="primary-menu" class="menu nav-menu" aria-expanded="false"><li id="menu-item-33383" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-33398 current_page_item menu-item-33383"><a href="http://haventomorrow.com/">Home</a></li>
-				<li id="menu-item-33384" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-33384"><a href="/program">Program</a>
-				<ul class="sub-menu">
-					<li id="menu-item-33392" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33392"><a href="http://haventomorrow.com/program-archive/">Program Archive</a></li>
-					<li id="menu-item-33524" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33524"><a href="http://haventomorrow.com/haven-now/">Haven Now</a></li>
-					<li id="menu-item-33523" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33523"><a href="http://haventomorrow.com/anchor-today/">Anchor Today</a></li>
-				</ul>
-				</li>
-				<li id="menu-item-33387" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-33387"><a href="#">Resources</a>
-				<ul class="sub-menu">
-					<li id="menu-item-33390" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33390"><a href="http://haventomorrow.com/blog/">Blog</a></li>
-					<?php
+    <nav class="navbar navbar-expand-lg navbar-light bg-light-opened">
+        <a class="navbar-brand" href="#"><div class="site-branding">
+          <a href="/"><img src="<?php echo get_bloginfo('template_url') ?>/assets/img/logo-haven@2x.png" alt="Haven Ministries" width="162px"></a>
+        </div><!-- .site-branding --></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="menu-menu-1-container"><ul id="primary-menu" class="menu nav-menu" aria-expanded="false"><li id="menu-item-33383" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-33398 current_page_item menu-item-33383"><a href="http://haventomorrow.com/">Home</a></li>
 
-					$args_anchor = array(
-						'post_type' => 'anchor',
-						'posts_per_page' => 1,
-						'post_status' => 'publish'
-					);
+            <li id="menu-item-33384" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-33384 nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Program
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a href="/program">Program</a>
+                <a href="http://haventomorrow.com/program-archive/">Program Archive</a>
+                <a href="http://haventomorrow.com/haven-now/">Haven Now</a>
+                <a href="http://haventomorrow.com/anchor-today/">Anchor Today</a>
+              </div>
+            </li>
 
-					$query_anchor = new WP_Query( $args_anchor );
+    				<li id="menu-item-33387" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-33387"><a href="#">Resources</a>
+    				<ul class="sub-menu">
+    					<li id="menu-item-33390" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33390"><a href="http://haventomorrow.com/blog/">Blog</a></li>
+    					<?php
 
-					if ( $query_anchor->have_posts() ) {
-						while ( $query_anchor->have_posts() ) {
-							$query_anchor->the_post();
+    					$args_anchor = array(
+    						'post_type' => 'anchor',
+    						'posts_per_page' => 1,
+    						'post_status' => 'publish'
+    					);
 
-							$anchor_permalink = get_the_permalink();
+    					$query_anchor = new WP_Query( $args_anchor );
 
-									echo '<li id="menu-item-33585" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33585"><a href="'.$anchor_permalink.'">Anchor</a></li>';
+    					if ( $query_anchor->have_posts() ) {
+    						while ( $query_anchor->have_posts() ) {
+    							$query_anchor->the_post();
 
-						}
-					}
+    							$anchor_permalink = get_the_permalink();
 
-					wp_reset_postdata();
+    									echo '<li id="menu-item-33585" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33585"><a href="'.$anchor_permalink.'">Anchor</a></li>';
 
-					?>
-					<li id="menu-item-33389" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33389"><a href="http://haventomorrow.com/prayer/">Prayer</a></li>
-					<li id="menu-item-33614" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33614"><a href="http://haventomorrow.com/knowing-god/">Knowing God</a></li>
-				</ul>
-				</li>
-				<li id="menu-item-33553" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33553"><a href="http://haventomorrow.com/store/">Store</a></li>
-				<li id="menu-item-33391" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-33391"><a href="http://haventomorrow.com/about/">About</a>
-				<ul class="sub-menu">
-					<li id="menu-item-33613" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33613"><a href="http://haventomorrow.com/financial-accountability/">Financial Accountability</a></li>
-				</ul>
-				</li>
-				<li id="menu-item-33589" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-33589"><a href="/product/give">Give</a></li>
-				</ul></div>
-		</nav><!-- #site-navigation -->
+    						}
+    					}
+
+    					wp_reset_postdata();
+
+    					?>
+    					<li id="menu-item-33389" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33389"><a href="http://haventomorrow.com/prayer/">Prayer</a></li>
+    					<li id="menu-item-33614" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33614"><a href="http://haventomorrow.com/knowing-god/">Knowing God</a></li>
+    				</ul>
+    				</li>
+    				<li id="menu-item-33553" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33553"><a href="http://haventomorrow.com/store/">Store</a></li>
+    				<li id="menu-item-33391" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-33391"><a href="http://haventomorrow.com/about/">About</a>
+    				<ul class="sub-menu">
+    					<li id="menu-item-33613" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33613"><a href="http://haventomorrow.com/financial-accountability/">Financial Accountability</a></li>
+    				</ul>
+    				</li>
+    				<li id="menu-item-33589" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-33589"><a href="/product/give">Give</a></li>
+    				</ul></div>
+        </div>
+      </nav>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
