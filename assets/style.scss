@@ -71,7 +71,8 @@ header#masthead {
       display: inline-block;
     }
     .menu-menu-1-container {
-      float: right;
+      position: absolute;
+      right: 0;
       width: auto;
       &
         li {
@@ -84,6 +85,7 @@ header#masthead {
           font-family: 'Nunito', sans-serif;
           margin: 0 15px;
           font-weight: 600;
+          text-decoration: none;
         }
         .sub-menu {
           background-color: #238698;
@@ -96,11 +98,36 @@ header#masthead {
             }
         }
     }
+    .dropdown-menu.show {
+        &
+          a {
+            display: block;
+            width: 100%;
+            padding: .25rem 1.5rem;
+            clear: both;
+            font-weight: 400;
+            color: #212529;
+            text-align: inherit;
+            white-space: nowrap;
+            background: 0 0;
+            border: 0;
+            margin: 0;
+          }
+          a:focus, a:hover {
+            color: #16181b;
+            text-decoration: none;
+            background-color: #f8f9fa;
+          }
+    }
     .nav-menu > li:last-of-type a, .nav-menu > li:last-of-type a:hover {
       background-color: #238698;
       border-radius: 50%;
       padding: 15px 10px;
       margin-top: -15px;
+    }
+    .navbar-light .navbar-toggler {
+      color: rgba(255,255,255,1);
+      border-color: rgba(255,255,255,1);
     }
 }
 

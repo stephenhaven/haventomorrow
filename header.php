@@ -132,10 +132,10 @@ $(document).ready(function() {
 
 	<header id="masthead" class="site-header" role="banner">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light-opened">
-        <a class="navbar-brand" href="#"><div class="site-branding">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light-opened">
+        <div class="site-branding">
           <a href="/"><img src="<?php echo get_bloginfo('template_url') ?>/assets/img/logo-haven@2x.png" alt="Haven Ministries" width="162px"></a>
-        </div><!-- .site-branding --></a>
+        </div><!-- .site-branding -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -143,53 +143,59 @@ $(document).ready(function() {
           <div class="menu-menu-1-container"><ul id="primary-menu" class="menu nav-menu" aria-expanded="false"><li id="menu-item-33383" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-33398 current_page_item menu-item-33383"><a href="http://haventomorrow.com/">Home</a></li>
 
             <li id="menu-item-33384" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-33384 nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Program
+              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Listen
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a href="/program">Program</a>
+                <a href="/program">Today's Program</a>
                 <a href="http://haventomorrow.com/program-archive/">Program Archive</a>
                 <a href="http://haventomorrow.com/haven-now/">Haven Now</a>
                 <a href="http://haventomorrow.com/anchor-today/">Anchor Today</a>
               </div>
             </li>
 
-    				<li id="menu-item-33387" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-33387"><a href="#">Resources</a>
-    				<ul class="sub-menu">
-    					<li id="menu-item-33390" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33390"><a href="http://haventomorrow.com/blog/">Blog</a></li>
-    					<?php
+    				<li id="menu-item-33387" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-33387 nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Resources
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a href="http://haventomorrow.com/blog/">Blog</a>
+                <?php
 
-    					$args_anchor = array(
-    						'post_type' => 'anchor',
-    						'posts_per_page' => 1,
-    						'post_status' => 'publish'
-    					);
+      					$args_anchor = array(
+      						'post_type' => 'anchor',
+      						'posts_per_page' => 1,
+      						'post_status' => 'publish'
+      					);
 
-    					$query_anchor = new WP_Query( $args_anchor );
+      					$query_anchor = new WP_Query( $args_anchor );
 
-    					if ( $query_anchor->have_posts() ) {
-    						while ( $query_anchor->have_posts() ) {
-    							$query_anchor->the_post();
+      					if ( $query_anchor->have_posts() ) {
+      						while ( $query_anchor->have_posts() ) {
+      							$query_anchor->the_post();
 
-    							$anchor_permalink = get_the_permalink();
+      							$anchor_permalink = get_the_permalink();
 
-    									echo '<li id="menu-item-33585" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33585"><a href="'.$anchor_permalink.'">Anchor</a></li>';
+      									echo '<a href="'.$anchor_permalink.'">Anchor</a>';
 
-    						}
-    					}
+      						}
+      					}
 
-    					wp_reset_postdata();
+      					wp_reset_postdata();
 
-    					?>
-    					<li id="menu-item-33389" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33389"><a href="http://haventomorrow.com/prayer/">Prayer</a></li>
-    					<li id="menu-item-33614" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33614"><a href="http://haventomorrow.com/knowing-god/">Knowing God</a></li>
-    				</ul>
+      					?>
+                <a href="http://haventomorrow.com/prayer/">Prayer</a>
+                <a href="http://haventomorrow.com/knowing-god/">Knowing God</a>
+              </div>
     				</li>
     				<li id="menu-item-33553" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33553"><a href="http://haventomorrow.com/store/">Store</a></li>
-    				<li id="menu-item-33391" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-33391"><a href="http://haventomorrow.com/about/">About</a>
-    				<ul class="sub-menu">
-    					<li id="menu-item-33613" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33613"><a href="http://haventomorrow.com/financial-accountability/">Financial Accountability</a></li>
-    				</ul>
+    				<li id="menu-item-33391" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-33391 nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                About</a>
+    				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a href="/about">About Us</a>
+    					<a href="http://haventomorrow.com/financial-accountability/">Financial Accountability</a>
+    				</div>
     				</li>
     				<li id="menu-item-33589" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-33589"><a href="/product/give">Give</a></li>
     				</ul></div>

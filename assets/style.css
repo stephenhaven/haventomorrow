@@ -60,7 +60,8 @@ header#masthead {
   .site-branding {
     display: inline-block; }
   header#masthead .menu-menu-1-container {
-    float: right;
+    position: absolute;
+    right: 0;
     width: auto; }
     header#masthead .menu-menu-1-container
     li {
@@ -71,7 +72,8 @@ header#masthead {
       text-transform: uppercase;
       font-family: 'Nunito', sans-serif;
       margin: 0 15px;
-      font-weight: 600; }
+      font-weight: 600;
+      text-decoration: none; }
     header#masthead .menu-menu-1-container .sub-menu {
       background-color: #238698;
       text-align: center;
@@ -80,11 +82,31 @@ header#masthead {
       a {
         color: #fff;
         padding: 3px 0; }
+  header#masthead .dropdown-menu.show
+  a {
+    display: block;
+    width: 100%;
+    padding: .25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background: 0 0;
+    border: 0;
+    margin: 0; }
+  header#masthead .dropdown-menu.show a:focus, header#masthead .dropdown-menu.show a:hover {
+    color: #16181b;
+    text-decoration: none;
+    background-color: #f8f9fa; }
   header#masthead .nav-menu > li:last-of-type a, header#masthead .nav-menu > li:last-of-type a:hover {
     background-color: #238698;
     border-radius: 50%;
     padding: 15px 10px;
     margin-top: -15px; }
+  header#masthead .navbar-light .navbar-toggler {
+    color: white;
+    border-color: white; }
 
 footer {
   background-color: #16425b;
