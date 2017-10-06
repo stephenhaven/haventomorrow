@@ -544,15 +544,31 @@ a {
 
 // Store
 
+.quantity, .qtylabel, .price {
+  display: none;
+}
+
+.productsFeatured, .products {
+  margin: 0 auto;
+}
+
+.section.storeItems {
+  .heading {
+    margin: 0 auto;
+  }
+}
+
 .single-product {
   .section.storeItems {
     .heading {
       padding-bottom: 0;
+      margin: 0 auto;
     }
   }
   .light-2 {
     max-width: 800px;
     margin-bottom: 50px;
+    margin: 0 auto;
   }
   .nyp {
     margin-bottom: -10px;

@@ -156,7 +156,7 @@ $(document).ready(function() {
 
     				<li id="menu-item-33387" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-33387 nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Resources
+                Ministry
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a href="http://haventomorrow.com/blog/">Blog</a>
@@ -188,7 +188,7 @@ $(document).ready(function() {
                 <a href="http://haventomorrow.com/knowing-god/">Knowing God</a>
               </div>
     				</li>
-    				<li id="menu-item-33553" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33553"><a href="http://haventomorrow.com/store/">Store</a></li>
+    				<li id="menu-item-33553" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33553"><a href="/store/">Resources</a></li>
     				<li id="menu-item-33391" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-33391 nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 About</a>

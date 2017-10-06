@@ -929,7 +929,6 @@ img.size-auto, img.size-full, img.size-large, img.size-medium, .attachment img {
 .woocommerce .showlogin:hover {background:#fff !important; color:#1d889a;}
 
 .woocommerce div.product form.cart .single_add_to_cart_button {float:none !important; margin-top:20px;}
-.woocommerce div.product form.cart div.quantity {float:none !important; display:inline-block;; vertical-align:bottom;}
 .woocommerce div.product form.cart div.quantity > input {color:#2d2d2d; border:1px solid #1d889a; font:13px/13px Arial, sans-serif; font-weight:700; padding:7px 10px; background:transparent;}
 .woocommerce .storeDetail .right form.cart .single_add_to_cart_button.button.alt {float:right !important; margin-top:0px !important;}
 
