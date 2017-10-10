@@ -70,6 +70,7 @@
             while ( have_rows('featured_product_slider') ) : the_row();
 
                 // display a sub field value
+                $label = get_sub_field('label');
                 $premium = get_sub_field('premium');
                 $desc = get_sub_field('brief_description');
                 $img = get_sub_field('premium_image');
@@ -80,7 +81,9 @@
               <div class="row">
               <div class="col-md-4">
                 <div class="">
-                  <h3>TODAY'S OFFER</h3>
+                  <?php if( $label ): ?>
+                  <h3><?php echo $label; ?></h3>
+                  <?php endif; ?>
                   <?php if( $premium ): ?>
                   <h4><?php echo $premium; ?></h4>
                   <?php endif; ?>
@@ -124,12 +127,12 @@
     <div class="row">
       <div class="col-md-5">
         <h3>MEET THE SPEAKER</h3>
-        <h4>CHARLES MORRIS</h4>
+        <h4>Charles Morris</h4>
         <p>Charles had been asking the Lord to use his journalism background and communication skills for the Kingdom when the phone rang in early 2000 and he was asked to become the fourth speaker on an 80-year-old Christian radio program based in Los Angeles called Haven Today.</p>
-        <p><a href="/about">Learn More >></a></p>
+        <p><a href="/about" class="o-button">Learn More</a></p>
       </div>
       <div class="col-md-7">
-        <img src="http://www.haventoday.ca/wp-content/uploads/2015/10/img-about.jpg">
+        <img src="http://haventomorrow.com/wp-content/uploads/2017/10/Charles-homepage.jpg">
       </div>
     </div>
   </div>
@@ -245,12 +248,15 @@
 						$anchor_permalink = get_the_permalink();
 
 						echo '<div class="col-md-5">';
+            echo '<div class="row"><div class="col-md-3">';
+            echo '<img class="float-left" src="http://haventomorrow.com/wp-content/uploads/2017/10/AnchorToday_color.png" height="100px"></div>';
+            echo '<div class="col-md-9">';
 						echo '<h3>TODAY\'S ANCHOR</h3>';
-							echo '<div class="content">';
-								echo '<div class="right">';
-									echo '<h4>'.$anchor_title.'</h4>';
-									echo '<p><em>'.$anchor_date.'</em><p>';
-									echo '<p><img class="float-left" src="http://www.haventoday.ca/wp-content/uploads/2017/01/Anchor01312017-2.jpg" width="100px">'.strip_tags(pjs_truncate($anchor_description,400), '<br>').'</p>';
+									echo '<p style="margin-bottom: 2px;"><strong>'.$anchor_title.'</strong></p>';
+									echo '<p><em>'.$anchor_date.'</em><p></div></div>';
+                  echo '<div class="content">';
+    								echo '<div class="right">';
+									echo '<p>'.strip_tags(pjs_truncate($anchor_description,400), '<br>').'</p>';
 								echo '<a href="'.$anchor_permalink.'" class="o-button">Keep Reading</a>';
 								echo '</div><!--end .right-->';
 							echo '</div><!--end .content-->';
@@ -267,6 +273,9 @@
       <div class="col-md-1">
       </div>
       <div class="col-md-5">
+        <div class="row"><div class="col-md-3">
+          <img class="float-left" src="http://haventomorrow.com/wp-content/uploads/2017/10/Blogpost_color.png" height="100px"></div>
+          <div class="col-md-9">
         <h3>FEATURED BLOG POST</h3>
         <?php
           $query = new WP_Query(array(
@@ -274,9 +283,9 @@
           ));
 
           while ($query->have_posts()): $query->the_post(); ?>
-                  <h4><?php the_title(); ?></h4>
-                  <p><em><?php the_date('l / F jS Y'); ?></em><p>
-                  <p><img class="float-left" src="http://www.haventoday.ca/wp-content/uploads/2017/01/Anchor01312017-2.jpg" width="100px"><?php echo technig_content(65); ?></p>
+                  <p style="margin-bottom: 2px;"><strong><?php the_title(); ?></strong></p>
+                  <p><em><?php the_date('l / F jS Y'); ?></em><p></div></div>
+                  <?php echo technig_content(65); ?>
                   <a class="o-button" href="<?php the_permalink(); ?>">Keep Reading</a>
           <?php endwhile;
           ?>

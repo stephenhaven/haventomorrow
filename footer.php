@@ -17,7 +17,7 @@
 		<div class="container">
 			<ul>
 				<li><a href="/">HOME</a></li>
-				<li><a href="/give">GIVE TO HAVEN</a></li>
+				<li><a href="/give">GIVE</a></li>
 				<li><a href="/program-archive">PROGRAM ARCHIVE</a></li>
 				<li><a href="/prayer">PRAYER</a></li>
 				<?php
@@ -47,8 +47,8 @@
 				<li><a href="/blog">BLOG</a></li>
 				<li><a href="/about">ABOUT</a></li>
 				<li><a href="/contact">CONTACT</a></li>
+				<li><a href="/financial-accountability">FINANCIAL ACCOUNTABILITY</a></li>
 				<li><a href="/privacy-policy">PRIVACY POLICY</a></li>
-				<li><a href="/return-policy">RETURN POLICY</a></li>
 			</ul>
 		</div>
 	</footer><!-- #colophon -->

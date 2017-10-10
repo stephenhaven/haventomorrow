@@ -246,6 +246,10 @@ section.light-2 {
   padding: 25px 0 100px;
 }
 
+.c-padding-25 {
+  padding: 25px 0;
+}
+
 .vc_btn3-left {
   a {
     -webkit-appearance: none;
@@ -413,11 +417,22 @@ a {
     top: 50%;
     transform: translateY(-20%);
   }
+  h4 {
+    font-family: 'Nunito', sans-serif;
+  }
+  .blog {
+    .float-left {
+      height: 100px;
+    }
+  }
 }
 
 .blog {
   .container {
     padding-top: 50px;
+  }
+  h3 {
+    margin-top: 0;
   }
 }
 
@@ -450,11 +465,11 @@ a {
 .slider_featured_events {
   .slick-prev {
     left: -30px!important;
-    margin-top: 30px;
+    margin-top: 5px;
   }
   .slick-next {
     right: -30px!important;
-    margin-top: 30px;
+    margin-top: 5px;
   }
   .slick-next:before, .slick-prev:before {
     color: #000!important;
@@ -464,20 +479,35 @@ a {
 .slider_recent_products {
   .slick-prev {
     left: -20px!important;
-    margin-top: -12px;
+    margin-top: -24px;
   }
   .slick-next {
     right: -20px!important;
-    margin-top: -12px;
+    margin-top: -24px;
   }
   .slick-next:before, .slick-prev:before {
     color: #000!important;
   }
 }
 
+.section.programs .content {
+  margin: 0 auto;
+}
+
+.addthis_toolbox {
+  margin: 0 auto;
+}
+
 //Anchor
 
+.anchor .content {
+  margin: 0 auto;
+}
+
 .single-anchor {
+  .verse {
+    text-align: center;
+  }
   .col-md-8 {
     text-align: left;
   }
@@ -535,6 +565,11 @@ a {
     .o-button {
       margin: 0 25px;
     }
+  }
+  .section.sub .content {
+    max-width: 800px;
+    text-align: left;
+    margin: 30px auto;
   }
 }
 

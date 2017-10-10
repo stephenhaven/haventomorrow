@@ -8,7 +8,7 @@
  */
 
 get_header();
-get_template_part( 'template-parts/content', 'title' ); ?>
+get_template_part( 'template-parts/content', 'anchor-title' ); ?>
 
 		<div class="section anchor sub">
 

@@ -195,6 +195,9 @@ section.light-2 {
 .c-padding-25-100 {
   padding: 25px 0 100px; }
 
+.c-padding-25 {
+  padding: 25px 0; }
+
 .vc_btn3-left a {
   -webkit-appearance: none;
   outline: 0;
@@ -330,9 +333,15 @@ a {
   position: relative;
   top: 50%;
   transform: translateY(-20%); }
+.home h4 {
+  font-family: 'Nunito', sans-serif; }
+.home .blog .float-left {
+  height: 100px; }
 
 .blog .container {
   padding-top: 50px; }
+.blog h3 {
+  margin-top: 0; }
 
 .page-template-template-styleguide-php header#masthead, .page-template-template-styleguide-php footer {
   background-color: #303030;
@@ -351,22 +360,33 @@ a {
 
 .slider_featured_events .slick-prev {
   left: -30px !important;
-  margin-top: 30px; }
+  margin-top: 5px; }
 .slider_featured_events .slick-next {
   right: -30px !important;
-  margin-top: 30px; }
+  margin-top: 5px; }
 .slider_featured_events .slick-next:before, .slider_featured_events .slick-prev:before {
   color: #000 !important; }
 
 .slider_recent_products .slick-prev {
   left: -20px !important;
-  margin-top: -12px; }
+  margin-top: -24px; }
 .slider_recent_products .slick-next {
   right: -20px !important;
-  margin-top: -12px; }
+  margin-top: -24px; }
 .slider_recent_products .slick-next:before, .slider_recent_products .slick-prev:before {
   color: #000 !important; }
 
+.section.programs .content {
+  margin: 0 auto; }
+
+.addthis_toolbox {
+  margin: 0 auto; }
+
+.anchor .content {
+  margin: 0 auto; }
+
+.single-anchor .verse {
+  text-align: center; }
 .single-anchor .col-md-8 {
   text-align: left; }
 .single-anchor h3 {
@@ -411,6 +431,10 @@ a {
   .single-anchor .anchorBtns
   .o-button {
     margin: 0 25px; }
+.single-anchor .section.sub .content {
+  max-width: 800px;
+  text-align: left;
+  margin: 30px auto; }
 
 .tags-links {
   display: block; }

@@ -23,9 +23,9 @@
 
  ?>
 
- <section class="c-padding-75">
+ <section class="c-padding-25">
    <div class="container">
-     <h3><?php echo $anchor_subtitle; ?></h3>
+     <h3 style="margin-bottom:"><?php echo $anchor_subtitle; ?></h3>
     <h1 class="entry-title"><?php echo $anchor_title; ?></h1>
     <h3 class="author">Written by <?php the_author(); ?> </h3>
     </hr>
@@ -66,7 +66,7 @@
         </div>
         <div class="col-md-4">
           <div class="anchorCol">
-      			<h2>Read the Bible</h2>
+      			<h2>Bible In A Year</h2>
       			<ul>
       				<li><?php echo $anchor_bible_reading_1; ?></li>
       				<li><?php echo $anchor_bible_reading_2; ?></li>

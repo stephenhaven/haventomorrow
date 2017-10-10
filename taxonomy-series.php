@@ -122,7 +122,7 @@ get_header();
 			if (!empty($relatedProducts)){
 
 				echo '<div class="section program1">';
-				echo '<h1>Product</h1>';
+				echo '<h1>Resource</h1>';
 				echo '<hr class="blue" />';
 
 				foreach ($relatedProducts as $product) {
@@ -138,7 +138,7 @@ get_header();
 					//echo '<h2>Is our "thank you" for your gift to Haven.</h2>';
 					//echo '<h2>We simply ask that you be as generous as you can and give as unto the Lord. Thank you!</h2>';
 					echo '<p>' . $wcProduct->post->post_excerpt . '</p>';
-					echo '<a href="' . $productPermalink . '" class="outlineBtn">Order Now</a>';
+					echo '<a href="' . $productPermalink . '" class="o-button">Get this Resource</a>';
 					echo '</div><!--end .info-->';
 					echo '<div class="inner">';
 					echo $productURL;
@@ -149,7 +149,7 @@ get_header();
 					//echo '<h2>Is our "thank you" for your gift to Haven.</h2>';
 					//echo '<h2>We simply ask that you be as generous as you can and give as unto the Lord. Thank you!</h2>';
 					echo '<p>' . $wcProduct->post->post_excerpt . '</p>';
-					echo '<a href="' . $productPermalink . '" class="outlineBtn">Order Now</a>';
+					echo '<a href="' . $productPermalink . '" class="o-button">Get this Resource</a>';
 					echo '</div><!--end .info-->';
 					echo '</div><!--end .full-->';
 

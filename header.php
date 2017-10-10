@@ -73,7 +73,7 @@ $(document).ready(function() {
 		<div class="links">
 		<a class="signup">Sign Up</a>
 		<span>|</span>
-		<a class="station">Find a Station</a>
+		<a class="/find-a-station">Find a Station</a>
 		<span>|</span>
 		<a href="tel:+1-800-654-2836" style="cursor:default;"><b>800 654 2836</b></a>
 		<span>|</span>
