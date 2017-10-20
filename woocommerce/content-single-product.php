@@ -36,10 +36,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 }
 ?>
 
-<div class="light-2">
-		<?php the_field('giving_banner_content'); ?>
-	</div>
-
 <div id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php
@@ -88,5 +84,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div><!-- #product-<?php the_ID(); ?> -->
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>
+<div style="clear: both;"></div>
+<div class="after_product_content">
+	<?php the_field('product_description_and_video'); ?>
+</div>
 
 <hr>

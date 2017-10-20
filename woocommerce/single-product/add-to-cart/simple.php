@@ -49,6 +49,9 @@ if ( ! $product->is_purchasable() ) {
 	 		}
 	 	?>
 		<div class="qtylabel">QTY:</div>
+		<div class="makeautomatic">
+			<p><a href="#">Make My Gift Automatic</a></p>
+		</div>
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 	</form>
 

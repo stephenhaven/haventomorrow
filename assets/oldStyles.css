@@ -434,21 +434,21 @@ hr {clear:both; border:0; outline:none;}
 					.section.programs .content .left h2 {font-size:20px; line-height:20px; color:#fff; text-transform:uppercase; font-weight:700; padding:0 0 8px 4px; margin:0 0 20px; border-bottom:1px solid #3ab8cd;}
 					#btnProgramImage {cursor:pointer;}
 				.section.programs .content .right {width:38%; max-width:382px; padding:60px 0 0;}
-					.section.programs .content .right .item {padding:0 0 8px; border-bottom:1px solid rgba(255,255,255,0.25); margin:0 auto 8px;}
-					.section.programs .content .right .item:after {content:' '; display:block; clear:both;}
-						.section.programs .content .right .item .button {width:27px; height:27px; border:2px solid #1d889a; border-radius:50%; float:left; margin:0 10px 0 0; cursor:pointer;}
-						.section.programs .content .right .item .button:hover {border-color:#fff;}
-							.section.programs .content .right .item .button > span {height:11px; display:block; background-image:url('../assets/img/site-icons.png'); background-repeat:no-repeat; text-indent:-9999px;}
-							.section.programs .content .right .item .button > span.play {width:10px; background-position:-136px -38px; margin:8px 0 0 9px;}
-							.section.programs .content .right .item .button:hover > span.play {background-position:-146px -38px;}
-							.section.programs .content .right .item .button.download > i {color:#3ab8cd; margin:6px 0 0 6px;}
-							.section.programs .content .right .item .button.download:hover > i {color:#fff;}
-							.section.programs .content .right .item .button > span.pause {width:7px; background-position:-157px -38px; margin:8px 0 0 10px;}
-							.section.programs .content .right .item .button:hover > span.pause {background-position:-165px -38px;}
-						.section.programs .content .right .item .txt {width:70%; max-width:330px; text-transform:uppercase; float:left;}
-							.section.programs .content .right .item .txt .title {font-size:18px; line-height:22px; color:#fff; display:block;}
-								.section.programs .content .right .item .txt .title strong {font-weight:700;}
-							.section.programs .content .right .item .txt .date {font-size:16px; line-height:16px; color:#3ab8cd; padding:5px 0 0; display:block;}
+					.section.programs .content .container .item {padding:0 0 8px; border-bottom:1px solid rgba(255,255,255,0.25); margin:0 auto 8px;}
+					.section.programs .content .container .item:after {content:' '; display:block; clear:both;}
+						.section.programs .content .container .item .button {width:27px; height:27px; border:2px solid #1d889a; border-radius:50%; float:left; margin:0 10px 0 0; cursor:pointer;}
+						.section.programs .content .container .item .button:hover {border-color:#fff;}
+							.section.programs .content .container .item .button > span {height:11px; display:block; background-image:url('../assets/img/site-icons.png'); background-repeat:no-repeat; text-indent:-9999px;}
+							.section.programs .content .container .item .button > span.play {width:10px; background-position:-136px -38px; margin:8px 0 0 9px;}
+							.section.programs .content .container .item .button:hover > span.play {background-position:-146px -38px;}
+							.section.programs .content .container .item .button.download > i {color:#3ab8cd; margin:6px 0 0 6px;}
+							.section.programs .content .container .item .button.download:hover > i {color:#fff;}
+							.section.programs .content .container .item .button > span.pause {width:7px; background-position:-157px -38px; margin:8px 0 0 10px;}
+							.section.programs .content .container .item .button:hover > span.pause {background-position:-165px -38px;}
+						.section.programs .content .container .item .txt {width:70%; max-width:330px; text-transform:uppercase; float:left;}
+							.section.programs .content .container .item .txt .title {font-size:18px; line-height:22px; color:#fff; display:block;}
+								.section.programs .content .container .item .txt .title strong {font-weight:700;}
+							.section.programs .content .container .item .txt .date {font-size:16px; line-height:16px; color:#3ab8cd; padding:5px 0 0; display:block;}
 			.section.programs .outlineBtn {padding:12px 11px; margin-top:70px;}
 
 		.section.archive {padding:35px 0 50px;}
@@ -928,7 +928,7 @@ img.size-auto, img.size-full, img.size-large, img.size-medium, .attachment img {
 .woocommerce .showlogin {display:inline-block; border-color:#fff !important; color:#fff; padding:4px 10px; margin:0 15px; white-space:nowrap;}
 .woocommerce .showlogin:hover {background:#fff !important; color:#1d889a;}
 
-.woocommerce div.product form.cart .single_add_to_cart_button {float:none !important; margin-top:20px;}
+.woocommerce div.product form.cart .single_add_to_cart_button {margin-top:20px;}
 .woocommerce div.product form.cart div.quantity > input {color:#2d2d2d; border:1px solid #1d889a; font:13px/13px Arial, sans-serif; font-weight:700; padding:7px 10px; background:transparent;}
 .woocommerce .storeDetail .right form.cart .single_add_to_cart_button.button.alt {float:right !important; margin-top:0px !important;}
 
@@ -1255,8 +1255,8 @@ div.wpcf7-mail-sent-ok, div.wpcf7-validation-errors {border:0 !important; backgr
 
 @media (max-width:384px) {
 	.section.programs .content .left h2 {font-size:18px; line-height:18px;}
-	.section.programs .content .right .item .txt .title {font-size:16px; line-height:19px;}
-	.section.programs .content .right .item .txt .date {font-size:15px; line-height:15px; padding-top:4px;}
+	.section.programs .content .container .item .txt .title {font-size:16px; line-height:19px;}
+	.section.programs .content .container .item .txt .date {font-size:15px; line-height:15px; padding-top:4px;}
 	iframe {height:209px;}
 }
 

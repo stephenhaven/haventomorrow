@@ -74,12 +74,13 @@ get_header();
 					echo '<h1>' . $program_series[0]->name . '</h1>';
 					echo '<hr />';
 					echo '<div class="content">';
-					echo '<div class="left">';
+					echo '<div class="container">';
 					echo '<h2>' . $program_title . '</h2>';
 					echo '<img id="btnProgramImage" src="' . $program_image['url'] . '" data-playing="0" data-username="haven" data-podcast="' . $event . '" />';
 					echo '<div style="color:#fff;">' . $program_desc . '</div>';
-					echo '</div><!--end .left-->';
-					echo '<div class="right">';
+					echo '</div><!--end .container-->';
+					echo '<div class="container"><div class="row">';
+          echo '<div class="col-md-8">';
 				}
 				if ($currentSeries == $program_series[0]->name && $stillInSeries){
 					get_template_part( 'template-parts/content', 'programs' );
@@ -90,7 +91,10 @@ get_header();
 				$currentSeries == $program_series[0]->name;
 				$countposts++;
 			}
-			echo '</div><!--end .right-->';
+      echo '</div><!--end .col-md-8-->';
+      echo '<div class="col-md-4">';
+      echo '</div><!--end .col-md-4-->';
+      echo '</div></div><!--end .container-->';
 			echo '</div><!--end .content-->';
 			echo '<div class="socialShare">';
 			echo '<h4>Share</h4><hr />';
@@ -202,14 +206,18 @@ get_header();
 					$blogFeatImage = wp_get_attachment_url( get_post_thumbnail_id($blogPost->ID));
 					if ($blogFeatImage) {
 						echo '<div class="content">';
-						echo '<div class="left">';
+						echo '<div class="container">';
 						echo '<img src="' . $blogFeatImage . '" />';
-						echo '</div><!--end .left-->';
-						echo '<div class="right">';
+						echo '</div><!--end .container-->';
+						echo '<div class="container"><div class="row">';
+            echo '<div class="col-md-8"';
 						echo '<h2>' . $blogPost->post_title . '</h2>';
 						echo '<p>' . substr($blogPost->post_content,0,200) . ' ...</p>';
 						echo '<a href="' . $blogPost->guid . '" class="outlineBtn">Read More</a>';
-						echo '</div><!--end .right-->';
+            echo '</div><!--end .col-md-8-->';
+            echo '<div class="col-md-4"';
+            echo '</div><!--end .col-md-4-->';
+            echo '</div></div><!--end .container-->';
 					} else {
 						echo '<div class="full">';
 						echo '<h2>' . $blogPost->post_title . '</h2>';
