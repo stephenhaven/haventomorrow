@@ -579,6 +579,19 @@ a {
 
 // Store
 
+.postid-1560 {
+  .images {
+    display: none;
+  }
+  .summary.entry-summary {
+    float: none!important;
+    width: 100%!important;
+  }
+  .blue {
+    display: none;
+  }
+}
+
 .woocommerce div.product form.cart .button {
   display: none;
 }
@@ -713,6 +726,10 @@ a {
 
 .section.storeSearch {
   background-color: #238698;
+  &
+    .nav {
+      max-width: 1000px;
+    }
 }
 
 .page-template-page-store-landing {
@@ -850,6 +867,23 @@ hr.blue {
 .section.programs .content .right .item .button.download > i {
   font-size: 16px;
   position: absolute;
+}
+
+.tax-series {
+  #btnProgramImage {
+    margin: 10px 0 15px 0;
+  }
+  .programs {
+    .container {
+      h2 {
+        color: #fff;
+        text-align: center
+      }
+    }
+    .content {
+      max-width: 800px;
+    }
+    }
 }
 
 /** MEDIA QUERIES **/

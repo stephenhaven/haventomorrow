@@ -439,6 +439,14 @@ a {
 .tags-links {
   display: block; }
 
+.postid-1560 .images {
+  display: none; }
+.postid-1560 .summary.entry-summary {
+  float: none !important;
+  width: 100% !important; }
+.postid-1560 .blue {
+  display: none; }
+
 .woocommerce div.product form.cart .button {
   display: none; }
 
@@ -455,7 +463,8 @@ a {
     .makeautomatic
     p
     a {
-      color: #1d889a; }
+      color: #1d889a;
+      font-family: 'Nunito', sans-serif; }
     .makeautomatic
     p a:hover, .makeautomatic
     p a:visited {
@@ -541,6 +550,9 @@ a {
 
 .section.storeSearch {
   background-color: #238698; }
+  .section.storeSearch
+  .nav {
+    max-width: 1000px; }
 
 .page-template-page-store-landing h1, .page-template-page-store-landing h2, .page-template-page-store-landing h3, .page-template-page-store-landing h4, .page-template-page-store-landing a {
   font-family: 'Nunito', sans-serif;
@@ -644,6 +656,14 @@ hr.blue {
 .section.programs .content .right .item .button.download > i {
   font-size: 16px;
   position: absolute; }
+
+.tax-series #btnProgramImage {
+  margin: 10px 0 15px 0; }
+.tax-series .programs .container h2 {
+  color: #fff;
+  text-align: center; }
+.tax-series .programs .content {
+  max-width: 800px; }
 
 /** MEDIA QUERIES **/
 @media all and (max-width: 767px) {

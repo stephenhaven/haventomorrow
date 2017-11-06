@@ -79,8 +79,9 @@ get_header();
 					echo '<img id="btnProgramImage" src="' . $program_image['url'] . '" data-playing="0" data-username="haven" data-podcast="' . $event . '" />';
 					echo '<div style="color:#fff;">' . $program_desc . '</div>';
 					echo '</div><!--end .container-->';
+          echo '</hr>';
 					echo '<div class="container"><div class="row">';
-          echo '<div class="col-md-8">';
+          echo '<div class="col-md-12">';
 				}
 				if ($currentSeries == $program_series[0]->name && $stillInSeries){
 					get_template_part( 'template-parts/content', 'programs' );
@@ -91,9 +92,9 @@ get_header();
 				$currentSeries == $program_series[0]->name;
 				$countposts++;
 			}
-      echo '</div><!--end .col-md-8-->';
-      echo '<div class="col-md-4">';
-      echo '</div><!--end .col-md-4-->';
+      echo '</div><!--end .col-md-12-->';
+      // echo '<div class="col-md-4">';
+      // echo '</div><!--end .col-md-4-->';
       echo '</div></div><!--end .container-->';
 			echo '</div><!--end .content-->';
 			echo '<div class="socialShare">';
