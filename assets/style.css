@@ -26,7 +26,7 @@ body {
   text-transform: uppercase; }
   .top-bar
   ul {
-    float: left;
+    display: inline-block;
     margin: 0;
     padding: 0; }
     .top-bar
@@ -41,11 +41,19 @@ body {
       a {
         color: #fff; }
   .top-bar .links {
+    display: inline-block;
+    float: right;
+    line-height: 30px;
     text-align: right;
     font-family: 'Nunito', sans-serif;
     font-size: .7em;
     color: #fff;
     text-decoration: none; }
+    .top-bar .links
+    a {
+      color: #fff; }
+    .top-bar .links a:hover {
+      color: #fff; }
   .top-bar .fa-shopping-cart:before {
     margin: 0 5px; }
 

@@ -32,7 +32,7 @@ body {
   text-transform: uppercase;
    &
     ul {
-      float: left;
+      display: inline-block;
       margin: 0;
       padding: 0;
       &
@@ -47,11 +47,21 @@ body {
         }
     }
     .links {
+      display: inline-block;
+      float: right;
+      line-height: 30px;
       text-align: right;
           font-family: 'Nunito', sans-serif;
           font-size: .7em;
           color: #fff;
           text-decoration: none;
+          &
+             a {
+               color: #fff;
+             }
+             a:hover {
+               color: #fff;
+             }
         }
     .fa-shopping-cart:before {
     margin: 0 5px;
