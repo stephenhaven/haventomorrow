@@ -1094,10 +1094,6 @@ div.wpcf7-mail-sent-ok, div.wpcf7-validation-errors {border:0 !important; backgr
 	.section.storeItems .products {max-width:540px;}
 }
 
-@media (max-width:800px) {
-	iframe {height:435px;}
-}
-
 @media (max-width:767px) {
 	.drop {padding-bottom:0;}
 		.closeBtn {right:10px; top:10px;}
