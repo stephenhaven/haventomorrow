@@ -64,17 +64,17 @@
   <div class="container">
     <div class="slider-premium">
     <?php
-        if( have_rows('featured_product_slider') ):
+        if( have_rows('featured_product_slider', 'option') ):
 
           // loop through the rows of data
-            while ( have_rows('featured_product_slider') ) : the_row();
+            while ( have_rows('featured_product_slider', 'option') ) : the_row();
 
                 // display a sub field value
-                $label = get_sub_field('label');
-                $premium = get_sub_field('premium');
-                $desc = get_sub_field('brief_description');
-                $img = get_sub_field('premium_image');
-                $link = get_sub_field('premium_link');
+                $label = get_sub_field('label', 'option');
+                $premium = get_sub_field('premium', 'option');
+                $desc = get_sub_field('brief_description', 'option');
+                $img = get_sub_field('premium_image', 'option');
+                $link = get_sub_field('premium_link', 'option');
             ?>
 
             <div>
@@ -285,7 +285,7 @@
           while ($query->have_posts()): $query->the_post(); ?>
                   <p style="margin-bottom: 2px;"><strong><?php the_title(); ?></strong></p>
                   <p><em><?php the_date('l / F jS Y'); ?></em><p></div></div>
-                  <?php echo technig_content(65); ?>
+                  <?php the_excerpt(); ?>
                   <a class="o-button" href="<?php the_permalink(); ?>">Keep Reading</a>
           <?php endwhile;
           ?>

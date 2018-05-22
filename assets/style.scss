@@ -32,7 +32,7 @@ body {
   text-transform: uppercase;
    &
     ul {
-      float: left;
+      display: inline-block;
       margin: 0;
       padding: 0;
       &
@@ -47,15 +47,22 @@ body {
         }
     }
     .links {
+      display: inline-block;
+      float: right;
+      line-height: 30px;
       text-align: right;
-      &
-        a {
           font-family: 'Nunito', sans-serif;
           font-size: .7em;
           color: #fff;
           text-decoration: none;
+          &
+             a {
+               color: #fff;
+             }
+             a:hover {
+               color: #fff;
+             }
         }
-    }
     .fa-shopping-cart:before {
     margin: 0 5px;
   }
@@ -884,6 +891,12 @@ hr.blue {
       max-width: 800px;
     }
     }
+}
+
+/**SUBSPLASH**/
+
+.route-media-item__more-items, .route-app__footer-subsplash-brand, .route-app__search-embedded-wrap {
+  display: none;
 }
 
 /** MEDIA QUERIES **/

@@ -243,89 +243,89 @@ function your_prefix_vcSetAsTheme() {
 ******************************************
 */
 
-add_action( 'init', 'create_taxonomies' );
-function create_taxonomies() {
-	register_taxonomy(
-		'series', 'page',
-		array(
-			'label' => __( 'Program Series' ),
-			//'rewrite' => array( 'slug' => 'series' ),
-			'rewrite' => array('with_front' => false, 'slug' => 'series'),
-			'hierarchical' => true
-		)
-	);
-	register_taxonomy(
-		'speaker', 'programs',
-		array(
-			'label' => __( 'Guest Speakers' ),
-			//'rewrite' => array( 'slug' => 'speaker' ),
-			'rewrite' => array('with_front' => false, 'slug' => 'speaker'),
-			'hierarchical' => true
-		)
-	);
-
-	$labels_campaign = array(
-		'name'              => _x( 'Campaigns', 'taxonomy general name' ),
-		'singular_name'     => _x( 'Campaign Types', 'taxonomy singular name' ),
-		'search_items'      => __( 'Search Campaigns Types' ),
-		'all_items'         => __( 'All Campaigns Types' ),
-		'parent_item'       => __( 'Parent Campaign' ),
-		'parent_item_colon' => __( 'Parent Campaign:' ),
-		'edit_item'         => __( 'Edit Campaign Type' ),
-		'update_item'       => __( 'Update Campaign Type' ),
-		'add_new_item'      => __( 'Add New Campaign Type' ),
-		'new_item_name'     => __( 'New Campaign Type Name' ),
-		'menu_name'         => __( 'Campaign' ),
-	);
-
-	$args_campaign = array(
-		'hierarchical'      => true,
-		'labels'            => $labels_campaign,
-		'show_ui'           => true,
-		'show_admin_column' => true,
-		'query_var'         => true,
-		'rewrite'           => array('with_front' => false, 'slug' => 'campaign'),
-	);
-
-	register_taxonomy('campaign', 'product', $args_campaign);
-}
+// add_action( 'init', 'create_taxonomies' );
+// function create_taxonomies() {
+// 	register_taxonomy(
+// 		'series', 'page',
+// 		array(
+// 			'label' => __( 'Program Series' ),
+// 			//'rewrite' => array( 'slug' => 'series' ),
+// 			'rewrite' => array('with_front' => false, 'slug' => 'series'),
+// 			'hierarchical' => true
+// 		)
+// 	);
+// 	register_taxonomy(
+// 		'speaker', 'programs',
+// 		array(
+// 			'label' => __( 'Guest Speakers' ),
+// 			//'rewrite' => array( 'slug' => 'speaker' ),
+// 			'rewrite' => array('with_front' => false, 'slug' => 'speaker'),
+// 			'hierarchical' => true
+// 		)
+// 	);
+//
+// 	$labels_campaign = array(
+// 		'name'              => _x( 'Campaigns', 'taxonomy general name' ),
+// 		'singular_name'     => _x( 'Campaign Types', 'taxonomy singular name' ),
+// 		'search_items'      => __( 'Search Campaigns Types' ),
+// 		'all_items'         => __( 'All Campaigns Types' ),
+// 		'parent_item'       => __( 'Parent Campaign' ),
+// 		'parent_item_colon' => __( 'Parent Campaign:' ),
+// 		'edit_item'         => __( 'Edit Campaign Type' ),
+// 		'update_item'       => __( 'Update Campaign Type' ),
+// 		'add_new_item'      => __( 'Add New Campaign Type' ),
+// 		'new_item_name'     => __( 'New Campaign Type Name' ),
+// 		'menu_name'         => __( 'Campaign' ),
+// 	);
+//
+// 	$args_campaign = array(
+// 		'hierarchical'      => true,
+// 		'labels'            => $labels_campaign,
+// 		'show_ui'           => true,
+// 		'show_admin_column' => true,
+// 		'query_var'         => true,
+// 		'rewrite'           => array('with_front' => false, 'slug' => 'campaign'),
+// 	);
+//
+// 	register_taxonomy('campaign', 'product', $args_campaign);
+// }
 
 
 add_action( 'init', 'create_posttypes' );
 function create_posttypes() {
-	register_post_type( 'programs',
-		array(
-			'labels' => array(
-			'name' => __( 'Program' ),
-			'singular_name' => __( 'Program' ),
-			'menu_name'          => _x( 'Programs', 'admin menu' ),
-			'name_admin_bar'     => _x( 'Program', 'add new on admin bar' ),
-			'add_new'            => _x( 'Add New', 'Program' ),
-			'add_new_item'       => __( 'Add New Program' ),
-			'new_item'           => __( 'New Program' ),
-			'edit_item'          => __( 'Edit Program' ),
-			'view_item'          => __( 'View Program' ),
-			'all_items'          => __( 'All Programs' ),
-			'search_items'       => __( 'Search Programs' ),
-			'parent_item_colon'  => __( 'Parent Programs:' ),
-			'not_found'          => __( 'No programs found.' ),
-			'not_found_in_trash' => __( 'No programs found in Trash.' )
-		),
-			'public' => true,
-			'publicly_queryable' => true,
-			'has_archive' => true,
-			//'rewrite' => array('slug' => 'program'),
-			'rewrite' => array('with_front' => false, 'slug' => 'program'),
-			'hierarchical' => true,
-			'menu_icon' => 'dashicons-media-audio',
-			'menu_position' => 20,
-			'show_ui' => true,
-			'show_in_menu' => true,
-			'capability_type' => 'page',
-			'supports' => array( 'title', 'editor', 'thumbnail', 'page-attributes'),
-			'taxonomies' => array('series', 'category', 'post_tag', 'speaker')
-		)
-	);
+// 	register_post_type( 'programs',
+// 		array(
+// 			'labels' => array(
+// 			'name' => __( 'Program' ),
+// 			'singular_name' => __( 'Program' ),
+// 			'menu_name'          => _x( 'Programs', 'admin menu' ),
+// 			'name_admin_bar'     => _x( 'Program', 'add new on admin bar' ),
+// 			'add_new'            => _x( 'Add New', 'Program' ),
+// 			'add_new_item'       => __( 'Add New Program' ),
+// 			'new_item'           => __( 'New Program' ),
+// 			'edit_item'          => __( 'Edit Program' ),
+// 			'view_item'          => __( 'View Program' ),
+// 			'all_items'          => __( 'All Programs' ),
+// 			'search_items'       => __( 'Search Programs' ),
+// 			'parent_item_colon'  => __( 'Parent Programs:' ),
+// 			'not_found'          => __( 'No programs found.' ),
+// 			'not_found_in_trash' => __( 'No programs found in Trash.' )
+// 		),
+// 			'public' => true,
+// 			'publicly_queryable' => true,
+// 			'has_archive' => true,
+// 			//'rewrite' => array('slug' => 'program'),
+// 			'rewrite' => array('with_front' => false, 'slug' => 'program'),
+// 			'hierarchical' => true,
+// 			'menu_icon' => 'dashicons-media-audio',
+// 			'menu_position' => 20,
+// 			'show_ui' => true,
+// 			'show_in_menu' => true,
+// 			'capability_type' => 'page',
+// 			'supports' => array( 'title', 'editor', 'thumbnail', 'page-attributes'),
+// 			'taxonomies' => array('series', 'category', 'post_tag', 'speaker')
+// 		)
+// 	);
 	register_post_type( 'anchor',
 		array(
 			'labels' => array(
@@ -425,42 +425,41 @@ function create_posttypes() {
 			'taxonomies' => array('category')
 		)
 	);
-	register_post_type( 'giving',
-		array(
-			'labels' => array(
-			'name' => __( 'Recurring Giving' ),
-			'singular_name' => __( 'Recurring Giving' ),
-			'menu_name'          => _x( 'Recurring Giving', 'admin menu' ),
-			'name_admin_bar'     => _x( 'Recurring Giving', 'add new on admin bar' ),
-			'add_new'            => _x( 'Add New', 'Recurring Giving' ),
-			'add_new_item'       => __( 'Add New Recurring Giving' ),
-			'new_item'           => __( 'New Recurring Giving' ),
-			'edit_item'          => __( 'Edit Recurring Giving' ),
-			'view_item'          => __( 'View Recurring Giving' ),
-			'all_items'          => __( 'All Recurring Giving' ),
-			'search_items'       => __( 'Search Recurring Giving' ),
-			'parent_item_colon'  => __( 'Parent Recurring Giving:' ),
-			'not_found'          => __( 'No posts found.' ),
-			'not_found_in_trash' => __( 'No posts found in Trash.' )
-		),
-			'public' => false,
-			'publicly_queryable' => false,
-			'has_archive' => true,
-			//'rewrite' => array('slug' => 'recurring-giving'),
-			'rewrite' => array('with_front' => false, 'slug' => 'recurring-giving'),
-			'hierarchical' => false,
-			'menu_icon' => 'dashicons-vault',
-			'menu_position' => 100,
-			'show_ui' => true,
-			'show_in_menu' => true,
-			'capability_type' => 'page',
-			'capabilities' => array(
-				'create_posts' => false // Removes support for the "Add New" function ( use 'do_not_allow' instead of false for multisite set ups )
-			),
-			'map_meta_cap' => true, // Set to `false`, if users are not allowed to edit/delete existing posts
-			'supports' => array( 'title')
-		)
-	);
+// 	register_post_type( 'giving',
+// 		array(
+// 			'labels' => array(
+// 			'name' => __( 'Recurring Giving' ),
+// 			'singular_name' => __( 'Recurring Giving' ),
+// 			'menu_name'          => _x( 'Recurring Giving', 'admin menu' ),
+// 			'name_admin_bar'     => _x( 'Recurring Giving', 'add new on admin bar' ),
+// 			'add_new'            => _x( 'Add New', 'Recurring Giving' ),
+// 			'add_new_item'       => __( 'Add New Recurring Giving' ),
+// 			'new_item'           => __( 'New Recurring Giving' ),
+// 			'edit_item'          => __( 'Edit Recurring Giving' ),
+// 			'view_item'          => __( 'View Recurring Giving' ),
+// 			'all_items'          => __( 'All Recurring Giving' ),
+// 			'search_items'       => __( 'Search Recurring Giving' ),
+// 			'parent_item_colon'  => __( 'Parent Recurring Giving:' ),
+// 			'not_found'          => __( 'No posts found.' ),
+// 			'not_found_in_trash' => __( 'No posts found in Trash.' )
+// 		),
+// 			'public' => false,
+// 			'publicly_queryable' => false,
+// 			'has_archive' => true,
+// 			//'rewrite' => array('slug' => 'recurring-giving'),
+// 			'rewrite' => array('with_front' => false, 'slug' => 'recurring-giving'),
+// 			'hierarchical' => false,
+// 			'menu_icon' => 'dashicons-vault',
+// 			'menu_position' => 100,
+// 			'show_ui' => true,
+// 			'show_in_menu' => true,
+// 			'capability_type' => 'page',
+// 			'capabilities' => array(
+// 				'create_posts' => false // Removes support for the "Add New" function ( use 'do_not_allow' instead of false for multisite set ups )
+// 			),
+// 			'map_meta_cap' => true, // Set to `false`, if users are not allowed to edit/delete existing posts
+// 			'supports' => array( 'title')
+// 		)
 }
 
 /*set sort order by date for custom post types in CMS*/
@@ -809,6 +808,12 @@ function technig_content($limit){
   $content = apply_filters('the_content', $content);
   $content = str_replace(']]>', ']]&gt;', $content);
   return $content;
+}
+
+if( function_exists('acf_add_options_page') ) {
+
+	acf_add_options_page();
+
 }
 
 ?>

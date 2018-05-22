@@ -26,7 +26,7 @@ body {
   text-transform: uppercase; }
   .top-bar
   ul {
-    float: left;
+    display: inline-block;
     margin: 0;
     padding: 0; }
     .top-bar
@@ -41,13 +41,19 @@ body {
       a {
         color: #fff; }
   .top-bar .links {
-    text-align: right; }
+    display: inline-block;
+    float: right;
+    line-height: 30px;
+    text-align: right;
+    font-family: 'Nunito', sans-serif;
+    font-size: .7em;
+    color: #fff;
+    text-decoration: none; }
     .top-bar .links
     a {
-      font-family: 'Nunito', sans-serif;
-      font-size: .7em;
-      color: #fff;
-      text-decoration: none; }
+      color: #fff; }
+    .top-bar .links a:hover {
+      color: #fff; }
   .top-bar .fa-shopping-cart:before {
     margin: 0 5px; }
 
@@ -664,6 +670,10 @@ hr.blue {
   text-align: center; }
 .tax-series .programs .content {
   max-width: 800px; }
+
+/**SUBSPLASH**/
+.route-media-item__more-items, .route-app__footer-subsplash-brand, .route-app__search-embedded-wrap {
+  display: none; }
 
 /** MEDIA QUERIES **/
 @media all and (max-width: 767px) {
