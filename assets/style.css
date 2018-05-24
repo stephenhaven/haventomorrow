@@ -445,6 +445,9 @@ a {
 .tags-links {
   display: block; }
 
+.wsc-login, .create-account {
+  display: none; }
+
 .postid-1560 .images {
   display: none; }
 .postid-1560 .summary.entry-summary {
@@ -488,7 +491,7 @@ a {
   font-size: 1em !important;
   padding: 10px 35px; }
 
-.quantity, .qtylabel, .price {
+.qtylabel, .price {
   display: none; }
 
 .productsFeatured, .products {

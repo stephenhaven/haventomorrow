@@ -586,6 +586,10 @@ a {
 
 // Store
 
+.wsc-login, .create-account {
+  display: none;
+}
+
 .postid-1560 {
   .images {
     display: none;
@@ -640,7 +644,7 @@ a {
   padding: 10px 35px;
 }
 
-.quantity, .qtylabel, .price {
+.qtylabel, .price {
   display: none;
 }
 

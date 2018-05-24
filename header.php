@@ -73,7 +73,7 @@ $(document).ready(function() {
 		<div class="links">
 		<a class="signup">Sign Up</a>
 		<span>|</span>
-		<a class="/find-a-station">Find a Station</a>
+		<a href="/find-a-station">Find a Station</a>
 		<span>|</span>
 		<a href="tel:+1-800-654-2836" style="cursor:default;"><b>800 654 2836</b></a>
 		<span>|</span>
@@ -107,7 +107,7 @@ $(document).ready(function() {
 		<h3>Keep up to date with the latest</h3>
 		<hr />
 		<div class="signupForm">
-			<?php echo do_shortcode('[contact-form-7 id="33501" title="Haven Today Email Updates"]'); ?>
+			<?php echo do_shortcode('[contact-form-7 id="66781" title="Haven Today Email Updates"]'); ?>
 			<script>
 				$(document).ready(function(){
 					$('.options  .checkboxes .cb').click(function() {
@@ -147,10 +147,10 @@ $(document).ready(function() {
                 Listen
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a href="/program">Today's Program</a>
-                <a href="http://haventomorrow.com/program-archive/">Program Archive</a>
-                <a href="http://haventomorrow.com/haven-now/">Haven Now</a>
-                <a href="http://haventomorrow.com/anchor-today/">Anchor Today</a>
+                <a href="/current-series/">Today's Program</a>
+                <a href="/program-archive/">Program Archive</a>
+                <a href="/haven-now/">Haven Now</a>
+                <a href="/anchor-today/">Anchor Today</a>
               </div>
             </li>
 
