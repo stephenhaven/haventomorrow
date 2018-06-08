@@ -631,7 +631,8 @@ a {
   display: none; }
 
 .page-template-template-mapbox .container.map {
-  min-height: 300px; }
+  min-height: 600px;
+  position: relative; }
 
 .loading {
   margin-top: 50px; }
@@ -680,6 +681,10 @@ hr.blue {
 /**SUBSPLASH**/
 .route-media-item__more-items, .route-app__footer-subsplash-brand, .route-app__search-embedded-wrap {
   display: none; }
+
+/**SLICK**/
+.slick-track {
+  height: 600px; }
 
 /** MEDIA QUERIES **/
 @media all and (max-width: 767px) {
