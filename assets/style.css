@@ -683,7 +683,7 @@ hr.blue {
   display: none; }
 
 /**SLICK**/
-.slick-track {
+.slider-main .slick-track {
   height: 600px; }
 
 /** MEDIA QUERIES **/
