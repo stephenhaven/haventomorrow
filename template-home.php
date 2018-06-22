@@ -175,7 +175,7 @@
       <div class="col-md-7">
         <h3 class="text-center">FEATURED OFFERS</h3>
         <div class="container">
-        <div class="row">
+          <div class="row">
         <div class="slider_recent_products">
         <?php
             if( have_rows('slider_recent_products') ):
@@ -189,13 +189,14 @@
                     $link = get_sub_field('link');
 
                     $i++;
-              			if( $i > 6 )
+              			if( $i > 3 )
               			{
               				break;
               			}
                 ?>
 
-                  <div class="col-md-4 text-center">
+
+                  <div class="col-md-4 text-center featured_offers">
                       <?php if( $img ): ?>
                       <img src="<?php echo $img; ?>">
                       <?php endif; ?>
@@ -206,11 +207,11 @@
         <?php endwhile; ?>
 
       </div>
-      </div>
+    </div>
+    </div>
     </div>
       <?php else: ?>
       <?php endif; ?>
-      </div>
     </div>
   </div>
 </section>

@@ -58,6 +58,7 @@ body {
           &
              a {
                color: #fff;
+               font-family: 'Nunito', sans-serif;
              }
              a:hover {
                color: #fff;
@@ -467,6 +468,10 @@ a {
       margin: 0 auto;
     }
   }
+  h4 {
+    font-weight: 700;
+    color: #35a4b8;
+  }
 }
 
 .slider_featured_events {
@@ -495,6 +500,10 @@ a {
   .slick-next:before, .slick-prev:before {
     color: #000!important;
   }
+}
+
+.slick-next::before, .slick-prev::before {
+  font-size: 30px;
 }
 
 .section.programs .content {
@@ -910,8 +919,22 @@ hr.blue {
 
 /**SLICK**/
 
+.slider-main {
+  .slick-next {
+    right: 25px;
+  }
+  .slick-prev {
+    left: 25px;
+    z-index: 10;
+  }
+}
+
 .slider-main .slick-track {
   height: 600px;
+}
+
+.slick-slide {
+  background-size: cover;
 }
 
 /** MEDIA QUERIES **/
