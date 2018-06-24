@@ -132,7 +132,7 @@
         <p><a href="/about" class="o-button">Learn More</a></p>
       </div>
       <div class="col-md-7">
-        <img src="http://haventomorrow.com/wp-content/uploads/2017/10/Charles-homepage.jpg">
+        <a href="/about"><img src="http://haventomorrow.com/wp-content/uploads/2017/10/Charles-homepage.jpg"></a>
       </div>
     </div>
   </div>
@@ -174,9 +174,8 @@
       </div>
       <div class="col-md-7">
         <h3 class="text-center">FEATURED OFFERS</h3>
-        <div class="container">
-          <div class="row">
-        <div class="slider_recent_products">
+        <div class="recent_products">
+          <div class="pure-g">
         <?php
             if( have_rows('slider_recent_products') ):
               $i=0;
@@ -196,34 +195,23 @@
                 ?>
 
 
-                  <div class="col-md-4 text-center featured_offers">
+                  <div class="pure-u-md-1-3 text-center featured_offers">
                       <?php if( $img ): ?>
-                      <img src="<?php echo $img; ?>">
+                      <a href="<?php if( $link ): ?><?php echo $link; ?><?php endif; ?>"><img src="<?php echo $img; ?>"></a>
                       <?php endif; ?>
                       <?php if( $premium ): ?>
                       <h5 class="text-center"><a href="<?php if( $link ): ?><?php echo $link; ?><?php endif; ?>"><?php echo $premium; ?></a></h5>
                       <?php endif; ?>
                   </div>
         <?php endwhile; ?>
-
+        </div>
       </div>
-    </div>
-    </div>
     </div>
       <?php else: ?>
       <?php endif; ?>
     </div>
   </div>
 </section>
-<script>
-  $(document).ready(function(){
-    $('.slider_recent_products').slick({
-      infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 3
-    });
-  });
-</script>
 
 <section class="c-padding-25-100 blog light-2">
   <div class="container">
@@ -249,9 +237,9 @@
 						$anchor_permalink = get_the_permalink();
 
 						echo '<div class="col-md-5">';
-            echo '<div class="row"><div class="col-md-3">';
-            echo '<img class="float-left" src="http://haventomorrow.com/wp-content/uploads/2017/10/AnchorToday_color.png" height="100px"></div>';
-            echo '<div class="col-md-9">';
+            echo '<div class="row"><div class="col-md-2">';
+            echo '<img class="float-left" src="http://haventomorrow.com/wp-content/uploads/2017/10/AnchorToday_color.png" height="50px"></div>';
+            echo '<div class="col-md-10">';
 						echo '<h3>TODAY\'S ANCHOR</h3>';
 									echo '<p style="margin-bottom: 2px;"><strong>'.$anchor_title.'</strong></p>';
 									echo '<p><em>'.$anchor_date.'</em><p></div></div>';
@@ -274,9 +262,9 @@
       <div class="col-md-1">
       </div>
       <div class="col-md-5">
-        <div class="row"><div class="col-md-3">
-          <img class="float-left" src="http://haventomorrow.com/wp-content/uploads/2017/10/Blogpost_color.png" height="100px"></div>
-          <div class="col-md-9">
+        <div class="row"><div class="col-md-2">
+          <img class="float-left" src="http://haventomorrow.com/wp-content/uploads/2017/10/Blogpost_color.png" height="50px"></div>
+          <div class="col-md-10">
         <h3>FEATURED BLOG POST</h3>
         <?php
           $query = new WP_Query(array(

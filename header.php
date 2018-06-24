@@ -33,6 +33,12 @@ $(document).ready(function() {
 <link href="https://fonts.googleapis.com/css?family=Alegreya" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+<!--<![endif]-->
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/style.css">
 <!--[if lt IE 9]>
 <script src="js/html5.js" type="text/javascript"></script>

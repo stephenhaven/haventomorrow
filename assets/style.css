@@ -343,7 +343,7 @@ a {
 .home h4 {
   font-family: 'Nunito', sans-serif; }
 .home .blog .float-left {
-  height: 100px; }
+  height: 50px; }
 
 .blog .container {
   padding-top: 50px; }
@@ -702,6 +702,10 @@ hr.blue {
 .slick-slide {
   background-size: cover; }
 
+/**PURE CSS TWEAKS**/
+@media all and (min-width: 48em) {
+  .pure-u-md-1-3 {
+    width: 32.4%; } }
 /** MEDIA QUERIES **/
 @media all and (max-width: 767px) {
   .top-bar {
@@ -723,6 +727,9 @@ hr.blue {
     min-height: 600px; }
 
   .site-footer {
-    display: none; } }
+    display: none; }
+
+  .v-middle-absolute {
+    position: relative; } }
 
 /*# sourceMappingURL=style.css.map */
