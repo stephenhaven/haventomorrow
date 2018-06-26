@@ -328,6 +328,10 @@ a {
 .is-center {
   text-align: center; }
 
+.is-center-100 {
+  text-align: center;
+  width: 100%; }
+
 /**PAGE SPECIFICS**/
 .home .dark {
   text-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
@@ -730,6 +734,12 @@ hr.blue {
     display: none; }
 
   .v-middle-absolute {
-    position: relative; } }
+    position: relative; }
+
+  .border-right {
+    border-bottom: 1px solid #16425b;
+    padding-top: 30px;
+    margin-bottom: 30px;
+    border-right: none; } }
 
 /*# sourceMappingURL=style.css.map */

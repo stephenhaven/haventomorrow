@@ -240,7 +240,7 @@
             echo '<div class="row"><div class="col-md-2">';
             echo '<img class="float-left" src="http://haventomorrow.com/wp-content/uploads/2017/10/AnchorToday_color.png" height="50px"></div>';
             echo '<div class="col-md-10">';
-						echo '<h3>TODAY\'S ANCHOR</h3>';
+						echo '<h3>ANCHOR DEVOTIONAL</h3>';
 									echo '<p style="margin-bottom: 2px;"><strong>'.$anchor_title.'</strong></p>';
 									echo '<p><em>'.$anchor_date.'</em><p></div></div>';
                   echo '<div class="content">';

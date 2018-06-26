@@ -45,6 +45,7 @@
           <img src="<?php echo $anchor_image; ?>">
         <?php endif; ?>
       </div>
+      <div class="is-center-100"><?php get_sidebar(); ?></div>
     </div>
    </div>
 

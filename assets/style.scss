@@ -407,6 +407,11 @@ a {
   text-align: center;
 }
 
+.is-center-100 {
+  text-align: center;
+  width: 100%;
+}
+
 /**PAGE SPECIFICS**/
 .home {
   .dark {
@@ -971,5 +976,11 @@ hr.blue {
   }
   .v-middle-absolute {
     position: relative;
+  }
+  .border-right {
+    border-bottom: 1px solid #16425b;
+    padding-top: 30px;
+    margin-bottom: 30px;
+    border-right: none;
   }
 }
