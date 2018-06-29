@@ -8,13 +8,15 @@
  */
 
 get_header();
-get_template_part( 'template-parts/content', 'title' ); ?>
+get_template_part( 'template-parts/content', 'title-custom' ); ?>
 
 <section class="c-padding-75">
   <div class="container">
 
 		<?php
 		while ( have_posts() ) : the_post();
+
+      the_date();
 
 			get_template_part( 'template-parts/content', get_post_format() );
 
@@ -27,7 +29,7 @@ get_template_part( 'template-parts/content', 'title' ); ?>
 
 		endwhile; // End of the loop.
 		?>
-
+    <div class="is-center-100"><?php get_sidebar(); ?></div>
 	</div>
 	</section>
 
