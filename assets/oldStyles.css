@@ -32,8 +32,8 @@ strong, b {font-weight:700;}
 body {font:15px/24px 'Lato', Arial, Helvetica, sans-serif; color:#2d2d2d; font-weight:400;}
 h1, h2, h3, h4, h5, input, textarea {font-family:'Lato', Arial, Helvetica, sans-serif; font-weight:400;}
 hr {clear:both; border:0; outline:none;}
-.left {float:left;}
-.right {float:right;}
+/* .left {float:left;}
+.right {float:right;} */
 .mid {display:inline-block;}
 
 .outlineBtn {display:inline-block; clear:both; background:transparent; border:1px solid #1d889a; padding:8px 7px; font-size:16px; line-height:16px; color:#13425b; font-weight:700; text-transform:uppercase; margin:40px 6px 0; -webkit-transition:all .25s ease; -moz-transition:all .25s ease; transition:all .25s ease;}
