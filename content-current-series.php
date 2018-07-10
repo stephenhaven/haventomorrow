@@ -8,7 +8,7 @@ get_template_part( 'template-parts/content', 'series-title' ); ?>
 
 <section class="c-padding-75">
   <div class="container">
-      <script id="subsplash-embed-nvg9tbr" type="text/javascript">var target = document.getElementById("subsplash-embed-nvg9tbr");var script = document.createElement("script");script.type = "text/javascript";script.onload = function() {subsplashEmbed("+07a8/lb/li/+nvg9tbr?embed&branding", "https://subsplash.com/", "subsplash-embed-nvg9tbr");};script.src = "https://dashboard.static.subsplash.com/production/web-client/external/embed-1.1.0.js";target.parentElement.insertBefore(script, target);</script>
+      <script id="subsplash-embed-fhxxb64" type="text/javascript">var target = document.getElementById("subsplash-embed-fhxxb64");var script = document.createElement("script");script.type = "text/javascript";script.onload = function() {subsplashEmbed("+07a8/lb/li/+fhxxb64?embed&branding", "https://subsplash.com/", "subsplash-embed-fhxxb64");};script.src = "https://dashboard.static.subsplash.com/production/web-client/external/embed-1.1.0.js";target.parentElement.insertBefore(script, target);</script>
       <hr/>
       <section class="c-padding-50">
         <div class="container">
@@ -102,7 +102,7 @@ get_template_part( 'template-parts/content', 'series-title' ); ?>
 
 						echo '<div class="col-md-5">';
             echo '<div class="row"><div class="col-md-3">';
-            echo '<img class="float-left" src="http://haventomorrow.com/wp-content/uploads/2017/10/AnchorToday_color.png" height="100px"></div>';
+            echo '<img class="float-left" src="/wp-content/uploads/2017/10/AnchorToday_color.png" height="100px"></div>';
             echo '<div class="col-md-9">';
 						echo '<h3>TODAY\'S ANCHOR</h3>';
 									echo '<p style="margin-bottom: 2px;"><strong>'.$anchor_title.'</strong></p>';
@@ -127,7 +127,7 @@ get_template_part( 'template-parts/content', 'series-title' ); ?>
       </div>
       <div class="col-md-5">
         <div class="row"><div class="col-md-3">
-          <img class="float-left" src="http://haventomorrow.com/wp-content/uploads/2017/10/Blogpost_color.png" height="100px"></div>
+          <img class="float-left" src="/wp-content/uploads/2017/10/Blogpost_color.png" height="100px"></div>
           <div class="col-md-9">
         <h3>FEATURED BLOG POST</h3>
         <?php

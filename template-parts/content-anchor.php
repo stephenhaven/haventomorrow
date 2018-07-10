@@ -49,6 +49,69 @@
     </div>
    </div>
 
+   <hr/>
+   <section class="c-padding-50">
+     <div class="container">
+       <div class="slider-premium">
+       <?php
+           if( have_rows('anchor_product_slider', 'option') ):
+
+             // loop through the rows of data
+               while ( have_rows('anchor_product_slider', 'option') ) : the_row();
+
+                   // display a sub field value
+                   $label = get_sub_field('label', 'option');
+                   $premium = get_sub_field('premium', 'option');
+                   $desc = get_sub_field('brief_description', 'option');
+                   $img = get_sub_field('premium_image', 'option');
+                   $link = get_sub_field('premium_link', 'option');
+               ?>
+
+               <div>
+                 <div class="row">
+                 <div class="col-md-4">
+                   <div class="">
+                     <?php if( $label ): ?>
+                     <h3><?php echo $label; ?></h3>
+                     <?php endif; ?>
+                     <?php if( $premium ): ?>
+                     <h4><?php echo $premium; ?></h4>
+                     <?php endif; ?>
+                     <?php if( $desc ): ?>
+                     <p><?php echo $desc; ?></p>
+                     <?php endif; ?>
+                 </div>
+                 </div>
+                 <div class="col-md-4 text-center">
+                   <?php if( $link ): ?>
+                   <?php if( $img ): ?>
+                   <a href="<?php echo $link; ?>"><img src="<?php echo $img; ?>" width="80%"></a>
+                   <?php endif; ?>
+                   <?php endif; ?>
+                 </div>
+                 <div class="col-md-4 text-center">
+                   <div class="v-middle-absolute">
+                     <?php if( $link ): ?>
+                   <a href="<?php echo $link; ?>" class="o-button">GET THIS RESOURCE</a>
+                   <?php endif; ?>
+                 </div>
+                 </div>
+               </div>
+               </div>
+
+       <?php endwhile; ?>
+
+     </div>
+
+     <?php endif; ?>
+   </div>
+   </section>
+   <script>
+     $(document).ready(function(){
+       $('.slider-premium').slick({});
+     });
+   </script>
+
    <div class="section anchorDetails grey">
      <div class="row">
        <div class="col-md-4">

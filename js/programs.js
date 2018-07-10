@@ -418,7 +418,7 @@ function PlayProgramAudio(podcastID){
 		var podcastPopup = 'false';
 		var podcastStatus = 'playing';
 		// var url = 'http://www.haventoday.org/player/index.php?podcastID=' + podcastID + '&podcastSeconds=' + podcastSeconds + '&podcastVolume=' + podcastVolume + '&podcastSetting=' + podcastSetting + '&podcastPopup=' + podcastPopup + '&podcastStatus=' + podcastStatus;
-		var url = 'http://www.haventomorrow.com/player/index.php?podcastID=' + podcastID + '&podcastSeconds=' + podcastSeconds + '&podcastVolume=' + podcastVolume + '&podcastSetting=' + podcastSetting + '&podcastPopup=' + podcastPopup + '&podcastStatus=' + podcastStatus;
+		var url = 'http://www./player/index.php?podcastID=' + podcastID + '&podcastSeconds=' + podcastSeconds + '&podcastVolume=' + podcastVolume + '&podcastSetting=' + podcastSetting + '&podcastPopup=' + podcastPopup + '&podcastStatus=' + podcastStatus;
 		window.open(url, 'havenplayer', 'status=yes, menubar=no, scrollbars=no, resizable=no, width=800, height=180', 'havenAudioWnd');
 	}
 

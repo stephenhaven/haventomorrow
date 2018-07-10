@@ -17,7 +17,6 @@
               $title = get_sub_field('title');
               $description = get_sub_field('description');
               $img = get_sub_field('slider_image');
-              $link = get_sub_field('button_link');
               //print_r($link);
 
               date_default_timezone_set('America/Los_Angeles');
@@ -33,7 +32,7 @@
             <div style="background-image: url('<?php echo $img; ?>');" class="main-slider-slide">
           <?php endif; ?>
               <div class="container hero-container">
-                <a class="play-program mobile-hide" onclick="PlayProgramAudio(<?php echo $event ?>)"><img src="<?php echo $playImage; ?>"></a>
+                <a class="play-program mobile-hide" href="/current-series"><img src="<?php echo $playImage; ?>"></a>
               <?php if( $label ): ?>
                 <h5><?php echo $label; ?></h5>
               <?php endif; ?>
@@ -43,9 +42,7 @@
               <?php if( $description ): ?>
                 <p><?php echo $description; ?></p>
               <?php endif; ?>
-              <?php if( $link ): ?>
-                <a class="o-button" href="<?php echo $button_link; ?>">View Series</a>
-              <?php endif; ?>
+                <a class="o-button" href="/current-series">View Series</a>
               </div>
             </div>
 
@@ -132,7 +129,7 @@
         <p><a href="/about" class="o-button">Learn More</a></p>
       </div>
       <div class="col-md-7">
-        <a href="/about"><img src="http://haventomorrow.com/wp-content/uploads/2017/10/Charles-homepage.jpg"></a>
+        <a href="/about"><img src="/wp-content/uploads/2017/10/Charles-homepage.jpg"></a>
       </div>
     </div>
   </div>
@@ -238,7 +235,7 @@
 
 						echo '<div class="col-md-5">';
             echo '<div class="row"><div class="col-md-2">';
-            echo '<img class="float-left" src="http://haventomorrow.com/wp-content/uploads/2017/10/AnchorToday_color.png" height="50px"></div>';
+            echo '<img class="float-left" src="/wp-content/uploads/2017/10/AnchorToday_color.png" height="50px"></div>';
             echo '<div class="col-md-10">';
 						echo '<h3>ANCHOR DEVOTIONAL</h3>';
 									echo '<p style="margin-bottom: 2px;"><strong>'.$anchor_title.'</strong></p>';
@@ -263,7 +260,7 @@
       </div>
       <div class="col-md-5">
         <div class="row"><div class="col-md-2">
-          <img class="float-left" src="http://haventomorrow.com/wp-content/uploads/2017/10/Blogpost_color.png" height="50px"></div>
+          <img class="float-left" src="/wp-content/uploads/2017/10/Blogpost_color.png" height="50px"></div>
           <div class="col-md-10">
         <h3>FEATURED BLOG POST</h3>
         <?php

@@ -52,7 +52,8 @@ body {
     .top-bar .links
     a {
       color: #fff;
-      font-family: 'Nunito', sans-serif; }
+      font-family: 'Nunito', sans-serif;
+      text-decoration: none; }
     .top-bar .links a:hover {
       color: #fff; }
   .top-bar .fa-shopping-cart:before {
@@ -393,6 +394,10 @@ a {
 .slick-next::before, .slick-prev::before {
   font-size: 30px; }
 
+.slick-next, .slick-prev {
+  width: 30px;
+  height: 30px; }
+
 .section.programs .content {
   margin: 0 auto; }
 
@@ -660,6 +665,8 @@ hr.blue {
     text-decoration: none; }
     .section.archive a:hover, .section.anchor a:hover {
       color: #000; }
+  .section.archive a.o-button, .section.anchor a.o-button {
+    color: #fff; }
 
 .section.archive .content input[type='submit'], .section.archive .content input[type='button'] {
   padding: 13px 28px 10px; }

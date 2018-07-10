@@ -59,6 +59,7 @@ body {
              a {
                color: #fff;
                font-family: 'Nunito', sans-serif;
+               text-decoration: none;
              }
              a:hover {
                color: #fff;
@@ -511,6 +512,11 @@ a {
   font-size: 30px;
 }
 
+.slick-next, .slick-prev {
+  width: 30px;
+  height: 30px;
+}
+
 .section.programs .content {
   margin: 0 auto;
 }
@@ -665,6 +671,14 @@ a {
 .single-product .quantity {
   display: none;
 }
+
+// .woocommerce div.product form.cart div.quantity {
+//   margin: 20px 0px 0 10px;
+// }
+
+// .woocommerce div.product form.cart div.quantity > input {
+//   padding: 10px 10px;
+// }
 
 .productsFeatured, .products {
   margin: 0 auto;
@@ -866,6 +880,9 @@ hr.blue {
     &:hover {
       color: #000;
     }
+  }
+  a.o-button {
+    color: #fff;
   }
 }
 
