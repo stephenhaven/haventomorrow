@@ -110,7 +110,7 @@ header#masthead {
   header#masthead .nav-menu > li:last-of-type a, header#masthead .nav-menu > li:last-of-type a:hover {
     background-color: #238698;
     border-radius: 50%;
-    padding: 15px 10px;
+    padding: 15px 13px 15px 10px;
     margin-top: -15px; }
   header#masthead .navbar-light .navbar-toggler {
     color: white;
