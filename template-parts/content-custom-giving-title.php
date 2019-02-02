@@ -7,9 +7,15 @@
  * @package haventomorrow
  */
 
+// Setup default image if custom field isn't defined.
+$bannerImage = the_field('banner_image');
+if ($bannerImage == '') {
+  $bannerImage = WP_SITEURL . '/wp-content/themes/haventomorrow/assets/img/givingbanner.jpg';
+}
+
 ?>
 
-<section class="c-padding-180 dark" style="background-image:url('<?php the_field('banner_image'); ?>')">
+<section class="c-padding-180 dark" style="background-image:url('<?php echo $bannerImage; ?>')">
   <div class="container">
     <h1 class="is-center">Your gift will make a difference.</h1>
     <?php
