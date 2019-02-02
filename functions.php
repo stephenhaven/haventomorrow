@@ -294,39 +294,39 @@ function create_taxonomies() {
 
 add_action( 'init', 'create_posttypes' );
 function create_posttypes() {
-	register_post_type( 'programs',
-		array(
-			'labels' => array(
-			'name' => __( 'Program' ),
-			'singular_name' => __( 'Program' ),
-			'menu_name'          => _x( 'Programs', 'admin menu' ),
-			'name_admin_bar'     => _x( 'Program', 'add new on admin bar' ),
-			'add_new'            => _x( 'Add New', 'Program' ),
-			'add_new_item'       => __( 'Add New Program' ),
-			'new_item'           => __( 'New Program' ),
-			'edit_item'          => __( 'Edit Program' ),
-			'view_item'          => __( 'View Program' ),
-			'all_items'          => __( 'All Programs' ),
-			'search_items'       => __( 'Search Programs' ),
-			'parent_item_colon'  => __( 'Parent Programs:' ),
-			'not_found'          => __( 'No programs found.' ),
-			'not_found_in_trash' => __( 'No programs found in Trash.' )
-		),
-			'public' => true,
-			'publicly_queryable' => true,
-			'has_archive' => true,
-			//'rewrite' => array('slug' => 'program'),
-			'rewrite' => array('with_front' => false, 'slug' => 'program'),
-			'hierarchical' => true,
-			'menu_icon' => 'dashicons-media-audio',
-			'menu_position' => 20,
-			'show_ui' => true,
-			'show_in_menu' => true,
-			'capability_type' => 'page',
-			'supports' => array( 'title', 'editor', 'thumbnail', 'page-attributes'),
-			'taxonomies' => array('series', 'category', 'post_tag', 'speaker')
-		)
-	);
+// 	register_post_type( 'programs',
+// 		array(
+// 			'labels' => array(
+// 			'name' => __( 'Program' ),
+// 			'singular_name' => __( 'Program' ),
+// 			'menu_name'          => _x( 'Programs', 'admin menu' ),
+// 			'name_admin_bar'     => _x( 'Program', 'add new on admin bar' ),
+// 			'add_new'            => _x( 'Add New', 'Program' ),
+// 			'add_new_item'       => __( 'Add New Program' ),
+// 			'new_item'           => __( 'New Program' ),
+// 			'edit_item'          => __( 'Edit Program' ),
+// 			'view_item'          => __( 'View Program' ),
+// 			'all_items'          => __( 'All Programs' ),
+// 			'search_items'       => __( 'Search Programs' ),
+// 			'parent_item_colon'  => __( 'Parent Programs:' ),
+// 			'not_found'          => __( 'No programs found.' ),
+// 			'not_found_in_trash' => __( 'No programs found in Trash.' )
+// 		),
+// 			'public' => true,
+// 			'publicly_queryable' => true,
+// 			'has_archive' => true,
+// 			//'rewrite' => array('slug' => 'program'),
+// 			'rewrite' => array('with_front' => false, 'slug' => 'program'),
+// 			'hierarchical' => true,
+// 			'menu_icon' => 'dashicons-media-audio',
+// 			'menu_position' => 20,
+// 			'show_ui' => true,
+// 			'show_in_menu' => true,
+// 			'capability_type' => 'page',
+// 			'supports' => array( 'title', 'editor', 'thumbnail', 'page-attributes'),
+// 			'taxonomies' => array('series', 'category', 'post_tag', 'speaker')
+// 		)
+// 	);
 	register_post_type( 'anchor',
 		array(
 			'labels' => array(

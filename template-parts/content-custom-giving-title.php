@@ -9,7 +9,7 @@
 
 ?>
 
-<section class="c-padding-180 dark" style="background-image:url('https://new.haventoday.org/wp-content/uploads/2018/08/top-1.jpg')">
+<section class="c-padding-180 dark" style="background-image:url('<?php the_field('banner_image'); ?>')">
   <div class="container">
     <h1 class="is-center">Your gift will make a difference.</h1>
     <?php
