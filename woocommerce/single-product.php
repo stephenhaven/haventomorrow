@@ -50,14 +50,15 @@ get_template_part( 'template-parts/content', 'title' ); ?>
 		do_action( 'woocommerce_after_main_content' );
 	?>
 
-	<?php
+	<!-- <?php
 		/**
 		 * woocommerce_sidebar hook.
 		 *
 		 * @hooked woocommerce_get_sidebar - 10
+		 * This was the code causing the error on the product pages. Need to dig into still.
 		 */
 		do_action( 'woocommerce_sidebar' );
-	?>
+	?> -->
 </div>
 </section>
 

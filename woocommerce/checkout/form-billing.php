@@ -6,12 +6,13 @@
  * @package 	WooCommerce/Templates
  * @version     2.1.2
  */
-
+ 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-/** @global WC_Checkout $checkout */
+// STEP 1.
+
 ?>
 <div class="woocommerce-billing-fields">
 	<?php if ( WC()->cart->ship_to_billing_address_only() && WC()->cart->needs_shipping() ) : ?>

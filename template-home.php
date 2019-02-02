@@ -4,36 +4,87 @@
  */
 ?>
 <?php get_header(); ?>
+<?php
+
+/*
+ * The code below is used to extract the current post ID so we can launch the player to the first series audio result.
+ */
+
+/*
+
+$args_programs = array(
+	'post_type' => 'programs',
+	'post_status' => array('publish'),
+	'posts_per_page' => 5,
+	'orderby' => 'date',
+	'order' => 'ASC',
+	'tax_query' => array(
+		array(
+			'taxonomy' => 'series',
+			'field' => 'slug',
+			'terms' => strtolower($seriesName)
+		)
+	)
+);
+
+$query_programs = new WP_Query($args_programs);
+$tile_array = array();
+$currentPodcastId;
+$currentPodcastDate;
+
+if ($query_programs->have_posts()) {
+	$currentSeries = "";
+	$stillInSeries = true;
+	$countposts = 0;
+	$thisPostID = 0;
+	while ( $query_programs->have_posts() ) {
+		$query_programs->the_post();
+		if ($countposts == 0) {
+			$currentPodcastId = get_the_id();
+			$currentPodcastDate = get_the_date();
+		}
+		$countposts++;
+	}
+}
+
+$year = date("Y",strtotime($currentPodcastDate));
+$month = date("m",strtotime($currentPodcastDate));
+$day = date("d",strtotime($currentPodcastDate));
+$event = mktime(00, 00, 00, $month, $day, $year);
+
+*/
+
+?>
+
 
 <section class="dark slider-main">
   <?php
       if( have_rows('sliders') ):
 
-        // loop through the rows of data
-          while ( have_rows('sliders') ) : the_row();
+	// loop through the rows of data
+	while ( have_rows('sliders') ) : the_row();
 
-              // display a sub field value
-              $label = get_sub_field('label');
-              $title = get_sub_field('title');
-              $description = get_sub_field('description');
-              $img = get_sub_field('slider_image');
-              $link = get_sub_field('button_link');
-              //print_r($link);
+	// display a sub field value
+	$label = get_sub_field('label');
+	$title = get_sub_field('title');
+	$description = get_sub_field('description');
+	$img = get_sub_field('slider_image');
+	$link = get_sub_field('series_link');
 
-              date_default_timezone_set('America/Los_Angeles');
-              $year = date("Y",strtotime("now"));
-              $month = date("m",strtotime("now"));
-              $day = date("d",strtotime("now"));
-              $event = mktime(00, 00, 00, $month, $day, $year);
-              // $programAudioLink = 'http://haven.streamon.fm/program-e-'.$event.'.000000';
-              $playImage = get_stylesheet_directory_uri().'/assets/img/play.png';
+	date_default_timezone_set('America/Los_Angeles');
+	$year = date("Y",strtotime("now"));
+	$month = date("m",strtotime("now"));
+	$day = date("d",strtotime("now"));
+	$event = get_sub_field('podcastID');
+	$id = get_sub_field('postid');
+	$playImage = get_stylesheet_directory_uri().'/assets/img/play.png';
 
-              ?>
+	?>
           <?php if( $img ): ?>
             <div style="background-image: url('<?php echo $img; ?>');" class="main-slider-slide">
           <?php endif; ?>
               <div class="container hero-container">
-                <a class="play-program mobile-hide" onclick="PlayProgramAudio(<?php echo $event ?>)"><img src="<?php echo $playImage; ?>"></a>
+                <a class="play-program mobile-hide play" data-playing="0" data-username="haven" onClick="javascript:PlayProgramAudio(<?php echo $event; ?>, <?php echo $id; ?>)"><img src="<?php echo $playImage; ?>"></a>
               <?php if( $label ): ?>
                 <h5><?php echo $label; ?></h5>
               <?php endif; ?>
@@ -43,9 +94,7 @@
               <?php if( $description ): ?>
                 <p><?php echo $description; ?></p>
               <?php endif; ?>
-              <?php if( $link ): ?>
-                <a class="o-button" href="<?php echo $button_link; ?>">View Series</a>
-              <?php endif; ?>
+                <a class="o-button" href="<?php echo $link; ?>">View Series</a>
               </div>
             </div>
 
@@ -64,17 +113,17 @@
   <div class="container">
     <div class="slider-premium">
     <?php
-        if( have_rows('featured_product_slider') ):
+        if( have_rows('featured_product_slider', 'option') ):
 
           // loop through the rows of data
-            while ( have_rows('featured_product_slider') ) : the_row();
+            while ( have_rows('featured_product_slider', 'option') ) : the_row();
 
                 // display a sub field value
-                $label = get_sub_field('label');
-                $premium = get_sub_field('premium');
-                $desc = get_sub_field('brief_description');
-                $img = get_sub_field('premium_image');
-                $link = get_sub_field('premium_link');
+                $label = get_sub_field('label', 'option');
+                $premium = get_sub_field('premium', 'option');
+                $desc = get_sub_field('brief_description', 'option');
+                $img = get_sub_field('premium_image', 'option');
+                $link = get_sub_field('premium_link', 'option');
             ?>
 
             <div>
@@ -132,7 +181,7 @@
         <p><a href="/about" class="o-button">Learn More</a></p>
       </div>
       <div class="col-md-7">
-        <img src="http://haventomorrow.com/wp-content/uploads/2017/10/Charles-homepage.jpg">
+        <a href="/about"><img src="/wp-content/uploads/2017/10/Charles-homepage.jpg"></a>
       </div>
     </div>
   </div>
@@ -174,9 +223,8 @@
       </div>
       <div class="col-md-7">
         <h3 class="text-center">FEATURED OFFERS</h3>
-        <div class="container">
-        <div class="row">
-        <div class="slider_recent_products">
+        <div class="recent_products">
+          <div class="pure-g">
         <?php
             if( have_rows('slider_recent_products') ):
               $i=0;
@@ -189,40 +237,30 @@
                     $link = get_sub_field('link');
 
                     $i++;
-              			if( $i > 6 )
+              			if( $i > 3 )
               			{
               				break;
               			}
                 ?>
 
-                  <div class="col-md-4 text-center">
+
+                  <div class="pure-u-md-1-3 text-center featured_offers">
                       <?php if( $img ): ?>
-                      <img src="<?php echo $img; ?>">
+                      <a href="<?php if( $link ): ?><?php echo $link; ?><?php endif; ?>"><img src="<?php echo $img; ?>"></a>
                       <?php endif; ?>
                       <?php if( $premium ): ?>
                       <h5 class="text-center"><a href="<?php if( $link ): ?><?php echo $link; ?><?php endif; ?>"><?php echo $premium; ?></a></h5>
                       <?php endif; ?>
                   </div>
         <?php endwhile; ?>
-
-      </div>
+        </div>
       </div>
     </div>
       <?php else: ?>
       <?php endif; ?>
-      </div>
     </div>
   </div>
 </section>
-<script>
-  $(document).ready(function(){
-    $('.slider_recent_products').slick({
-      infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 3
-    });
-  });
-</script>
 
 <section class="c-padding-25-100 blog light-2">
   <div class="container">
@@ -248,10 +286,10 @@
 						$anchor_permalink = get_the_permalink();
 
 						echo '<div class="col-md-5">';
-            echo '<div class="row"><div class="col-md-3">';
-            echo '<img class="float-left" src="http://haventomorrow.com/wp-content/uploads/2017/10/AnchorToday_color.png" height="100px"></div>';
-            echo '<div class="col-md-9">';
-						echo '<h3>TODAY\'S ANCHOR</h3>';
+            echo '<div class="row"><div class="col-md-2">';
+            echo '<img class="float-left" src="/wp-content/uploads/2017/10/AnchorToday_color.png" height="50px"></div>';
+            echo '<div class="col-md-10">';
+						echo '<h3>ANCHOR DEVOTIONAL</h3>';
 									echo '<p style="margin-bottom: 2px;"><strong>'.$anchor_title.'</strong></p>';
 									echo '<p><em>'.$anchor_date.'</em><p></div></div>';
                   echo '<div class="content">';
@@ -273,9 +311,9 @@
       <div class="col-md-1">
       </div>
       <div class="col-md-5">
-        <div class="row"><div class="col-md-3">
-          <img class="float-left" src="http://haventomorrow.com/wp-content/uploads/2017/10/Blogpost_color.png" height="100px"></div>
-          <div class="col-md-9">
+        <div class="row"><div class="col-md-2">
+          <img class="float-left" src="/wp-content/uploads/2017/10/Blogpost_color.png" height="50px"></div>
+          <div class="col-md-10">
         <h3>FEATURED BLOG POST</h3>
         <?php
           $query = new WP_Query(array(
@@ -285,7 +323,7 @@
           while ($query->have_posts()): $query->the_post(); ?>
                   <p style="margin-bottom: 2px;"><strong><?php the_title(); ?></strong></p>
                   <p><em><?php the_date('l / F jS Y'); ?></em><p></div></div>
-                  <?php echo technig_content(65); ?>
+                  <?php the_excerpt(); ?>
                   <a class="o-button" href="<?php the_permalink(); ?>">Keep Reading</a>
           <?php endwhile;
           ?>

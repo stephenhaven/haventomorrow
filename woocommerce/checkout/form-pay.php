@@ -7,6 +7,8 @@
  * @version  2.4.7
  */
 
+/*
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -97,3 +99,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 
 </form>
+
+*/
+
+?>

@@ -55,17 +55,17 @@ $(document).ready(function() {
 	</div><!--end .searchForm-->
 	</form>
 	<?php
-		if (get_field('store_nav_items',33514)) {
-			echo '<ul class="nav">' . PHP_EOL;
-			while (has_sub_field('store_nav_items',33514)) {
-				if (get_sub_field('new_window',33514)) {
+		if (get_field('store_nav_items')) {
+			echo '<ul class="nav">';
+			while (has_sub_field('store_nav_items')) {
+				if (get_sub_field('new_window')) {
 					$sniWin = ' target="_blank"';
 				} else {
 					$sniWin = '';
 				}
-				echo '<li><a href="' . get_sub_field('link',33514) . '"' . $sniWin . '>' . get_sub_field('name',33514) . '</a></li>' . PHP_EOL;
+				echo '<li><a href="' . get_sub_field('link') . '"' . $sniWin . '>' . get_sub_field('name') . '</a></li>';
 			}
-			echo '</ul>' . PHP_EOL;
+			echo '</ul>';
 		}
 	?>
 	<div class="mobileStoreNav">

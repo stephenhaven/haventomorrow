@@ -53,8 +53,8 @@ function getAllSeries($series_filter){
 	}
 
 	$qDB_AllSeries = "select a.term_taxonomy_id AS post_ID, b.name AS post_title, b.slug AS series_slug
-	from haventom_new.wp_ht_term_taxonomy a
-	JOIN haventom_new.wp_ht_terms b ON a.term_id = b.term_id
+	from newtesth_wp.wp_ht_term_taxonomy a
+	JOIN newtesth_wp.wp_ht_terms b ON a.term_id = b.term_id
 	where a.taxonomy = 'series' " . $filterQuery . "ORDER BY b.name;";
 
 	$rDB_AllSeries = $wpdb->get_results($qDB_AllSeries);
@@ -73,8 +73,8 @@ function getAllCategories($categories_filter){
 	}
 
 	$qDB_AllCategories = "select a.term_taxonomy_id AS post_ID, b.name AS post_title, b.slug AS series_slug
-	from haventom_new.wp_ht_term_taxonomy a
-	JOIN haventom_new.wp_ht_terms b ON a.term_id = b.term_id
+	from newtesth_wp.wp_ht_term_taxonomy a
+	JOIN newtesth_wp.wp_ht_terms b ON a.term_id = b.term_id
 	where a.taxonomy = 'category' " . $filterQuery . "ORDER BY b.name;";
 
 	$rDB_AllCategories = $wpdb->get_results($qDB_AllCategories);
@@ -102,39 +102,39 @@ function searchByCategoryID($searchTerm, $filterTerms){
 	FROM (
 			SELECT p.ID, p.post_title, p.post_date,
 				pm.meta_value AS image_url, c2.name AS guest_name, pm3.meta_value AS part_num
-			FROM haventom_new.wp_ht_posts p
-			JOIN haventom_new.wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
-			JOIN haventom_new.wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
-			JOIN haventom_new.wp_ht_term_relationships txr ON p.ID = txr.object_id
-			LEFT JOIN haventom_new.wp_ht_term_taxonomy a2 ON a2.term_taxonomy_id = txr.term_taxonomy_id AND a2.taxonomy = 'speaker'
-			LEFT JOIN haventom_new.wp_ht_terms c2 ON a2.term_id = c2.term_id
+			FROM newtesth_wp.wp_ht_posts p
+			JOIN newtesth_wp.wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
+			JOIN newtesth_wp.wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
+			JOIN newtesth_wp.wp_ht_term_relationships txr ON p.ID = txr.object_id
+			LEFT JOIN newtesth_wp.wp_ht_term_taxonomy a2 ON a2.term_taxonomy_id = txr.term_taxonomy_id AND a2.taxonomy = 'speaker'
+			LEFT JOIN newtesth_wp.wp_ht_terms c2 ON a2.term_id = c2.term_id
 			WHERE p.ID IN (
 				SELECT p.ID
-					FROM haventom_new.wp_ht_posts p
-					JOIN haventom_new.wp_ht_term_relationships txr ON p.ID = txr.object_id
-					JOIN haventom_new.wp_ht_term_taxonomy a2 ON a2.term_taxonomy_id = txr.term_taxonomy_id
+					FROM newtesth_wp.wp_ht_posts p
+					JOIN newtesth_wp.wp_ht_term_relationships txr ON p.ID = txr.object_id
+					JOIN newtesth_wp.wp_ht_term_taxonomy a2 ON a2.term_taxonomy_id = txr.term_taxonomy_id
 					WHERE p.post_type='programs' AND p.post_status='publish'
 							AND txr.term_taxonomy_id = " . $filterTerms . ")
 		) AS p
-	JOIN haventom_new.wp_ht_term_relationships txr ON p.ID = txr.object_id
-	JOIN haventom_new.wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
-	JOIN haventom_new.wp_ht_terms c ON a.term_id = c.term_id
+	JOIN newtesth_wp.wp_ht_term_relationships txr ON p.ID = txr.object_id
+	JOIN newtesth_wp.wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
+	JOIN newtesth_wp.wp_ht_terms c ON a.term_id = c.term_id
 	ORDER BY p.post_date DESC";
 
 	// $qDB_ProgramSearch = "SELECT p.ID, p.post_title, p.post_date, c.name, c.slug,
 	// pm.meta_value AS image_url, pm2.meta_value AS guest_name, pm3.meta_value AS part_num
-	// FROM haventom_new.wp_ht_posts p
-	// JOIN haventom_new.wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
-	// JOIN haventom_new.wp_ht_postmeta pm2 ON p.ID = pm2.post_id AND pm2.meta_key = 'guest_speaker'
-	// JOIN haventom_new.wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
-	// JOIN haventom_new.wp_ht_term_relationships txr ON p.ID = txr.object_id
-    // JOIN haventom_new.wp_ht_term_taxonomy a ON txr.term_taxonomy_id = a.term_taxonomy_id
-	// JOIN haventom_new.wp_ht_terms c ON a.term_id = c.term_id
+	// FROM newtesth_wp.wp_ht_posts p
+	// JOIN newtesth_wp.wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
+	// JOIN newtesth_wp.wp_ht_postmeta pm2 ON p.ID = pm2.post_id AND pm2.meta_key = 'guest_speaker'
+	// JOIN newtesth_wp.wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
+	// JOIN newtesth_wp.wp_ht_term_relationships txr ON p.ID = txr.object_id
+    // JOIN newtesth_wp.wp_ht_term_taxonomy a ON txr.term_taxonomy_id = a.term_taxonomy_id
+	// JOIN newtesth_wp.wp_ht_terms c ON a.term_id = c.term_id
     // WHERE a.taxonomy = 'series' AND p.post_type = 'programs' AND p.post_status='publish' AND p.ID IN
 	// (SELECT txr2.object_id
-    // FROM haventom_new.wp_ht_term_relationships txr2
-    // JOIN haventom_new.wp_ht_term_taxonomy a2 ON txr2.term_taxonomy_id = a2.term_taxonomy_id
-	// JOIN haventom_new.wp_ht_terms c2 ON a2.term_id = c2.term_id
+    // FROM newtesth_wp.wp_ht_term_relationships txr2
+    // JOIN newtesth_wp.wp_ht_term_taxonomy a2 ON txr2.term_taxonomy_id = a2.term_taxonomy_id
+	// JOIN newtesth_wp.wp_ht_terms c2 ON a2.term_id = c2.term_id
 	// WHERE txr2.term_taxonomy_id = " . $filterTerms . ")";
 
 	// if ($searchTerm != ""){
@@ -205,29 +205,29 @@ function searchBySeries($searchTerm, $filterTerms){
 		FROM (
 				SELECT p.ID, p.post_title, p.post_date, c2.name, c2.slug,
 					pm.meta_value AS image_url, pm3.meta_value AS part_num
-				FROM haventom_new.wp_ht_posts p
-				JOIN haventom_new.wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
-				JOIN haventom_new.wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
-				JOIN haventom_new.wp_ht_term_relationships txr ON p.ID = txr.object_id
-				JOIN haventom_new.wp_ht_term_taxonomy a2 ON a2.term_taxonomy_id = txr.term_taxonomy_id AND a2.taxonomy = 'series'
-				JOIN haventom_new.wp_ht_terms c2 ON a2.term_id = c2.term_id
+				FROM newtesth_wp.wp_ht_posts p
+				JOIN newtesth_wp.wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
+				JOIN newtesth_wp.wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
+				JOIN newtesth_wp.wp_ht_term_relationships txr ON p.ID = txr.object_id
+				JOIN newtesth_wp.wp_ht_term_taxonomy a2 ON a2.term_taxonomy_id = txr.term_taxonomy_id AND a2.taxonomy = 'series'
+				JOIN newtesth_wp.wp_ht_terms c2 ON a2.term_id = c2.term_id
 				WHERE p.post_type='programs' AND p.post_status='publish'"
 					. $qDB_SeriesMatch . "
 			) AS p
-		JOIN haventom_new.wp_ht_term_relationships txr ON p.ID = txr.object_id
-		LEFT JOIN haventom_new.wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'speaker'
-		LEFT JOIN haventom_new.wp_ht_terms c ON a.term_id = c.term_id
+		JOIN newtesth_wp.wp_ht_term_relationships txr ON p.ID = txr.object_id
+		LEFT JOIN newtesth_wp.wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'speaker'
+		LEFT JOIN newtesth_wp.wp_ht_terms c ON a.term_id = c.term_id
 		ORDER BY p.post_date DESC";
 
 	// $qDB_ProgramSearch = "SELECT p.ID, p.post_title, p.post_date, c.name, c.slug,
 	// pm.meta_value AS image_url, pm2.meta_value AS guest_name, pm3.meta_value AS part_num
-	// FROM haventom_new.wp_ht_posts p
-	// JOIN haventom_new.wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
-	// JOIN haventom_new.wp_ht_postmeta pm2 ON p.ID = pm2.post_id AND pm2.meta_key = 'guest_speaker'
-	// JOIN haventom_new.wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
-	// JOIN haventom_new.wp_ht_term_relationships txr ON p.ID = txr.object_id
-	// JOIN haventom_new.wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
-	// JOIN haventom_new.wp_ht_terms c ON a.term_id = c.term_id
+	// FROM newtesth_wp.wp_ht_posts p
+	// JOIN newtesth_wp.wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
+	// JOIN newtesth_wp.wp_ht_postmeta pm2 ON p.ID = pm2.post_id AND pm2.meta_key = 'guest_speaker'
+	// JOIN newtesth_wp.wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
+	// JOIN newtesth_wp.wp_ht_term_relationships txr ON p.ID = txr.object_id
+	// JOIN newtesth_wp.wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
+	// JOIN newtesth_wp.wp_ht_terms c ON a.term_id = c.term_id
 	// WHERE p.post_type='programs' AND p.post_status='publish'";
 
 	// $qDB_ProgramSearch = $qDB_ProgramSearch . " ORDER BY p.post_date DESC;";
@@ -266,13 +266,13 @@ function searchByGuest($searchTerm, $guestName){
 
 	$qDB_ProgramSearch = "SELECT DISTINCT p.ID, p.post_title, p.post_date, c.name, c.slug,
 	pm.meta_value AS image_url, pm3.meta_value AS part_num
-	FROM haventom_new.wp_ht_posts p
-	JOIN haventom_new.wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
-	JOIN haventom_new.wp_ht_postmeta pm2 ON p.ID = pm2.post_id
-	JOIN haventom_new.wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
-	JOIN haventom_new.wp_ht_term_relationships txr ON p.ID = txr.object_id
-	JOIN haventom_new.wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
-	JOIN haventom_new.wp_ht_terms c ON a.term_id = c.term_id
+	FROM newtesth_wp.wp_ht_posts p
+	JOIN newtesth_wp.wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
+	JOIN newtesth_wp.wp_ht_postmeta pm2 ON p.ID = pm2.post_id
+	JOIN newtesth_wp.wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
+	JOIN newtesth_wp.wp_ht_term_relationships txr ON p.ID = txr.object_id
+	JOIN newtesth_wp.wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
+	JOIN newtesth_wp.wp_ht_terms c ON a.term_id = c.term_id
 	WHERE p.post_type='programs' AND p.post_status='publish'";
 
 	if ($searchTerm != ""){
@@ -338,34 +338,50 @@ function searchByDate($searchTerm, $dateString){
 		}
 	}
 
-	$qDB_ProgramSearch = "SELECT DISTINCT p.ID, p.post_title, p.post_date, c.name, c.slug,
-						p.image_url, p.guest_name, p.part_num
-						FROM (
-								SELECT p.ID, p.post_title, p.post_date,
-									pm.meta_value AS image_url, c2.name AS guest_name, pm3.meta_value AS part_num
-								FROM haventom_new.wp_ht_posts p
-								JOIN haventom_new.wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
-								JOIN haventom_new.wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
-								JOIN haventom_new.wp_ht_term_relationships txr ON p.ID = txr.object_id
-								LEFT JOIN haventom_new.wp_ht_term_taxonomy a2 ON a2.term_taxonomy_id = txr.term_taxonomy_id AND a2.taxonomy = 'speaker'
-								LEFT JOIN haventom_new.wp_ht_terms c2 ON a2.term_id = c2.term_id
-								WHERE p.post_type='programs' AND p.post_status='publish'"
-								. $qDB_TitleMatch . $qDB_DateMatch . "
-							) AS p
-						JOIN haventom_new.wp_ht_term_relationships txr ON p.ID = txr.object_id
-						JOIN haventom_new.wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
-						JOIN haventom_new.wp_ht_terms c ON a.term_id = c.term_id
-						ORDER BY p.post_date DESC;";
-
+	$qDB_ProgramSearch = "SELECT DISTINCT p.ID, p.post_title, p.post_date, c.name, c.slug, p.image_url, p.guest_name, p.part_num
+FROM
+(
+    SELECT DISTINCT
+    p.ID,
+    p.post_title,
+    p.post_date,
+    pm.meta_value AS image_url,
+    MAX(c2.name) AS guest_name,
+    pm3.meta_value AS part_num
+FROM
+    newtesth_wp.wp_ht_posts p
+JOIN newtesth_wp.wp_ht_postmeta pm
+ON
+    p.ID = pm.post_id AND pm.meta_key = 'program_image'
+JOIN newtesth_wp.wp_ht_postmeta pm3
+ON
+    p.ID = pm3.post_id AND pm3.meta_key = 'part'
+JOIN newtesth_wp.wp_ht_term_relationships txr
+ON
+    p.ID = txr.object_id
+LEFT JOIN newtesth_wp.wp_ht_term_taxonomy a2
+ON
+    a2.term_taxonomy_id = txr.term_taxonomy_id AND a2.taxonomy = 'speaker'
+LEFT JOIN newtesth_wp.wp_ht_terms c2
+ON
+    a2.term_id = c2.term_id
+WHERE
+    p.post_type = 'programs' AND p.post_status = 'publish' " . $qDB_TitleMatch . $qDB_DateMatch . "
+GROUP BY p.ID
+    ) AS p
+JOIN newtesth_wp.wp_ht_term_relationships txr ON p.ID = txr.object_id
+JOIN newtesth_wp.wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
+JOIN newtesth_wp.wp_ht_terms c on a.term_id = c.term_id
+ORDER BY p.post_date DESC";
 
 	// $qDB_ProgramSearch = "SELECT p.ID, p.post_title, p.post_date, c.name, c.slug,
 	// pm.meta_value AS image_url, pm2.meta_value AS guest_name, pm3.meta_value AS part_num
-	// FROM haventom_new.wp_ht_posts p
-	// JOIN haventom_new.wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
-	// JOIN haventom_new.wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
-	// JOIN haventom_new.wp_ht_term_relationships txr ON p.ID = txr.object_id
-	// JOIN haventom_new.wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
-	// JOIN haventom_new.wp_ht_terms c ON a.term_id = c.term_id
+	// FROM newtesth_wp.wp_ht_posts p
+	// JOIN newtesth_wp.wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
+	// JOIN newtesth_wp.wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
+	// JOIN newtesth_wp.wp_ht_term_relationships txr ON p.ID = txr.object_id
+	// JOIN newtesth_wp.wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
+	// JOIN newtesth_wp.wp_ht_terms c ON a.term_id = c.term_id
 	// WHERE p.post_type='programs' AND p.post_status='publish'";
 
 	// $qDB_ProgramSearch = $qDB_ProgramSearch . " ORDER BY p.post_date DESC;";
@@ -390,6 +406,8 @@ function searchByDate($searchTerm, $dateString){
 			'post_title' => $post->post_title,
 			'post_date'  => $postDateOnly,
 			'post_series' => $post->name,
+			'name' => $post->name,
+			'query' => $qDB_ProgramSearch,
 			'series_slug' => $post->slug,
 			'post_imageurl' => $thisImageURL,
 			'post_partnum'	=> $post->part_num,
@@ -420,18 +438,18 @@ function searchByTerm($searchTerm){
 						FROM (
 								SELECT p.ID, p.post_title, p.post_date,
 									pm.meta_value AS image_url, c2.name AS guest_name, pm3.meta_value AS part_num
-								FROM haventom_new.wp_ht_posts p
-								JOIN haventom_new.wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
-								JOIN haventom_new.wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
-								JOIN haventom_new.wp_ht_term_relationships txr ON p.ID = txr.object_id
-								LEFT JOIN haventom_new.wp_ht_term_taxonomy a2 ON a2.term_taxonomy_id = txr.term_taxonomy_id AND a2.taxonomy = 'speaker'
-								LEFT JOIN haventom_new.wp_ht_terms c2 ON a2.term_id = c2.term_id
+								FROM newtesth_wp.wp_ht_posts p
+								JOIN newtesth_wp.wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
+								JOIN newtesth_wp.wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
+								JOIN newtesth_wp.wp_ht_term_relationships txr ON p.ID = txr.object_id
+								LEFT JOIN newtesth_wp.wp_ht_term_taxonomy a2 ON a2.term_taxonomy_id = txr.term_taxonomy_id AND a2.taxonomy = 'speaker'
+								LEFT JOIN newtesth_wp.wp_ht_terms c2 ON a2.term_id = c2.term_id
 								WHERE p.post_type='programs' AND p.post_status='publish'"
 								. $qDB_TitleMatch . "
 							) AS p
-						JOIN haventom_new.wp_ht_term_relationships txr ON p.ID = txr.object_id
-						JOIN haventom_new.wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
-						JOIN haventom_new.wp_ht_terms c ON a.term_id = c.term_id
+						JOIN newtesth_wp.wp_ht_term_relationships txr ON p.ID = txr.object_id
+						JOIN newtesth_wp.wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
+						JOIN newtesth_wp.wp_ht_terms c ON a.term_id = c.term_id
 
 					UNION
 
@@ -440,24 +458,24 @@ function searchByTerm($searchTerm){
 						FROM (
 								SELECT p.ID, p.post_title, p.post_date,
 									pm.meta_value AS image_url, c2.name AS guest_name, pm3.meta_value AS part_num
-								FROM haventom_new.wp_ht_posts p
-								JOIN haventom_new.wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
-								JOIN haventom_new.wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
-								JOIN haventom_new.wp_ht_term_relationships txr ON p.ID = txr.object_id
-								LEFT JOIN haventom_new.wp_ht_term_taxonomy a2 ON a2.term_taxonomy_id = txr.term_taxonomy_id AND a2.taxonomy = 'speaker'
-								LEFT JOIN haventom_new.wp_ht_terms c2 ON a2.term_id = c2.term_id
+								FROM newtesth_wp.wp_ht_posts p
+								JOIN newtesth_wp.wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
+								JOIN newtesth_wp.wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
+								JOIN newtesth_wp.wp_ht_term_relationships txr ON p.ID = txr.object_id
+								LEFT JOIN newtesth_wp.wp_ht_term_taxonomy a2 ON a2.term_taxonomy_id = txr.term_taxonomy_id AND a2.taxonomy = 'speaker'
+								LEFT JOIN newtesth_wp.wp_ht_terms c2 ON a2.term_id = c2.term_id
 								WHERE p.ID IN (
 									SELECT p.ID
-										FROM haventom_new.wp_ht_posts p
-										JOIN haventom_new.wp_ht_term_relationships txr ON p.ID = txr.object_id
-										JOIN haventom_new.wp_ht_term_taxonomy a2 ON a2.term_taxonomy_id = txr.term_taxonomy_id AND a2.taxonomy = 'post_tag'
-										JOIN haventom_new.wp_ht_terms c2 ON a2.term_id = c2.term_id
+										FROM newtesth_wp.wp_ht_posts p
+										JOIN newtesth_wp.wp_ht_term_relationships txr ON p.ID = txr.object_id
+										JOIN newtesth_wp.wp_ht_term_taxonomy a2 ON a2.term_taxonomy_id = txr.term_taxonomy_id AND a2.taxonomy = 'post_tag'
+										JOIN newtesth_wp.wp_ht_terms c2 ON a2.term_id = c2.term_id
 										WHERE p.post_type='programs' AND p.post_status='publish' "
 												. $qDB_TagMatch . ")
 							) AS p
-						JOIN haventom_new.wp_ht_term_relationships txr ON p.ID = txr.object_id
-						JOIN haventom_new.wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
-						JOIN haventom_new.wp_ht_terms c ON a.term_id = c.term_id
+						JOIN newtesth_wp.wp_ht_term_relationships txr ON p.ID = txr.object_id
+						JOIN newtesth_wp.wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
+						JOIN newtesth_wp.wp_ht_terms c ON a.term_id = c.term_id
 			) AS r ORDER BY r.post_date DESC, r.part_num;";
 
 	//var_dump($qDB_ProgramSearch);

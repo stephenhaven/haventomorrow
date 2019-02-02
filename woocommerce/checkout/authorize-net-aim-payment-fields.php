@@ -61,7 +61,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		<?php if ( $enable_csc ) : ?>
 				<div style="float:right; display:inline-block;">
 					<input type="text" class="input-text js-wc-payment-gateway-csc" id="wc-authorize-net-aim-csc" placeholder="CSC" name="wc-authorize-net-aim-csc" maxlength="4" style="width:60px; float:right;" autocomplete="off" value="<?php echo esc_attr( $payment_method_defaults['csc'] ); ?>" />
-					<br clear="all"/><label for="wc-authorize-net-aim-csc"><?php esc_html_e( "Card Security Code", 'woocommerce-gateway-authorize-net-aim' ) ?></label>
+					<br clear="all"/><label for="wc-authorize-net-aim-csc"><?php esc_html_e( "Card Security Codeeee", 'woocommerce-gateway-authorize-net-aim' ) ?></label>
 				</div>
 			<div class="clear"></div>
 		<?php endif; ?>

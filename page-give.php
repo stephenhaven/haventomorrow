@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Give Page
+ * Template Name: Give Page Old
  *
  * @package WordPress
  * @subpackage PJS

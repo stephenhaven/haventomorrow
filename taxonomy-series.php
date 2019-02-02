@@ -65,35 +65,45 @@ get_header();
 				$month = date("m",strtotime($program_date));
 				$day = date("d",strtotime($program_date));
 				$event = mktime(00, 00, 00, $month, $day, $year);
-
-				if ($countposts == 0){
-
+				
+				if ($countposts == 0) {
+					
 					$displayedSeries = $program_series[0];
 					$currentSeries = $program_series[0]->name;
 					echo '<div class="section programs">';
 					echo '<h1>' . $program_series[0]->name . '</h1>';
 					echo '<hr />';
-					echo '<div class="content">';
-					echo '<div class="container">';
-					echo '<h2>' . $program_title . '</h2>';
-					echo '<img id="btnProgramImage" src="' . $program_image['url'] . '" data-playing="0" data-username="haven" data-podcast="' . $event . '" />';
-					echo '<div style="color:#fff;">' . $program_desc . '</div>';
-					echo '</div><!--end .container-->';
+					echo '<div class="content" style="max-width: 985px;">';
 					echo '<div class="container"><div class="row">';
-          echo '<div class="col-md-8">';
-				}
+          			echo '<div class="col-md-12">';
+					
+					?>
+
+					<div class="row">
+						<div class="col-md-7">
+							<img id="btnProgramImage" src="<?php echo $program_image['url'];?>" data-playing="0" data-username="haven" data-podcast="<?php echo $event;?>" style="margin-top: 0px;" />
+							<div style="color:#fff;"><?php echo $program_desc;?></div>
+						</div>
+						<div class="col-md-5">
+							
+				<?php }
+				
 				if ($currentSeries == $program_series[0]->name && $stillInSeries){
 					get_template_part( 'template-parts/content', 'programs' );
-				}
-				else {
+				} else {
 					$stillInSeries = false;
 				}
+				
 				$currentSeries == $program_series[0]->name;
 				$countposts++;
+				
 			}
-      echo '</div><!--end .col-md-8-->';
-      echo '<div class="col-md-4">';
-      echo '</div><!--end .col-md-4-->';
+	?>
+	</div></div>							
+	<?php
+      echo '</div><!--end .col-md-12-->';
+      // echo '<div class="col-md-4">';
+      // echo '</div><!--end .col-md-4-->';
       echo '</div></div><!--end .container-->';
 			echo '</div><!--end .content-->';
 			echo '<div class="socialShare">';

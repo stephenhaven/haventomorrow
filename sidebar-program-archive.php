@@ -17,7 +17,7 @@ $selectedTerm = $_GET['term'];
 			Search by:
 			<div class="filter" id="mainFilter">
 				<span class="arrow">icon</span>
-				<span class="current">Filters</span>
+				<span class="current">Date</span>
 				<ul>
 					<li data-slug="category" data-name="Category"><a href="javascript:;">Category</a></li>
 					<li data-slug="series" data-name="Series"><a href="javascript:;">Series</a></li>

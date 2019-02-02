@@ -40,7 +40,7 @@ function bindCheckboxEvent(){
 function printCheckboxes(searchResults){
 	var $checkboxHTML = "";
 	for(i=0;i<searchResults.length;i++){
-		$checkboxHTML = '<div class="checkbox" data-slug="' + searchResults[i].name.toLowerCase() + '"><span><span>select</span></span>' + searchResults[i].name + '</div>'
+		$checkboxHTML = '<div class="checkbox" data-slug="' + searchResults[i].post_title.toLowerCase() + '"><span><span>select</span></span>' + searchResults[i].post_title + '</div>'
 		$('.section.archive.filters .checkboxes').append($checkboxHTML);
 	}
 }
@@ -169,12 +169,7 @@ function getHTMLResultByCategoryID(searchResults, filterTerms){
 	$divItemsHTML = "";
 	for(i=0;i<searchResults.length;i++){
 		$divItemsHTML = $divItemsHTML + '<div class="itemResult">';
-		if (searchResults[i].post_guest == ' '){
-			$divItemsHTML = $divItemsHTML + '<a href="/series/' + searchResults[i].series_slug.toLowerCase() + '"><span>' + searchResults[i].post_date + '</span> ' + searchResults[i].post_title + ' <span>Part ' + searchResults[i].post_partnum + '</span></a>';
-		}
-		else {
-			$divItemsHTML = $divItemsHTML + '<a href="/series/' + searchResults[i].series_slug.toLowerCase() + '"><span>' + searchResults[i].post_date + '</span> ' + searchResults[i].post_title + ' <span>Part ' + searchResults[i].post_partnum + ' with ' + searchResults[i].post_guest + '</span></a>';
-		}
+		$divItemsHTML = $divItemsHTML + '<a href="/series/' + searchResults[i].series_slug.toLowerCase() + '">' + generatePostTitle(searchResults[i].post_title, searchResults[i].post_guest, searchResults[i].post_partnum) + '</a>';
 		$divItemsHTML = $divItemsHTML + '</div>';
 	}
 	return $divItemsHTML;
@@ -186,14 +181,9 @@ function resetResultByDate(searchResults, filterTerms){
 	DisplayThisMonthDate(filterTerms);
 	$divItemsHTML = "";
 	for(i=0;i<searchResults.length;i++){
-		$divItemsHTML = $divItemsHTML + '<div class="itemResult">';
-		if (searchResults[i].post_guest == ' '){
-			$divItemsHTML = $divItemsHTML + '<a href="/series/' + searchResults[i].series_slug.toLowerCase() + '"><span>' + searchResults[i].post_date + '</span> ' + searchResults[i].post_title + ' <span>Part ' + searchResults[i].post_partnum + '</span></a>';
-		}
-		else {
-			$divItemsHTML = $divItemsHTML + '<a href="/series/' + searchResults[i].series_slug.toLowerCase() + '"><span>' + searchResults[i].post_date + '</span> ' + searchResults[i].post_title + ' <span>Part ' + searchResults[i].post_partnum + ' with ' + searchResults[i].post_guest + '</span></a>';
-		}
-		$divItemsHTML = $divItemsHTML + '</div>';
+		$divItemsHTML = $divItemsHTML + '<h2 class="progResults">';
+		$divItemsHTML = $divItemsHTML + '<a href="/series/' + searchResults[i].series_slug.toLowerCase() + '">' + generatePostTitle(searchResults[i].post_title, searchResults[i].post_guest, searchResults[i].post_partnum, searchResults[i].post_date) + '</a>';
+		$divItemsHTML = $divItemsHTML + '</h2>';
 	}
 	$('.items').append($divItemsHTML);
 	DisplayDateLinksAfter(filterTerms);
@@ -299,14 +289,9 @@ function resetResultBySeries(searchResults){
 	//$('.items').empty();
 	$divItemsHTML = "";
 	for(i=0;i<searchResults.length;i++){
-		//$divItemsHTML = $divItemsHTML + '<h2 class="progResults">';
-		if (searchResults[i].post_guest == ' ') {
-			$divItemsHTML = $divItemsHTML + '<BR /><a href="/series/' + searchResults[i].series_slug.toLowerCase() + '">' + searchResults[i].post_date + ' <span class="title">' + searchResults[i].post_title + '</span> Part ' + searchResults[i].post_partnum + '</a>';
-		}
-		else {
-			$divItemsHTML = $divItemsHTML + '<BR /><a href="/series/' + searchResults[i].series_slug.toLowerCase() + '">' + searchResults[i].post_date + ' <span class="title">' + searchResults[i].post_title + '</span> Part ' + searchResults[i].post_partnum + ' with ' + searchResults[i].post_guest + '</a>';
-		}
-		//$divItemsHTML = $divItemsHTML + '</h2>';
+		$divItemsHTML = $divItemsHTML + '<h2 class="progResults">';
+		$divItemsHTML = $divItemsHTML + '<a href="/series/' + searchResults[i].series_slug.toLowerCase() + '">' + generatePostTitle(searchResults[i].post_title, searchResults[i].post_guest, searchResults[i].post_partnum, searchResults[i].post_date) + '</a>';
+		$divItemsHTML = $divItemsHTML + '</h2>';
 	}
 	$('.progResults').append($divItemsHTML);
 	//$('.items').show();
@@ -346,12 +331,7 @@ function resetResultByGuest(searchResults){
 	$divItemsHTML = "";
 	for(i=0;i<searchResults.length;i++){
 		$divItemsHTML = $divItemsHTML + '<h2 class="progResults">';
-		if (searchResults[i].post_guest == ' ') {
-			$divItemsHTML = $divItemsHTML + '<a href="/series/' + searchResults[i].series_slug.toLowerCase() + '">' + searchResults[i].post_date + ' <span class="title">' + searchResults[i].post_title + '</span> Part ' + searchResults[i].post_partnum + '</a>';
-		}
-		else {
-			$divItemsHTML = $divItemsHTML + '<a href="/series/' + searchResults[i].series_slug.toLowerCase() + '">' + searchResults[i].post_date + ' <span class="title">' + searchResults[i].post_title + '</span> Part ' + searchResults[i].post_partnum + ' with ' + searchResults[i].post_guest + '</a>';
-		}
+		$divItemsHTML = $divItemsHTML + '<a href="/series/' + searchResults[i].series_slug.toLowerCase() + '">' + generatePostTitle(searchResults[i].post_title, searchResults[i].post_guest, searchResults[i].post_partnum, searchResults[i].post_date) + '</a>';
 		$divItemsHTML = $divItemsHTML + '</h2>';
 	}
 	$('.items').append($divItemsHTML);
@@ -365,12 +345,7 @@ function resetResultByTerm(searchResults){
 	$divItemsHTML = "";
 	for(i=0;i<searchResults.length;i++){
 		$divItemsHTML = $divItemsHTML + '<h2 class="progResults">';
-		if (searchResults[i].post_guest == ' ') {
-			$divItemsHTML = $divItemsHTML + '<a href="/series/' + searchResults[i].series_slug.toLowerCase() + '">' + searchResults[i].post_date + ' <span class="title">' + searchResults[i].post_title + '</span> Part ' + searchResults[i].post_partnum + '</a>';
-		}
-		else {
-			$divItemsHTML = $divItemsHTML + '<a href="/series/' + searchResults[i].series_slug.toLowerCase() + '">' + searchResults[i].post_date + ' <span class="title">' + searchResults[i].post_title + '</span> Part ' + searchResults[i].post_partnum + ' with ' + searchResults[i].post_guest + '</a>';
-		}
+		$divItemsHTML = $divItemsHTML + '<a href="/series/' + searchResults[i].series_slug.toLowerCase() + '">' + generatePostTitle(searchResults[i].post_title, searchResults[i].post_guest, searchResults[i].post_partnum, searchResults[i].post_date) + '</a>';
 		$divItemsHTML = $divItemsHTML + '</h2>';
 	}
 	$('.items').append($divItemsHTML);
@@ -388,7 +363,7 @@ function resetResultByTermOLD(searchResults){
 		$divItemsHTML = $divItemsHTML + '</div>';
 
 		// 'post_id' => $post->ID,
-		// 'post_title' => $post->post_title,
+		// 'name' => $post->name,
 		// 'post_series' => $post->name,
 		// 'post_imageurl' => $field["value"]["url"]
 	}
@@ -408,7 +383,7 @@ function resetResultByTermOLD(searchResults){
 	$('.items').show();
 }
 
-function PlayProgramAudio(podcastID){
+function PlayProgramAudio(podcastID, postId){
 	if ($(window).width() < 767) {
 	  window.open('http://haven.streamon.fm/program-e-' + podcastID + '.000000', 'havenplayer', 'status=yes, resizable=yes', 'havenAudioWnd');
 	} else {
@@ -417,9 +392,8 @@ function PlayProgramAudio(podcastID){
 		var podcastSetting = 'tall';
 		var podcastPopup = 'false';
 		var podcastStatus = 'playing';
-		// var url = 'http://www.haventoday.org/player/index.php?podcastID=' + podcastID + '&podcastSeconds=' + podcastSeconds + '&podcastVolume=' + podcastVolume + '&podcastSetting=' + podcastSetting + '&podcastPopup=' + podcastPopup + '&podcastStatus=' + podcastStatus;
-		var url = 'http://www.haventomorrow.com/player/index.php?podcastID=' + podcastID + '&podcastSeconds=' + podcastSeconds + '&podcastVolume=' + podcastVolume + '&podcastSetting=' + podcastSetting + '&podcastPopup=' + podcastPopup + '&podcastStatus=' + podcastStatus;
-		window.open(url, 'havenplayer', 'status=yes, menubar=no, scrollbars=no, resizable=no, width=800, height=180', 'havenAudioWnd');
+		var url = 'http://new.haventoday.org/player/index.php?podcastID=' + podcastID + '&podcastSeconds=' + podcastSeconds + '&podcastVolume=' + podcastVolume + '&podcastSetting=' + podcastSetting + '&podcastPopup=' + podcastPopup + '&podcastStatus=' + podcastStatus + "&postId=" + postId;
+		window.open(url, 'havenplayer', 'status=yes, menubar=no, scrollbars=no, resizable=no, width=800, height=242', 'havenAudioWnd');
 	}
 
 
@@ -427,14 +401,15 @@ function PlayProgramAudio(podcastID){
 
 $(document).ready(function(){
 	if ($('#hiddenTerm').length){
-		selectedFilter = "Filters";
-		selectedTerm = $('#hiddenTerm').data('term');
+		var selectedFilter = "Date";
+		var selectedTerm = $('#hiddenTerm').data('term');
 		$('#textSearch').val(selectedTerm);
-		searchPrograms(selectedTerm,selectedFilter,"");
+		var d = new Date();
+		var strDate = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
+		searchPrograms(selectedTerm, selectedFilter, strDate);
 	}
 
 	if ($('#hiddenFilter').length){
-		selectedFilter = $('#hiddenFilter').data('filter');
 		if (selectedFilter == '') {
 			$('#mainFilter').find('.current').text('Filter');
 		} else {
@@ -479,7 +454,7 @@ $(document).ready(function(){
 		//$('#dateFilters').show();
 		$('.content .items').hide();
 		var strDate = $(this).data('year') + '-' + $(this).data('month') + '-02';
-		searchPrograms($('#textSearch')[0].value,selectedFilter,strDate);
+		searchPrograms($('#textSearch')[0].value, selectedFilter, strDate);
 	});
 
 	$('.items').on('click','#categoryLink', function(){
@@ -509,19 +484,13 @@ $(document).ready(function(){
 					var searchResults = jQuery.parseJSON(results);
 					$divItemsHTML = '';
 					for(i=0;i<searchResults.length;i++){
-						if (searchResults[i].post_guest == ' ') {
-							$divItemsHTML = $divItemsHTML + '<h2 class="progResults">';
-							$divItemsHTML = $divItemsHTML + '<a href="/series/' + searchResults[i].series_slug.toLowerCase() + '">' + searchResults[i].post_date + ' <span class="title">' + searchResults[i].post_title + '</span> Part ' + searchResults[i].post_partnum + '</a>';
-							$divItemsHTML = $divItemsHTML + '</h2>';
-						}
-						else {
-							$divItemsHTML = $divItemsHTML + '<h2 class="progResults">';
-							$divItemsHTML = $divItemsHTML + '<a href="/series/' + searchResults[i].series_slug.toLowerCase() + '">' + searchResults[i].post_date + ' <span class="title">' + searchResults[i].post_title + '</span> Part ' + searchResults[i].post_partnum + ' with ' + searchResults[i].post_guest + '</a>';
-							$divItemsHTML = $divItemsHTML + '</h2>';
-						}
+						$divItemsHTML = $divItemsHTML + '<h2 class="progResults">';
+						$divItemsHTML = $divItemsHTML + '<a href="/series/' + searchResults[i].series_slug.toLowerCase() + '">' + searchResults[i].post_date + generatePostTitle(searchResults[i].post_title, searchResults[i].post_guest, searchResults[i].post_partnum, searchResults[i].post_date) + '</a>';
+						$divItemsHTML = $divItemsHTML + '</h2>';
 					}
 					thisObject.parent().append($divItemsHTML);
 				}
+				
 			})
 		})
 
@@ -663,7 +632,7 @@ $(document).ready(function(){
 
 	$('.button.trans.play').click(function(){
 		// if($(window).width() < 767){
-			PlayProgramAudio($(this).data('podcast'));
+			PlayProgramAudio($(this).data('podcast'), $(this).data('id'));
 		// } else {
 			// OpenPlayProgramAudio($(this).data('podcast'), $(this), true); //FUNCTION LOCATED IN sidebar-player.php
 		// }
@@ -694,3 +663,30 @@ $(document).ready(function(){
 	// 	spaceBetween: 30,
 	// });
 });
+
+// Used to build out the post title based on values in the guest and part number columns.
+function generatePostTitle(postTitle, postGuest, postPartNumber, postDate) {
+	var titleToReturn = '<span class="title">' + moment(postDate).format("MMMM Do, YYYY") + '</span> ' + postTitle;
+	var spanStarted = false;
+	// Insert a part number if it's defined and not 0.
+	if (postPartNumber && postPartNumber != ' ') {
+		if (!spanStarted) {
+			titleToReturn += '<span class="title">';
+		}
+		spanStarted = true;
+		titleToReturn += ' Part ' + postPartNumber;
+	}
+	// Append a guest name if we have one.
+	if (postGuest && postGuest != ' ') {
+		if (!spanStarted) {
+			titleToReturn += '<span class="title">';
+		}
+		spanStarted = true;
+		titleToReturn += " with " + postGuest;
+	}
+	// Close span if we need to.
+	if (spanStarted) {
+		titleToReturn += "</span>";
+	}
+	return titleToReturn;
+}

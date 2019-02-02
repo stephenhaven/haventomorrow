@@ -263,32 +263,33 @@ function create_taxonomies() {
 			'hierarchical' => true
 		)
 	);
-
-	$labels_campaign = array(
-		'name'              => _x( 'Campaigns', 'taxonomy general name' ),
-		'singular_name'     => _x( 'Campaign Types', 'taxonomy singular name' ),
-		'search_items'      => __( 'Search Campaigns Types' ),
-		'all_items'         => __( 'All Campaigns Types' ),
-		'parent_item'       => __( 'Parent Campaign' ),
-		'parent_item_colon' => __( 'Parent Campaign:' ),
-		'edit_item'         => __( 'Edit Campaign Type' ),
-		'update_item'       => __( 'Update Campaign Type' ),
-		'add_new_item'      => __( 'Add New Campaign Type' ),
-		'new_item_name'     => __( 'New Campaign Type Name' ),
-		'menu_name'         => __( 'Campaign' ),
-	);
-
-	$args_campaign = array(
-		'hierarchical'      => true,
-		'labels'            => $labels_campaign,
-		'show_ui'           => true,
-		'show_admin_column' => true,
-		'query_var'         => true,
-		'rewrite'           => array('with_front' => false, 'slug' => 'campaign'),
-	);
-
-	register_taxonomy('campaign', 'product', $args_campaign);
 }
+//
+// 	$labels_campaign = array(
+// 		'name'              => _x( 'Campaigns', 'taxonomy general name' ),
+// 		'singular_name'     => _x( 'Campaign Types', 'taxonomy singular name' ),
+// 		'search_items'      => __( 'Search Campaigns Types' ),
+// 		'all_items'         => __( 'All Campaigns Types' ),
+// 		'parent_item'       => __( 'Parent Campaign' ),
+// 		'parent_item_colon' => __( 'Parent Campaign:' ),
+// 		'edit_item'         => __( 'Edit Campaign Type' ),
+// 		'update_item'       => __( 'Update Campaign Type' ),
+// 		'add_new_item'      => __( 'Add New Campaign Type' ),
+// 		'new_item_name'     => __( 'New Campaign Type Name' ),
+// 		'menu_name'         => __( 'Campaign' ),
+// 	);
+//
+// 	$args_campaign = array(
+// 		'hierarchical'      => true,
+// 		'labels'            => $labels_campaign,
+// 		'show_ui'           => true,
+// 		'show_admin_column' => true,
+// 		'query_var'         => true,
+// 		'rewrite'           => array('with_front' => false, 'slug' => 'campaign'),
+// 	);
+//
+// 	register_taxonomy('campaign', 'product', $args_campaign);
+// }
 
 
 add_action( 'init', 'create_posttypes' );
@@ -425,42 +426,41 @@ function create_posttypes() {
 			'taxonomies' => array('category')
 		)
 	);
-	register_post_type( 'giving',
-		array(
-			'labels' => array(
-			'name' => __( 'Recurring Giving' ),
-			'singular_name' => __( 'Recurring Giving' ),
-			'menu_name'          => _x( 'Recurring Giving', 'admin menu' ),
-			'name_admin_bar'     => _x( 'Recurring Giving', 'add new on admin bar' ),
-			'add_new'            => _x( 'Add New', 'Recurring Giving' ),
-			'add_new_item'       => __( 'Add New Recurring Giving' ),
-			'new_item'           => __( 'New Recurring Giving' ),
-			'edit_item'          => __( 'Edit Recurring Giving' ),
-			'view_item'          => __( 'View Recurring Giving' ),
-			'all_items'          => __( 'All Recurring Giving' ),
-			'search_items'       => __( 'Search Recurring Giving' ),
-			'parent_item_colon'  => __( 'Parent Recurring Giving:' ),
-			'not_found'          => __( 'No posts found.' ),
-			'not_found_in_trash' => __( 'No posts found in Trash.' )
-		),
-			'public' => false,
-			'publicly_queryable' => false,
-			'has_archive' => true,
-			//'rewrite' => array('slug' => 'recurring-giving'),
-			'rewrite' => array('with_front' => false, 'slug' => 'recurring-giving'),
-			'hierarchical' => false,
-			'menu_icon' => 'dashicons-vault',
-			'menu_position' => 100,
-			'show_ui' => true,
-			'show_in_menu' => true,
-			'capability_type' => 'page',
-			'capabilities' => array(
-				'create_posts' => false // Removes support for the "Add New" function ( use 'do_not_allow' instead of false for multisite set ups )
-			),
-			'map_meta_cap' => true, // Set to `false`, if users are not allowed to edit/delete existing posts
-			'supports' => array( 'title')
-		)
-	);
+// 	register_post_type( 'giving',
+// 		array(
+// 			'labels' => array(
+// 			'name' => __( 'Recurring Giving' ),
+// 			'singular_name' => __( 'Recurring Giving' ),
+// 			'menu_name'          => _x( 'Recurring Giving', 'admin menu' ),
+// 			'name_admin_bar'     => _x( 'Recurring Giving', 'add new on admin bar' ),
+// 			'add_new'            => _x( 'Add New', 'Recurring Giving' ),
+// 			'add_new_item'       => __( 'Add New Recurring Giving' ),
+// 			'new_item'           => __( 'New Recurring Giving' ),
+// 			'edit_item'          => __( 'Edit Recurring Giving' ),
+// 			'view_item'          => __( 'View Recurring Giving' ),
+// 			'all_items'          => __( 'All Recurring Giving' ),
+// 			'search_items'       => __( 'Search Recurring Giving' ),
+// 			'parent_item_colon'  => __( 'Parent Recurring Giving:' ),
+// 			'not_found'          => __( 'No posts found.' ),
+// 			'not_found_in_trash' => __( 'No posts found in Trash.' )
+// 		),
+// 			'public' => false,
+// 			'publicly_queryable' => false,
+// 			'has_archive' => true,
+// 			//'rewrite' => array('slug' => 'recurring-giving'),
+// 			'rewrite' => array('with_front' => false, 'slug' => 'recurring-giving'),
+// 			'hierarchical' => false,
+// 			'menu_icon' => 'dashicons-vault',
+// 			'menu_position' => 100,
+// 			'show_ui' => true,
+// 			'show_in_menu' => true,
+// 			'capability_type' => 'page',
+// 			'capabilities' => array(
+// 				'create_posts' => false // Removes support for the "Add New" function ( use 'do_not_allow' instead of false for multisite set ups )
+// 			),
+// 			'map_meta_cap' => true, // Set to `false`, if users are not allowed to edit/delete existing posts
+// 			'supports' => array( 'title')
+// 		)
 }
 
 /*set sort order by date for custom post types in CMS*/
@@ -488,37 +488,63 @@ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 3
 
 add_action( 'woocommerce_sidebar', 'woocommerce_output_related_products', 60 );
 
-add_filter( 'woocommerce_default_address_fields' , 'custom_override_default_address_fields' );
+add_filter( 'woocommerce_default_address_fields' , 'custom_override_default_address_fields');
 function custom_override_default_address_fields( $address_fields ) {
-	$address_fields['first_name']['class'] = array('short left');
-	$address_fields['last_name']['class'] = array('short right');
+	$address_fields['first_name']['class'] = array('form-left');
+	$address_fields['last_name']['class'] = array('form-right');
 	$address_fields['first_name']['placeholder'] = 'First Name';
 	$address_fields['last_name']['placeholder'] = 'Last Name';
 	return $address_fields;
 }
 
-add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields');
 function custom_override_checkout_fields( $fields ) {
-	$fields['billing']['billing_email']['class'] = array('short left');
-	$fields['billing']['billing_phone']['class'] = array('short right');
-	$fields['billing']['billing_state']['class'] = array('short left address-field');
-	$fields['billing']['billing_postcode']['class'] = array('short right');
-	$fields['shipping']['shipping_state']['class'] = array('short left');
-	$fields['shipping']['shipping_postcode']['class'] = array('short right');
-	//$fields['billing']['billing_company']['placeholder'] = 'Company Name';
 	$fields['billing']['billing_email']['placeholder'] = 'Email Address';
 	$fields['billing']['billing_phone']['placeholder'] = 'Phone';
-	//$fields['shipping']['shipping_company']['placeholder'] = 'Company Name';
-	unset($fields['billing']['billing_company']);
+	$fields['billing']['billing_company']['class'] = array('form-left');
+	$fields['billing']['billing_phone']['class'] = array('form-right');
 	unset($fields['shipping']['shipping_company']);
     return $fields;
 }
 
-add_filter( 'woocommerce_billing_fields', 'wc_billing_fields_state_filter', 10, 1 );
+add_filter( 'woocommerce_billing_fields', 'wc_billing_fields_state_filter', 10, 1);
 function wc_billing_fields_state_filter( $address_fields ) {
 	$address_fields['billing_state']['label'] = 'State / Province';
 	$address_fields['billing_state']['placeholder'] = 'State / Province';
 	return $address_fields;
+}
+
+add_filter( 'woocommerce_order_button_text', 'woo_custom_order_button_text' );
+function woo_custom_order_button_text() {
+    return __( 'Your new button text here', 'woocommerce' ); 
+}
+
+
+
+
+/**
+
+* Add custom field to the checkout page
+
+*/
+
+add_action('woocommerce_after_checkout_billing_form', 'sign_up_for_haven');
+function sign_up_for_haven($checkout) {
+	woocommerce_form_field('sign_up_for_haven', array(
+		'type' => 'radio',
+		'class' => array(
+			'my-field-class form-wide'
+		),
+		'label' => __('Sign up for the Haven Today program by email:'),
+		'placeholder' => __(''),
+		'required' => true,
+		'options' => array(
+			'Daily' => 'Daily',
+			'Weekly' => 'Weekly'
+		),
+		'priority' => 150
+	),
+	$checkout->get_value('sign_up_for_haven'));
 }
 
 function wc_validate_phone_number() {
@@ -529,21 +555,6 @@ function wc_validate_phone_number() {
 }
 
 add_action( 'woocommerce_checkout_process', 'wc_validate_phone_number' );
-
-// add_action( 'woocommerce_before_calculate_totals', 'change_cart_gift_price' );
-
-// function change_cart_gift_price( $gift_id ) {
-	// foreach ( WC()->cart->get_cart() as $cart_item_id => $value ) {
-		// // check if product not belonging to giving category
-		// $value['data']->price = 0;
-		// //var_dump($value['product_id']);
-		// // if ( $value['product_id'] == $gift_id ) {
-			// // //var_dump($value['product_id']);
-			// // $value['data']->price = 0;
-			// // break;
-		// // }
-	// }
-// }
 
 function pagination_bar() {
     global $wp_query;
@@ -762,11 +773,6 @@ function ip_info($ip = NULL, $purpose = "location", $deep_detect = TRUE) {
     return $output;
 }
 
-// add_filter( 'woocommerce_order_button_text', 'woo_custom_order_button_text' ); // 2.1 +
-// function woo_custom_order_button_text() {
-// return __( 'Confirm Gift', 'woocommerce' );
-// }
-
 require_once( ABSPATH . 'wp-admin/includes/export.php' );
 
 function havenexport() {
@@ -809,6 +815,12 @@ function technig_content($limit){
   $content = apply_filters('the_content', $content);
   $content = str_replace(']]>', ']]&gt;', $content);
   return $content;
+}
+
+if( function_exists('acf_add_options_page') ) {
+
+	acf_add_options_page();
+
 }
 
 ?>

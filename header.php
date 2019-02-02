@@ -15,24 +15,30 @@
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
-
+<link rel="icon" href="favicon.ico?v=2" />
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/oldStyles.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-<!-- <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script> -->
-<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"><!-- <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script> -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 <script>
 $(document).ready(function() {
   document.getElementsByTagName("html")[0].style.visibility = "visible";
 });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script><script src="https://use.typekit.net/emp1lty.js"></script>
+<script src="https://use.typekit.net/emp1lty.js"></script>
 <script>try{Typekit.load({ async: true });}catch(e){}</script>
 <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,600,600i,800,800i" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Alegreya" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+<!--<![endif]-->
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/style.css">
 <!--[if lt IE 9]>
 <script src="js/html5.js" type="text/javascript"></script>
@@ -56,6 +62,10 @@ $(document).ready(function() {
 		window.sr = new scrollReveal();
 	});
 </script>
+	
+<!-- MOMENT JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+	
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -73,7 +83,7 @@ $(document).ready(function() {
 		<div class="links">
 		<a class="signup">Sign Up</a>
 		<span>|</span>
-		<a class="/find-a-station">Find a Station</a>
+		<a href="/find-a-station">Find a Station</a>
 		<span>|</span>
 		<a href="tel:+1-800-654-2836" style="cursor:default;"><b>800 654 2836</b></a>
 		<span>|</span>
@@ -107,7 +117,7 @@ $(document).ready(function() {
 		<h3>Keep up to date with the latest</h3>
 		<hr />
 		<div class="signupForm">
-			<?php echo do_shortcode('[contact-form-7 id="33501" title="Haven Today Email Updates"]'); ?>
+			<?php echo do_shortcode('[contact-form-7 id="66781" title="Haven Today Email Updates"]'); ?>
 			<script>
 				$(document).ready(function(){
 					$('.options  .checkboxes .cb').click(function() {
@@ -140,17 +150,17 @@ $(document).ready(function() {
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <div class="menu-menu-1-container"><ul id="primary-menu" class="menu nav-menu" aria-expanded="false"><li id="menu-item-33383" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-33398 current_page_item menu-item-33383"><a href="http://haventomorrow.com/">Home</a></li>
+          <div class="menu-menu-1-container"><ul id="primary-menu" class="menu nav-menu" aria-expanded="false"><li id="menu-item-33383" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-33398 current_page_item menu-item-33383"><a href="/">Home</a></li>
 
             <li id="menu-item-33384" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-33384 nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Listen
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a href="/program">Today's Program</a>
-                <a href="http://haventomorrow.com/program-archive/">Program Archive</a>
-                <a href="http://haventomorrow.com/haven-now/">Haven Now</a>
-                <a href="http://haventomorrow.com/anchor-today/">Anchor Today</a>
+                <a href="/current-series/">Today's Program</a>
+                <a href="/program-archive/">Program Archive</a>
+                <a href="/haven-now/">Haven Now</a>
+                <a href="/anchor-today/">Anchor Today</a>
               </div>
             </li>
 
@@ -159,7 +169,7 @@ $(document).ready(function() {
                 Ministry
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a href="http://haventomorrow.com/blog/">Blog</a>
+                <a href="/blog/">Blog</a>
                 <?php
 
       					$args_anchor = array(
@@ -184,8 +194,8 @@ $(document).ready(function() {
       					wp_reset_postdata();
 
       					?>
-                <a href="http://haventomorrow.com/prayer/">Prayer</a>
-                <a href="http://haventomorrow.com/knowing-god/">Knowing God</a>
+                <a href="/prayer/">Prayer</a>
+                <a href="/knowing-god/">Knowing God</a>
               </div>
     				</li>
     				<li id="menu-item-33553" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33553"><a href="/store/">Resources</a></li>
@@ -194,10 +204,10 @@ $(document).ready(function() {
                 About</a>
     				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a href="/about">About Us</a>
-    					<a href="http://haventomorrow.com/financial-accountability/">Financial Accountability</a>
+    					<a href="/financial-accountability/">Financial Accountability</a>
     				</div>
     				</li>
-    				<li id="menu-item-33589" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-33589"><a href="/product/give">Give</a></li>
+    				<li id="menu-item-33589" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-33589"><a href="/giving">Give</a></li>
     				</ul></div>
         </div>
       </nav>

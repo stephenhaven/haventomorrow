@@ -1,3 +1,5 @@
+var please_select;
+
 function getStationsFromZip($zipcode){
 	var $getStationsUrl = '/wp-content/themes/haven2015/getstationsfromzip.php';
 	var $seriesResult = $.ajax({
@@ -418,6 +420,70 @@ $(document).ready(function() {
 			$('.drop.station .content .info').append('<div class="loading"><img src="/wp-content/themes/haven2015/images/ajax-loader-search-white.gif" alt="loading..."></div>');
 
 			getStationsFromZip($('#textZipCode').val());
+		}
+	});
+	$('#billing_postcode').keyup(function() {
+		if (document.getElementById("radio_stations_container") == null)
+		{
+			var p_container = document.getElementById("order_comments_field").parentNode;
+			var new_p = document.createElement("p");
+			new_p.setAttribute("class","form-row notes");
+			new_p.setAttribute("id","radio_stations_container");
+			var new_label = document.createElement("label");
+			new_label.setAttribute("for","radio_stations");
+			var new_label_text = document.createTextNode("Radio Station");
+			var new_label_optional = document.createElement("span");
+			new_label_optional.setAttribute("class","optional");
+			new_label_optional.innerText = "(optional)";
+			new_label.appendChild(new_label_text);
+			new_label.appendChild(new_label_optional);
+			new_p.appendChild(new_label);
+			var new_span = document.createElement("span");
+			new_span.setAttribute("class","woocommerce-input-wrapper");
+			var radio_select = document.createElement("select");
+			radio_select.setAttribute("name","radio_stations");
+			please_select = document.createElement("option");
+			please_select.innerText = "Please enter your zipcode to view stations.";
+			radio_select.appendChild(please_select);
+			new_span.appendChild(radio_select);
+			new_p.appendChild(new_span);
+			p_container.appendChild(new_p);
+		}
+		else{
+			var radio_stations_select = document.getElementsByName("radio_stations")[0];
+			for (var i = 1; i < radio_stations_select.childNodes.length; i++)
+			{
+				radio_stations_select.removeChild(radio_stations_select.childNodes[i]);
+			}
+			var zipcode_regex = /^\d{5}$/;
+			if (zipcode_regex.test(this.value))
+			{
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function()
+				{
+					if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 304))
+					{
+						var radios_array = JSON.parse(xhr.responseText);
+						for (var i = 0; i < radios_array.length; i++)
+						{
+							var new_radio_option = document.createElement("option");
+							new_radio_option.innerText = radios_array[i]["dial"] + radios_array[i]["FBAND"] + "M " + radios_array[i]["station"] + " | " + radios_array[i]["city"] + ", " + radios_array[i]["state"];
+							new_radio_option.setAttribute("value",radios_array[i]["station"] + " " + radios_array[i]["dial"] + "-" + radios_array[i]["FBAND"] + "M")
+							radio_stations_select.appendChild(new_radio_option);
+						}
+						if (radios_array == '') {
+							please_select.innerText = 'No nearby radio stations.';
+						} else {
+							please_select.innerText = 'Please select a radio station ...';
+						}
+					}
+				}
+				xhr.open("POST","/wp-content/themes/haventomorrow/getstationsproxy.php",true);
+				xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=UTF-8")
+				xhr.send("zipcode=" + this.value);
+			} else {
+				please_select.innerText = 'Please enter a valid zipcode.';
+			}
 		}
 	});
 });

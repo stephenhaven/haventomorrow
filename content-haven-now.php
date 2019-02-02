@@ -8,7 +8,6 @@ $hn_audio_description = get_field('hn_audio_description');
 
 get_header();
 get_template_part( 'template-parts/content', 'title' ); ?>
-
 <section class="c-padding-75">
   <div class="container">
     <?php

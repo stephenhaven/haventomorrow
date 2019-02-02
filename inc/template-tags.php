@@ -48,7 +48,11 @@ function haventomorrow_entry_footer() {
 	if ( 'post' === get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'haventomorrow' ) );
-		if ( $categories_list && haventomorrow_categorized_blog() ) {
+		
+		// If the post is uncategorized, show a link to the blog instead of uncategorized.
+		if (\strpos($categories_list, 'Uncategorized') !== false) {
+			printf('<span class="cat-links">Posted in <a href="/blog">Blog</a></span>');
+		} else {
 			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'haventomorrow' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}
 
@@ -69,10 +73,10 @@ function haventomorrow_entry_footer() {
 	edit_post_link(
 		sprintf(
 			/* translators: %s: Name of current post */
-			esc_html__( 'Edit %s', 'haventomorrow' ),
+			esc_html__( 'Click here to edit this post.', 'haventomorrow' ),
 			the_title( '<span class="screen-reader-text">"', '"</span>', false )
 		),
-		'<span class="edit-link">',
+		'<br /><br /><span class="edit-link">',
 		'</span>'
 	);
 }
