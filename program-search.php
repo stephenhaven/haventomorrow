@@ -53,8 +53,8 @@ function getAllSeries($series_filter){
 	}
 
 	$qDB_AllSeries = "select a.term_taxonomy_id AS post_ID, b.name AS post_title, b.slug AS series_slug
-	from havent6_newhaven.wp_ht_term_taxonomy a
-	JOIN havent6_newhaven.wp_ht_terms b ON a.term_id = b.term_id
+	from " . DB_NAME . ".wp_ht_term_taxonomy a
+	JOIN " . DB_NAME . ".wp_ht_terms b ON a.term_id = b.term_id
 	where a.taxonomy = 'series' " . $filterQuery . "ORDER BY b.name;";
 
 	$rDB_AllSeries = $wpdb->get_results($qDB_AllSeries);
@@ -73,8 +73,8 @@ function getAllCategories($categories_filter){
 	}
 
 	$qDB_AllCategories = "select a.term_taxonomy_id AS post_ID, b.name AS post_title, b.slug AS series_slug
-	from havent6_newhaven.wp_ht_term_taxonomy a
-	JOIN havent6_newhaven.wp_ht_terms b ON a.term_id = b.term_id
+	from " . DB_NAME . ".wp_ht_term_taxonomy a
+	JOIN " . DB_NAME . ".wp_ht_terms b ON a.term_id = b.term_id
 	where a.taxonomy = 'category' " . $filterQuery . "ORDER BY b.name;";
 
 	$rDB_AllCategories = $wpdb->get_results($qDB_AllCategories);
@@ -100,57 +100,24 @@ function searchByCategoryID($searchTerm, $filterTerms){
 	$qDB_ProgramSearch = "SELECT DISTINCT p.ID, p.post_title, p.post_date, MAX(c.name) AS name, MAX(c.slug) AS slug, p.image_url, p.guest_name, p.part_num
 FROM (
 SELECT DISTINCT p.ID, pm1.meta_value AS post_title, MAX(p.post_date) as post_date, pm.meta_value AS image_url, MAX(c2.name) AS guest_name, pm3.meta_value AS part_num 
-FROM havent6_newhaven.wp_ht_posts p 
-JOIN havent6_newhaven.wp_ht_postmeta pm1 ON p.ID = pm1.post_id AND pm1.meta_key = 'program_title'
-JOIN havent6_newhaven.wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
-JOIN havent6_newhaven.wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part' LEFT JOIN havent6_newhaven.wp_ht_term_relationships txr ON p.ID = txr.object_id
-LEFT JOIN havent6_newhaven.wp_ht_term_taxonomy a2 ON a2.term_taxonomy_id = txr.term_taxonomy_id AND a2.taxonomy = 'speaker'
-LEFT JOIN havent6_newhaven.wp_ht_terms c2 ON a2.term_id = c2.term_id
+FROM " . DB_NAME . ".wp_ht_posts p 
+JOIN " . DB_NAME . ".wp_ht_postmeta pm1 ON p.ID = pm1.post_id AND pm1.meta_key = 'program_title'
+JOIN " . DB_NAME . ".wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
+JOIN " . DB_NAME . ".wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part' LEFT JOIN " . DB_NAME . ".wp_ht_term_relationships txr ON p.ID = txr.object_id
+LEFT JOIN " . DB_NAME . ".wp_ht_term_taxonomy a2 ON a2.term_taxonomy_id = txr.term_taxonomy_id AND a2.taxonomy = 'speaker'
+LEFT JOIN " . DB_NAME . ".wp_ht_terms c2 ON a2.term_id = c2.term_id
 WHERE p.ID IN(
-SELECT DISTINCT MIN(p.ID) FROM havent6_newhaven.wp_ht_posts p
-JOIN havent6_newhaven.wp_ht_term_relationships txr ON p.ID = txr.object_id
-JOIN havent6_newhaven.wp_ht_term_taxonomy a2 ON a2.term_taxonomy_id = txr.term_taxonomy_id
+SELECT DISTINCT MIN(p.ID) FROM " . DB_NAME . ".wp_ht_posts p
+JOIN " . DB_NAME . ".wp_ht_term_relationships txr ON p.ID = txr.object_id
+JOIN " . DB_NAME . ".wp_ht_term_taxonomy a2 ON a2.term_taxonomy_id = txr.term_taxonomy_id
 WHERE p.post_type = 'programs' AND p.post_status = 'publish' AND txr.term_taxonomy_id = " . $filterTerms . "
 GROUP BY p.post_date
  ) GROUP BY p.ID
 ) AS p
-JOIN havent6_newhaven.wp_ht_term_relationships txr ON p.ID = txr.object_id
-JOIN havent6_newhaven.wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
-JOIN havent6_newhaven.wp_ht_terms c ON a.term_id = c.term_id GROUP BY p.ID
+JOIN " . DB_NAME . ".wp_ht_term_relationships txr ON p.ID = txr.object_id
+JOIN " . DB_NAME . ".wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
+JOIN " . DB_NAME . ".wp_ht_terms c ON a.term_id = c.term_id GROUP BY p.ID
 ORDER BY p.post_date DESC";
-
-	// $qDB_ProgramSearch = "SELECT p.ID, p.post_title, p.post_date, c.name, c.slug,
-	// pm.meta_value AS image_url, pm2.meta_value AS guest_name, pm3.meta_value AS part_num
-	// FROM havent6_newhaven.wp_ht_posts p
-	// JOIN havent6_newhaven.wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
-	// JOIN havent6_newhaven.wp_ht_postmeta pm2 ON p.ID = pm2.post_id AND pm2.meta_key = 'guest_speaker'
-	// JOIN havent6_newhaven.wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
-	// JOIN havent6_newhaven.wp_ht_term_relationships txr ON p.ID = txr.object_id
-    // JOIN havent6_newhaven.wp_ht_term_taxonomy a ON txr.term_taxonomy_id = a.term_taxonomy_id
-	// JOIN havent6_newhaven.wp_ht_terms c ON a.term_id = c.term_id
-    // WHERE a.taxonomy = 'series' AND p.post_type = 'programs' AND p.post_status='publish' AND p.ID IN
-	// (SELECT txr2.object_id
-    // FROM havent6_newhaven.wp_ht_term_relationships txr2
-    // JOIN havent6_newhaven.wp_ht_term_taxonomy a2 ON txr2.term_taxonomy_id = a2.term_taxonomy_id
-	// JOIN havent6_newhaven.wp_ht_terms c2 ON a2.term_id = c2.term_id
-	// WHERE txr2.term_taxonomy_id = " . $filterTerms . ")";
-
-	// if ($searchTerm != ""){
-		// $qDB_ProgramSearch = $qDB_ProgramSearch . " AND p.post_title like '%" . $searchTerm . "%'";
-		// if ($filterTerms != ""){
-			// $qDB_ProgramSearch = $qDB_ProgramSearch . " AND txr.term_taxonomy_id = " . $filterTerms . " ";
-		// }
-	// }
-	// else {
-		// if ($filterTerms != ""){
-			// $qDB_ProgramSearch = $qDB_ProgramSearch . " AND txr.term_taxonomy_id = " . $filterTerms . " ";
-		// }
-	// }
-
-	// $qDB_ProgramSearch = $qDB_ProgramSearch . " ORDER BY p.post_date DESC;";
-
-	//	echo $qDB_ProgramSearch;
-	//	die();
 
 	$rDB_Programs = $wpdb->get_results($qDB_ProgramSearch);
 
@@ -209,47 +176,34 @@ FROM
     MAX(c2.name) AS guest_name,
     pm3.meta_value AS part_num
 FROM
-    havent6_newhaven.wp_ht_posts p
-JOIN havent6_newhaven.wp_ht_postmeta pm1
+    " . DB_NAME . ".wp_ht_posts p
+JOIN " . DB_NAME . ".wp_ht_postmeta pm1
 ON
     p.ID = pm1.post_id AND pm1.meta_key = 'program_title’
-JOIN havent6_newhaven.wp_ht_postmeta pm
+JOIN " . DB_NAME . ".wp_ht_postmeta pm
 ON
     p.ID = pm.post_id AND pm.meta_key = 'program_image'
-JOIN havent6_newhaven.wp_ht_postmeta pm3
+JOIN " . DB_NAME . ".wp_ht_postmeta pm3
 ON
     p.ID = pm3.post_id AND pm3.meta_key = 'part'
-LEFT JOIN havent6_newhaven.wp_ht_term_relationships txr
+LEFT JOIN " . DB_NAME . ".wp_ht_term_relationships txr
 ON
     p.ID = txr.object_id
-LEFT JOIN havent6_newhaven.wp_ht_term_taxonomy a2
+LEFT JOIN " . DB_NAME . ".wp_ht_term_taxonomy a2
 ON
     a2.term_taxonomy_id = txr.term_taxonomy_id AND a2.taxonomy = 'speaker'
-LEFT JOIN havent6_newhaven.wp_ht_terms c2
+LEFT JOIN " . DB_NAME . ".wp_ht_terms c2
 ON
     a2.term_id = c2.term_id
 WHERE
     p.post_type = 'programs' AND p.post_status = 'publish'" . $qDB_TitleMatch . $qDB_DateMatch . "
 GROUP BY p.ID
     ) AS p
-JOIN havent6_newhaven.wp_ht_term_relationships txr ON p.ID = txr.object_id
-JOIN havent6_newhaven.wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
-JOIN havent6_newhaven.wp_ht_terms c on a.term_id = c.term_id
+JOIN " . DB_NAME . ".wp_ht_term_relationships txr ON p.ID = txr.object_id
+JOIN " . DB_NAME . ".wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
+JOIN " . DB_NAME . ".wp_ht_terms c on a.term_id = c.term_id
 GROUP BY p.ID
 ORDER BY p.post_date DESC";
-
-	// $qDB_ProgramSearch = "SELECT p.ID, p.post_title, p.post_date, c.name, c.slug,
-	// pm.meta_value AS image_url, pm2.meta_value AS guest_name, pm3.meta_value AS part_num
-	// FROM havent6_newhaven.wp_ht_posts p
-	// JOIN havent6_newhaven.wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
-	// JOIN havent6_newhaven.wp_ht_postmeta pm2 ON p.ID = pm2.post_id AND pm2.meta_key = 'guest_speaker'
-	// JOIN havent6_newhaven.wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
-	// JOIN havent6_newhaven.wp_ht_term_relationships txr ON p.ID = txr.object_id
-	// JOIN havent6_newhaven.wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
-	// JOIN havent6_newhaven.wp_ht_terms c ON a.term_id = c.term_id
-	// WHERE p.post_type='programs' AND p.post_status='publish'";
-
-	// $qDB_ProgramSearch = $qDB_ProgramSearch . " ORDER BY p.post_date DESC;";
 
 	$rDB_Programs = $wpdb->get_results($qDB_ProgramSearch);
 
@@ -285,13 +239,13 @@ function searchByGuest($searchTerm, $guestName){
 
 	$qDB_ProgramSearch = "SELECT DISTINCT p.ID, p.post_title, p.post_date, c.name, c.slug,
 	pm.meta_value AS image_url, pm3.meta_value AS part_num
-	FROM havent6_newhaven.wp_ht_posts p
-	JOIN havent6_newhaven.wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
-	JOIN havent6_newhaven.wp_ht_postmeta pm2 ON p.ID = pm2.post_id
-	JOIN havent6_newhaven.wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
-	JOIN havent6_newhaven.wp_ht_term_relationships txr ON p.ID = txr.object_id
-	JOIN havent6_newhaven.wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
-	JOIN havent6_newhaven.wp_ht_terms c ON a.term_id = c.term_id
+	FROM " . DB_NAME . ".wp_ht_posts p
+	JOIN " . DB_NAME . ".wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
+	JOIN " . DB_NAME . ".wp_ht_postmeta pm2 ON p.ID = pm2.post_id
+	JOIN " . DB_NAME . ".wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
+	JOIN " . DB_NAME . ".wp_ht_term_relationships txr ON p.ID = txr.object_id
+	JOIN " . DB_NAME . ".wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
+	JOIN " . DB_NAME . ".wp_ht_terms c ON a.term_id = c.term_id
 	WHERE p.post_type='programs' AND p.post_status='publish'";
 
 	if ($searchTerm != ""){
@@ -306,9 +260,6 @@ function searchByGuest($searchTerm, $guestName){
 		}
 	}
 	$qDB_ProgramSearch = $qDB_ProgramSearch . " ORDER BY p.post_date DESC;";
-
-	//var_dump($qDB_ProgramSearch);
-	//die();
 
 	$rDB_Programs = $wpdb->get_results($qDB_ProgramSearch);
 
@@ -368,55 +319,40 @@ FROM
     MAX(c2.name) AS guest_name,
     pm3.meta_value AS part_num
 FROM
-    havent6_newhaven.wp_ht_posts p
-JOIN havent6_newhaven.wp_ht_postmeta pm1
+    " . DB_NAME . ".wp_ht_posts p
+JOIN " . DB_NAME . ".wp_ht_postmeta pm1
 ON
     p.ID = pm1.post_id AND pm1.meta_key = 'program_title'
-JOIN havent6_newhaven.wp_ht_postmeta pm
+JOIN " . DB_NAME . ".wp_ht_postmeta pm
 ON
     p.ID = pm.post_id AND pm.meta_key = 'program_image'
-JOIN havent6_newhaven.wp_ht_postmeta pm3
+JOIN " . DB_NAME . ".wp_ht_postmeta pm3
 ON
     p.ID = pm3.post_id AND pm3.meta_key = 'part'
-LEFT JOIN havent6_newhaven.wp_ht_term_relationships txr
+LEFT JOIN " . DB_NAME . ".wp_ht_term_relationships txr
 ON
     p.ID = txr.object_id
-LEFT JOIN havent6_newhaven.wp_ht_term_taxonomy a2
+LEFT JOIN " . DB_NAME . ".wp_ht_term_taxonomy a2
 ON
     a2.term_taxonomy_id = txr.term_taxonomy_id AND a2.taxonomy = 'speaker'
-LEFT JOIN havent6_newhaven.wp_ht_terms c2
+LEFT JOIN " . DB_NAME . ".wp_ht_terms c2
 ON
     a2.term_id = c2.term_id
 WHERE
     p.post_type = 'programs' AND p.post_status = 'publish'" . $qDB_TitleMatch . $qDB_DateMatch . "
 GROUP BY p.ID
     ) AS p
-JOIN havent6_newhaven.wp_ht_term_relationships txr ON p.ID = txr.object_id
-JOIN havent6_newhaven.wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
-JOIN havent6_newhaven.wp_ht_terms c on a.term_id = c.term_id
+JOIN " . DB_NAME . ".wp_ht_term_relationships txr ON p.ID = txr.object_id
+JOIN " . DB_NAME . ".wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
+JOIN " . DB_NAME . ".wp_ht_terms c on a.term_id = c.term_id
 GROUP BY p.ID
 ORDER BY p.post_date DESC";
-
-	// $qDB_ProgramSearch = "SELECT p.ID, p.post_title, p.post_date, c.name, c.slug,
-	// pm.meta_value AS image_url, pm2.meta_value AS guest_name, pm3.meta_value AS part_num
-	// FROM havent6_newhaven.wp_ht_posts p
-	// JOIN havent6_newhaven.wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
-	// JOIN havent6_newhaven.wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
-	// JOIN havent6_newhaven.wp_ht_term_relationships txr ON p.ID = txr.object_id
-	// JOIN havent6_newhaven.wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
-	// JOIN havent6_newhaven.wp_ht_terms c ON a.term_id = c.term_id
-	// WHERE p.post_type='programs' AND p.post_status='publish'";
-
-	// $qDB_ProgramSearch = $qDB_ProgramSearch . " ORDER BY p.post_date DESC;";
 
 	$rDB_Programs = $wpdb->get_results($qDB_ProgramSearch);
 
 	$results_array = array();
 
 	foreach($rDB_Programs as $post){
-		// $field_key = "field_5626887056138";
-		// $post_id = $post->ID;
-		// $field = get_field_object($field_key, $post_id);
 		$thisImageURL = $post->image_url;
 		if($thisImageURL == ''){
 			$thisImageURL = '/wp-content/themes/haventomorrow/assets/img/missing.png';
@@ -458,62 +394,55 @@ function searchByTerm($searchTerm){
                     SELECT DISTINCT p.ID, p.post_title, p.post_date, MAX(c.name) AS name, MAX(c.slug) AS slug, p.image_url, p.guest_name, p.part_num
                         FROM (
                                 SELECT DISTINCT p.ID, pm1.meta_value AS post_title, MAX(p.post_date) as post_date, pm.meta_value AS image_url, MAX(c2.name) AS guest_name, pm3.meta_value AS part_num
-                                FROM havent6_newhaven.wp_ht_posts p
-			JOIN havent6_newhaven.wp_ht_postmeta pm1 ON p.ID = pm1.post_id AND pm1.meta_key = 'program_title'
-                                JOIN havent6_newhaven.wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
-                                JOIN havent6_newhaven.wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
-                                LEFT JOIN havent6_newhaven.wp_ht_term_relationships txr ON p.ID = txr.object_id
-                                LEFT JOIN havent6_newhaven.wp_ht_term_taxonomy a2 ON a2.term_taxonomy_id = txr.term_taxonomy_id AND a2.taxonomy = 'speaker'
-                                LEFT JOIN havent6_newhaven.wp_ht_terms c2 ON a2.term_id = c2.term_id
+                                FROM " . DB_NAME . ".wp_ht_posts p
+			JOIN " . DB_NAME . ".wp_ht_postmeta pm1 ON p.ID = pm1.post_id AND pm1.meta_key = 'program_title'
+                                JOIN " . DB_NAME . ".wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
+                                JOIN " . DB_NAME . ".wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
+                                LEFT JOIN " . DB_NAME . ".wp_ht_term_relationships txr ON p.ID = txr.object_id
+                                LEFT JOIN " . DB_NAME . ".wp_ht_term_taxonomy a2 ON a2.term_taxonomy_id = txr.term_taxonomy_id AND a2.taxonomy = 'speaker'
+                                LEFT JOIN " . DB_NAME . ".wp_ht_terms c2 ON a2.term_id = c2.term_id
                                 WHERE p.post_type='programs' AND p.post_status='publish'" . $qDB_TitleMatch . "
 			GROUP BY p.ID
                             ) AS p
-                        JOIN havent6_newhaven.wp_ht_term_relationships txr ON p.ID = txr.object_id
-                        JOIN havent6_newhaven.wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
-                        JOIN havent6_newhaven.wp_ht_terms c ON a.term_id = c.term_id
+                        JOIN " . DB_NAME . ".wp_ht_term_relationships txr ON p.ID = txr.object_id
+                        JOIN " . DB_NAME . ".wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
+                        JOIN " . DB_NAME . ".wp_ht_terms c ON a.term_id = c.term_id
 		  GROUP BY p.ID
                     UNION
 
                     SELECT DISTINCT p.ID, p.post_title, p.post_date, MAX(c.name) AS name, MAX(c.slug) AS slug, p.image_url, p.guest_name, p.part_num
                         FROM (
                                 SELECT DISTINCT p.ID, pm1.meta_value AS post_title, MAX(p.post_date) as post_date, pm.meta_value AS image_url, MAX(c2.name) AS guest_name, pm3.meta_value AS part_num
-                                FROM havent6_newhaven.wp_ht_posts p
-			JOIN havent6_newhaven.wp_ht_postmeta pm1 ON p.ID = pm1.post_id AND pm1.meta_key = 'program_title'
-                                JOIN havent6_newhaven.wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
-                                JOIN havent6_newhaven.wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
-                                LEFT JOIN havent6_newhaven.wp_ht_term_relationships txr ON p.ID = txr.object_id
-                                LEFT JOIN havent6_newhaven.wp_ht_term_taxonomy a2 ON a2.term_taxonomy_id = txr.term_taxonomy_id AND a2.taxonomy = 'speaker'
-                                LEFT JOIN havent6_newhaven.wp_ht_terms c2 ON a2.term_id = c2.term_id
+                                FROM " . DB_NAME . ".wp_ht_posts p
+			JOIN " . DB_NAME . ".wp_ht_postmeta pm1 ON p.ID = pm1.post_id AND pm1.meta_key = 'program_title'
+                                JOIN " . DB_NAME . ".wp_ht_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = 'program_image'
+                                JOIN " . DB_NAME . ".wp_ht_postmeta pm3 ON p.ID = pm3.post_id AND pm3.meta_key = 'part'
+                                LEFT JOIN " . DB_NAME . ".wp_ht_term_relationships txr ON p.ID = txr.object_id
+                                LEFT JOIN " . DB_NAME . ".wp_ht_term_taxonomy a2 ON a2.term_taxonomy_id = txr.term_taxonomy_id AND a2.taxonomy = 'speaker'
+                                LEFT JOIN " . DB_NAME . ".wp_ht_terms c2 ON a2.term_id = c2.term_id
                                 WHERE p.ID IN (
                                     SELECT MIN(p.ID)
-                                        FROM havent6_newhaven.wp_ht_posts p
-                                        JOIN havent6_newhaven.wp_ht_term_relationships txr ON p.ID = txr.object_id
-                                        JOIN havent6_newhaven.wp_ht_term_taxonomy a2 ON a2.term_taxonomy_id = txr.term_taxonomy_id AND a2.taxonomy = 'post_tag'
-                                        JOIN havent6_newhaven.wp_ht_terms c2 ON a2.term_id = c2.term_id
+                                        FROM " . DB_NAME . ".wp_ht_posts p
+                                        JOIN " . DB_NAME . ".wp_ht_term_relationships txr ON p.ID = txr.object_id
+                                        JOIN " . DB_NAME . ".wp_ht_term_taxonomy a2 ON a2.term_taxonomy_id = txr.term_taxonomy_id AND a2.taxonomy = 'post_tag'
+                                        JOIN " . DB_NAME . ".wp_ht_terms c2 ON a2.term_id = c2.term_id
                                         WHERE p.post_type='programs' AND p.post_status='publish' " . $qDB_TagMatch . "
 				GROUP BY p.post_date
 				)
 			GROUP BY p.ID
                             ) AS p
-                        JOIN havent6_newhaven.wp_ht_term_relationships txr ON p.ID = txr.object_id
-                        JOIN havent6_newhaven.wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
-                        JOIN havent6_newhaven.wp_ht_terms c ON a.term_id = c.term_id
+                        JOIN " . DB_NAME . ".wp_ht_term_relationships txr ON p.ID = txr.object_id
+                        JOIN " . DB_NAME . ".wp_ht_term_taxonomy a ON a.term_taxonomy_id = txr.term_taxonomy_id AND a.taxonomy = 'series'
+                        JOIN " . DB_NAME . ".wp_ht_terms c ON a.term_id = c.term_id
 		  GROUP BY p.ID
             ) AS r 
 ORDER BY r.post_date DESC, r.part_num";
-
-	//var_dump($qDB_ProgramSearch);
-	//die();
 
 	$rDB_Programs = $wpdb->get_results($qDB_ProgramSearch);
 
 	$results_array = array();
 
 	foreach($rDB_Programs as $post){
-		//$field_key = "field_5626887056138";
-		//$post_id = $post->ID;
-		//$field = get_field_object($field_key, $post_id);
-		//$thisImageURL = $field["value"]["url"];
 		$thisImageURL = $post->image_url;
 		if($thisImageURL == ''){
 			$thisImageURL = '/wp-content/themes/haventomorrow/assets/img/missing.png';
@@ -536,15 +465,8 @@ ORDER BY r.post_date DESC, r.part_num";
 		array_push($results_array, $tile);
 	}
 
-	// $test = "blah";
-
-	// return $results_array;
-
 	echo json_encode($results_array);
 
 }
-
-// header('Content-Type: application/json');
-// echo json_encode(searchByTerm($searchTerm));
 
 ?>
