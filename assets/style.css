@@ -852,3 +852,7 @@ hr.blue {
     content:"\a";
     white-space: pre;
 }
+
+.wsc-inside {
+  top: 30px;
+}
