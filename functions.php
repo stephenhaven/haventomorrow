@@ -519,15 +519,7 @@ function woo_custom_order_button_text() {
     return __( 'Your new button text here', 'woocommerce' ); 
 }
 
-
-
-
-/**
-
-* Add custom field to the checkout page
-
-*/
-
+// Adds the "Sign Up For Haven via email" select boxes on Step 1.
 add_action('woocommerce_after_checkout_billing_form', 'sign_up_for_haven');
 function sign_up_for_haven($checkout) {
 	woocommerce_form_field('sign_up_for_haven', array(
@@ -545,6 +537,27 @@ function sign_up_for_haven($checkout) {
 		'priority' => 150
 	),
 	$checkout->get_value('sign_up_for_haven'));
+}
+
+// Adds the "Where do you primarily listen to Haven Today?" form dropdown on Step 2.
+add_action('woocommerce_before_order_notes', 'where_do_you_listen_to_haven');
+function where_do_you_listen_to_haven($checkout) {
+	woocommerce_form_field('daypart',
+		array(
+			'type'          => 'select',
+			'class'         => array('my-field-class form-wide'),
+			'label'         => __('Where do you primarily listen to Haven Today?'),
+			'options'       => array(
+			'radio_station'		=> __('Radio Station', 'wps'),
+			'mobile_app'		=> __('Mobile App', 'wps'),
+			'internet'	=> __( 'Internet', 'wps' ),
+			'other'	=> __("Other / I don't know", 'wps' ),
+			'idontlisten' 	=> __("I Don't Listen to Haven Today", 'wps')
+		),
+		'required' => false,
+		'default' => 'mobile_app'
+	),
+	$checkout->get_value('daypart'));
 }
 
 function wc_validate_phone_number() {
